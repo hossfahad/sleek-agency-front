@@ -20,7 +20,6 @@ const Hero = () => {
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
-                <span className="font-semibold text-viridian">Enhanced Points.</span>
               </span>
               <span 
                 className={`block transition-all duration-700 mt-3 ${
