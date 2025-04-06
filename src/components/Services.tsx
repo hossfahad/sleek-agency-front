@@ -8,10 +8,10 @@ const Services = () => {
   });
 
   return (
-    <section id="services" className="py-24 md:py-32 px-6 md:px-10 bg-[#f9f9f9]" ref={ref}>
+    <section id="how-we-help" className="py-24 md:py-32 px-6 md:px-10 bg-[#f9f9f9]" ref={ref}>
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-8 gap-8 md:gap-16 items-start">
-          <div className="md:col-span-3 sticky top-24">
+          <div className="md:col-span-3 md:sticky top-24 static">
             <span className="text-xs opacity-60 mb-6 block">[02]</span>
             <h2 className={`text-4xl md:text-5xl xl:text-6xl font-medium leading-[1.1] mb-8 transition-all duration-700 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'

@@ -64,17 +64,17 @@ const Projects = () => {
   });
   
   return (
-    <section id="work" className="py-24 md:py-32 px-6 md:px-10 bg-white" ref={ref}>
+    <section id="businesses" className="py-24 md:py-32 px-6 md:px-10 bg-white" ref={ref}>
       <div className="max-w-[1600px] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16">
           <div>
-            <span className="text-xs opacity-60 mb-6 block">[03]</span>
-            <h2 className={`text-4xl md:text-5xl xl:text-6xl font-medium leading-[1.1] mb-6 transition-all duration-700 ${
+            <span className="text-xs opacity-60 mb-4 md:mb-6 block">[03]</span>
+            <h2 className={`text-3xl md:text-5xl xl:text-6xl font-medium leading-[1.2] md:leading-[1.1] mb-4 md:mb-6 transition-all duration-700 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}>
               Industries We Transform
             </h2>
-            <p className={`max-w-lg text-lg transition-all duration-700 delay-100 ${
+            <p className={`max-w-lg text-base md:text-lg transition-all duration-700 delay-100 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}>
               Enhanced Points supports growth and efficiency in SMB sectors through targeted AI solutions.
@@ -91,7 +91,7 @@ const Projects = () => {
           </a>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {industries.map((industry, index) => (
             <div
               key={index}
@@ -100,12 +100,12 @@ const Projects = () => {
               }`}
               style={{ transitionDelay: `${(index + 3) * 100}ms` }}
             >
-              <div className="bg-gray-50 rounded-lg p-6 h-full border border-gray-100 hover:shadow-md transition-shadow duration-300">
-                <div className="mb-4">
+              <div className="bg-gray-50 rounded-lg p-4 md:p-6 h-full border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div className="mb-3 md:mb-4">
                   {industry.icon}
                 </div>
-                <h3 className="text-xl font-medium mb-3">{industry.title}</h3>
-                <p className="text-gray-600 text-sm">{industry.description}</p>
+                <h3 className="text-lg md:text-xl font-medium mb-2 md:mb-3">{industry.title}</h3>
+                <p className="text-gray-600 text-xs md:text-sm">{industry.description}</p>
               </div>
             </div>
           ))}
