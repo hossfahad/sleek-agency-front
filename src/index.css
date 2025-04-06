@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,35 +13,47 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 154 15% 49%;
+    --primary-foreground: 133 100% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 147 21% 70%;
+    --secondary-foreground: 154 15% 49%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 167 29% 85%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 31% 94%;
+    --accent-foreground: 154 15% 49%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 167 29% 85%;
+    --input: 167 29% 85%;
+    --ring: 154 15% 49%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 133 100% 98%;
+    --sidebar-foreground: 154 15% 40%;
+    --sidebar-primary: 154 15% 49%;
+    --sidebar-primary-foreground: 133 100% 98%;
+    --sidebar-accent: 167 29% 85%;
+    --sidebar-accent-foreground: 154 15% 49%;
+    --sidebar-border: 147 21% 70%;
+    --sidebar-ring: 154 15% 49%;
+
+    /* New color scheme */
+    --viridian: #6b9080ff;
+    --cambridge-blue: #a4c3b2ff;
+    --mint-green: #cce3deff;
+    --azure-web: #eaf4f4ff;
+    --mint-cream: #f6fff8ff;
+
+    /* Animation colors */
+    --color1: #FFF;
+    --color2: #000;
+    --duration: 4.4s;
   }
 
   .dark {
@@ -55,32 +66,33 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 154 15% 49%;
+    --primary-foreground: 133 100% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 147 21% 70%;
+    --secondary-foreground: 154 15% 49%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 147 21% 70%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 167 29% 85%;
+    --accent-foreground: 154 15% 49%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 147 21% 70%;
+    --input: 147 21% 70%;
+    --ring: 154 15% 49%;
+    
+    --sidebar-background: 154 15% 49%;
+    --sidebar-foreground: 133 100% 98%;
+    --sidebar-primary: 147 21% 70%;
+    --sidebar-primary-foreground: 133 100% 98%;
+    --sidebar-accent: 154 15% 40%;
+    --sidebar-accent-foreground: 133 100% 98%;
+    --sidebar-border: 154 15% 40%;
+    --sidebar-ring: 147 21% 70%;
   }
 }
 
@@ -107,6 +119,229 @@
 }
 
 a:focus-visible, button:focus-visible {
-  @apply outline-none ring-2 ring-black/50 ring-offset-2;
+  @apply outline-none ring-2 ring-cambridge-blue ring-offset-2;
+}
+
+@property --vh { syntax: '<length>'; initial-value: 100vh; inherits: false; }
+@property --vw { syntax: '<length>'; initial-value: 100vw; inherits: false; }
+
+@property --a { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@property --d { syntax: '<length>'; initial-value: 0px; inherits: false; }
+@property --e1 { syntax: '<number>'; initial-value: 0; inherits: false; }
+@property --e2 { syntax: '<number>'; initial-value: 0; inherits: false; }
+@property --e3 { syntax: '<number>'; initial-value: 0; inherits: false; }
+@property --e4 { syntax: '<number>'; initial-value: 0; inherits: false; }
+
+@keyframes a {
+	from { --a: 0deg; --d: 0px; --e1: 0; --e2: 0; }
+	4% { --a: 0deg; }
+	7% { --d: calc(var(--S) / 15); }
+	13% { --d: calc(var(--S) / 15); }
+	16% { --a: 90deg; }
+	21% { --a: 90deg; }
+	24% { --d: calc(var(--S) / 4); }
+	33% { --e1: 0; }
+	36% { --a: 225deg; --d: calc(var(--S) / 4); }
+	42% { --e2: 0; }
+	48% { --e3: 0; }
+	50% { --e1: 1; }
+	55% { --e4: 0; }
+	57% { --e2: 1; }
+	63% { --e3: 1; }
+	70% { --e4: 1; }
+	76% { --d: calc(var(--S) / 4); --e1: 1; --e2: 1; --e3: 1; --e4: 1; }
+	88% { --d: 0; --e1: .5; --e2: .5; --e3: 0; --e4: 0; }
+	to  { --a: 225deg; --d: 0; --e1: 0; --e2: 0; --e3: 0; --e4: 0; }
+}
+
+@keyframes animatePattern {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animated-card {
+  background: linear-gradient(145deg, #6B9080 0%, #A4C3B2 50%, #CCE3DE 100%);
+  border-radius: 30px;
+  box-shadow: 0 25px 50px -12px rgba(107, 144, 128, 0.25);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.white-animated-card {
+  background: #FFFFFF;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px -8px rgba(107, 144, 128, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #CCE3DE;
+}
+
+.animated-card::before,
+.white-animated-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 20px
+  );
+  animation: animatePattern 20s linear infinite;
+}
+
+.card-content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+}
+
+.text-viridian {
+  color: var(--viridian);
+}
+
+.text-cambridge-blue {
+  color: var(--cambridge-blue);
+}
+
+.bg-viridian {
+  background-color: var(--viridian);
+}
+
+.bg-cambridge-blue {
+  background-color: var(--cambridge-blue);
+}
+
+.bg-mint-green {
+  background-color: var(--mint-green);
+}
+
+.bg-azure-web {
+  background-color: var(--azure-web);
+}
+
+.bg-mint-cream {
+  background-color: var(--mint-cream);
+}
+
+.animation-container {
+	--w: 400px; --h: 300px;
+	--scale: min(1, tan(atan2(.9 * var(--vh), var(--h))), tan(atan2(.9 * var(--vw), var(--w))));
+	--ws: round(down, var(--w) * var(--scale), 1px);
+	--hs: round(down, var(--h) * var(--scale), 1px);
+	position: relative;
+	width: 80%;
+	height: 100%;
+	border-radius: 0.5rem;
+	
+	/* size of repeating pattern */
+	--S: calc(min(var(--hs), var(--ws)) / 6);
+	/* size of dot */
+	--s: calc(var(--S) / 80);
+	
+	background:
+		radial-gradient(circle at calc(50% + var(--d) * cos(var(--a) + 45deg)) calc(50% + var(--d) * sin(var(--a) + 45deg)), var(--color2) var(--s), transparent calc(var(--s) + 1px)),
+		radial-gradient(circle at calc(50% + var(--d) * cos(var(--a) + 135deg)) calc(50% + var(--d) * sin(var(--a) + 135deg)), var(--color2) var(--s), transparent calc(var(--s) + 1px)),
+		radial-gradient(circle at calc(50% + var(--d) * cos(var(--a) + 225deg)) calc(50% + var(--d) * sin(var(--a) + 225deg)), var(--color2) var(--s), transparent calc(var(--s) + 1px)),
+		radial-gradient(circle at calc(50% + var(--d) * cos(var(--a) + 315deg)) calc(50% + var(--d) * sin(var(--a) + 315deg)), var(--color2) var(--s), transparent calc(var(--s) + 1px)),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 315deg) + var(--e1) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 315deg) - var(--e1) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 315deg) + var(--e1) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 315deg) - var(--e1) * var(--S) / 2 + var(--S)),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 135deg) - var(--e1) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 135deg) + var(--e1) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 135deg) - var(--e1) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 135deg) + var(--e1) * var(--S) / 2 - var(--S)),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 45deg) - var(--e2) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 45deg) + var(--e2) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 45deg) - var(--e2) * var(--S) / 2 + var(--S))
+				calc(50% + var(--d) * sin(var(--a) + 45deg) + var(--e2) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 225deg) + var(--e2) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 225deg) - var(--e2) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 225deg) + var(--e2) * var(--S) / 2 - var(--S))
+				calc(50% + var(--d) * sin(var(--a) + 225deg) - var(--e2) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 315deg) + var(--e3) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 315deg) + var(--e3) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 225deg) - var(--e3) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 225deg) - var(--e3) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 45deg) + var(--e4) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 45deg) + var(--e4) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		),
+		radial-gradient(
+			circle at
+				calc(50% + var(--d) * cos(var(--a) + 135deg) - var(--e4) * var(--S) / 2)
+				calc(50% + var(--d) * sin(var(--a) + 135deg) - var(--e4) * var(--S) / 2),
+			var(--color2) var(--s),
+			transparent calc(var(--s) + 1px)
+		);
+	background-position: center;
+	background-size: var(--S) var(--S);
+	background-color: var(--color1);
+	box-sizing: border-box;
+	animation: a var(--duration) ease-in-out infinite both;
 }
 

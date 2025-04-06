@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -29,6 +28,11 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				viridian: '#6B9080',
+				'cambridge-blue': '#A4C3B2',
+				'mint-green': '#CCE3DE',
+				'azure-web': '#EAF4F4',
+				'mint-cream': '#F6FFF8',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

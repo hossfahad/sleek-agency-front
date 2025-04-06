@@ -1,0 +1,12 @@
+<svg width="200" height="120" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M54.05,43.6l-28.4,16.4l28.4,16.4V43.6z" fill="#111111"/>
+    <path d="M54.05,43.6l28.4,16.4l-28.4,16.4V43.6z" fill="#111111"/>
+    <path d="M25.65,60l21.3-12.3v24.6L25.65,60z" fill="white"/>
+    <path d="M54.05,43.6v32.8L25.65,60L54.05,43.6z" fill="#111111"/>
+    <path d="M82.45,60l-21.3,12.3V47.7L82.45,60z" fill="white"/>
+  </g>
+  <text x="95" y="55" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#111111">Enhanced</text>
+  <text x="95" y="85" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#111111">Points</text>
+  <text x="105" y="110" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#111111">ENTERPRISE AUTOMATION AGENCY</text>
+</svg> 
