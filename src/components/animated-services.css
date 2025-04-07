@@ -1,0 +1,60 @@
+html {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.animated-services-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  position: relative;
+  background: #0d0d0d;
+  color: #e5e5e5;
+  font-family: 'Inter', sans-serif;
+}
+
+.animated-services-content {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  box-sizing: border-box;
+  animation: horizontal-scroll ease-in-out both;
+  animation-timeline: view();
+}
+
+@keyframes horizontal-scroll {
+  0% { transform: translateX(100%); opacity: 0; }
+  50% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-100%); opacity: 0; }
+}
+
+.animated-services-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  color: #f1a080;
+  margin-bottom: 20px;
+}
+
+.animated-services-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+
+.animated-services-list {
+  list-style: disc;
+  padding-left: 20px;
+  max-width: 700px;
+}
+
+.animated-services-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -1;
+} 

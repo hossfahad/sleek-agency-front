@@ -72,18 +72,18 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
+                  <a href="#solutions" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
+                    <span className="text-xs align-super mr-1">[03]</span> Solutions
+                  </a>
+                </li>
+                <li>
                   <a href="#businesses" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[03]</span> Businesses
+                    <span className="text-xs align-super mr-1">[04]</span> Industries
                   </a>
                 </li>
                 <li>
-                  <a href="#results" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[04]</span> Results
-                  </a>
-                </li>
-                <li>
-                  <a href="#tools" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[05]</span> Tools
+                  <a href="#pricing" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
+                    <span className="text-xs align-super mr-1">[05]</span> Pricing
                   </a>
                 </li>
               </ul>
@@ -109,18 +109,18 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
+                <a href="#solutions" onClick={handleLinkClick} className="block py-2 text-viridian">
+                  <span className="text-sm opacity-60 mr-2">[03]</span> Solutions
+                </a>
+              </li>
+              <li>
                 <a href="#businesses" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[03]</span> Businesses We Help
+                  <span className="text-sm opacity-60 mr-2">[04]</span> Industries
                 </a>
               </li>
               <li>
-                <a href="#results" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[04]</span> Results
-                </a>
-              </li>
-              <li>
-                <a href="#tools" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[05]</span> Tools
+                <a href="#pricing" onClick={handleLinkClick} className="block py-2 text-viridian">
+                  <span className="text-sm opacity-60 mr-2">[05]</span> Pricing
                 </a>
               </li>
               <li className="pt-8">

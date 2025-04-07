@@ -7,7 +7,7 @@ const Pricing = () => {
   });
 
   return (
-    <section id="pricing" className="py-24 md:py-32 px-6 md:px-10 bg-mint-cream" ref={ref}>
+    <section id="pricing" className="py-24 md:py-32 px-6 md:px-10 bg-transparent" ref={ref}>
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-8 gap-8 md:gap-16 items-start">
           <div className="md:col-span-3 sticky top-24">

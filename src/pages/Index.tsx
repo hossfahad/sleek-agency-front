@@ -1,11 +1,13 @@
+import React from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import SolutionsCapabilities from "@/components/SolutionsCapabilities";
 import Projects from "@/components/Projects";
-import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CaseStudy from "@/components/CaseStudy";
 
 const Index = () => {
   return (
@@ -13,9 +15,13 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Services />
+      <SolutionsCapabilities />
       <Projects />
-      <Testimonials />
       <Pricing />
+      {/* Case Study section is hidden until ready for release */}
+      <div className="hidden">
+        <CaseStudy />
+      </div>
       <Contact />
       <Footer />
     </div>
