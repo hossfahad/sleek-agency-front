@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Points - Solutions & Capabilities</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap">
+  <style>
+    html {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0d0d0d;
+      color: #e5e5e5;
+    }
+
+    .section {
+      scroll-snap-align: start;
+      height: 100vh;
+      position: relative;
+    }
+
+    .content {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      box-sizing: border-box;
+      animation: horizontal-scroll ease-in-out both;
+      animation-timeline: view();
+    }
+
+    @keyframes horizontal-scroll {
+      0% { transform: translateX(100%); opacity: 0; }
+      50% { transform: translateX(0); opacity: 1; }
+      100% { transform: translateX(-100%); opacity: 0; }
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #f1a080;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+      max-width: 700px;
+    }
+
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('your-image-path.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <section class="section">
+    <div class="bg-image"></div>
+    <div class="content">
+      <div>
+        <h2>Operational Efficiency</h2>
+        <p>Replace manual, repetitive tasks with intelligent AI agents. From scheduling to client follow-ups and internal coordination, we help you reduce operational overhead, scale without added headcount, all within your guardrails.</p>
+        <ul>
+          <li>We understand your workflow to find key opportunities to save time and resources</li>
+          <li>Drastically reduce overhead with fully automated agentic overhauls or human-in-the-loop processes for research, data analysis and curation</li>
+          <li>Keeping up with all regulatory guradrails by working with HIPAA or SOC2 compliance.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="bg-image"></div>
+    <div class="content">
+      <div>
+        <h2>Rapid Market Validation</h2>
+        <p>Build, test, and refine 0–1 product ideas or service offerings with AI-guided research, prototype generation, and customer feedback loops. Perfect for startups or new divisions looking to de-risk early decisions and move quickly toward product-market fit.</p>
+        <ul>
+          <li>Launch greenfield applications with leading technologies</li>
+          <li>Launch new initiatives and features to assess new customer segments</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="bg-image"></div>
+    <div class="content">
+      <div>
+        <h2>Conversational AI</h2>
+        <p>Deploy human-like AI voice agents to handle outbound calls, appointment confirmations, or client intake. Our systems are ideal for high-touch services—healthcare, legal, recruiting—where every missed call could be lost revenue.</p>
+        <ul>
+          <li>Automated outbound appointment confirmations and reminders for medical facilities and close contact businesses</li>
+          <li>Intake surveys and onboarding for legal consultations via phone or text</li>
+          <li>Reimaging the hiring process through streamlined resume reviews, scheduling and interviewing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="bg-image"></div>
+    <div class="content">
+      <div>
+        <h2>B2B Lead Generation</h2>
+        <p>Find and nurture high-value B2B leads using intelligent targeting, AI-crafted outreach, and automated CRM workflows. Whether you’re running outbound campaigns or trying to scale partnerships, our system keeps your pipeline full and moving.</p>
+        <ul>
+          <li>Hyper-personalized outbound messages at scale</li>
+          <li>Predictive lead scoring and automated segmentation</li>
+          <li>Ongoing AI optimization of timing and conversion touchpoints</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="bg-image"></div>
+    <div class="content">
+      <div>
+        <h2>Solutions & Capabilities</h2>
+        <p>Explore our comprehensive solutions and capabilities designed to drive innovation and efficiency across your business operations.</p>
+        <ul>
+          <li>Custom AI solutions tailored to your business needs</li>
+          <li>Seamless integration with existing systems and workflows</li>
+          <li>Scalable solutions to grow with your business</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="bg-image"></div>
+    <div class="content">
+      <div>
+        <h2>Document Automation</h2>
+        <p>Turn complex, document-heavy processes into fully integrated digital workflows. Extract key data from contracts, tax forms, scanned PDFs, and more—then auto-sync to your CRM, compliance systems, or databases for instant action.</p>
+        <ul>
+          <li>Investor subscription documents auto-processed for fund managers</li>
+          <li>Tax and compliance paperwork digitized for accountants and CFOs</li>
+          <li>Legal forms auto-filled and validated for client onboarding</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="bg-image"></div>
+    <div class="content">
+      <div>
+        <h2>AI-Generated Content</h2>
+        <p>Generate polished, on-brand content using just your voice or notes. From blog posts and newsletters to LinkedIn updates and SEO-optimized articles, we make it easy to stay visible and relevant—no content team required.</p>
+        <ul>
+          <li>Weekly social media and email content for service providers</li>
+          <li>Thought-leadership pieces from articles to hyper-realistic podcasts</li>
+          <li>AI-assisted keyword-rich copy for SEO & web presence</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
