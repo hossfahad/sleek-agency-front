@@ -22,15 +22,32 @@ const Navbar = () => {
     e.preventDefault();
     const href = e.currentTarget.getAttribute('href');
     if (href && href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
+      // Target the section number span element
+      const sectionId = href.substring(1); // Remove the # character
+      const sectionNumberElement = document.querySelector(`section#${sectionId} .text-xs.opacity-60`);
+      
+      if (sectionNumberElement) {
         const navHeight = 80; // Approximate navbar height
-        const elementPosition = element.getBoundingClientRect().top;
+        const elementPosition = sectionNumberElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+        
         window.scrollTo({
           top: offsetPosition,
           behavior: "smooth"
         });
+      } else {
+        // Fallback to the section itself if the span isn't found
+        const element = document.querySelector(href);
+        if (element) {
+          const navHeight = 80; // Approximate navbar height
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
       }
     }
     setMobileMenuOpen(false);

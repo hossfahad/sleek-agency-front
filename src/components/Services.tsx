@@ -23,7 +23,13 @@ const Services = () => {
             <p className={`text-lg leading-relaxed mb-8 max-w-md transition-all duration-700 delay-100 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}>
-              Enhanced Points delivers intelligent business solutions designed around clear outcomes—driving growth, saving time, reducing risks, and enhancing SMB efficiency through targeted AI capabilities.
+              Enhanced Points delivers AI-native business systems designed for clear outcomes.
+              We help businesses grow faster, operate leaner, and stay protected — by building intelligent automation that works across your entire business.
+            </p>
+            <p className={`text-lg leading-relaxed mb-8 max-w-md transition-all duration-700 delay-100 ${
+              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            }`}>
+              We combine an Offense & Defense philosophy:
             </p>
             
             <a 
@@ -51,24 +57,24 @@ const Services = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-medium">Offense: Driving Revenue Growth</h3>
+                  <h3 className="text-2xl md:text-3xl font-medium">Offense: Driving Growth</h3>
                 </div>
                 <p className="text-gray-700 mb-6 pl-14">Enhanced Points proactively helps you:</p>
                 
                 <div className="grid md:grid-cols-3 gap-6 pl-14">
                   <div className="border-l-2 border-green-500 pl-4">
                     <h4 className="font-medium text-lg mb-2">Win New Clients</h4>
-                    <p className="text-sm text-gray-600">Capture and convert leads efficiently through AI-powered interactions.</p>
+                    <p className="text-sm text-gray-600">Capture and convert leads efficiently through hyper-personalized interactions.</p>
                   </div>
                   
                   <div className="border-l-2 border-green-500 pl-4">
                     <h4 className="font-medium text-lg mb-2">Scale Revenue</h4>
-                    <p className="text-sm text-gray-600">Grow systematically with automated follow-ups, intelligent outreach, and continuous engagement.</p>
+                    <p className="text-sm text-gray-600">Grow systematically with automated client servicing, intelligent outreach, and continuous engagement.</p>
                   </div>
                   
                   <div className="border-l-2 border-green-500 pl-4">
-                    <h4 className="font-medium text-lg mb-2">Stay Ahead</h4>
-                    <p className="text-sm text-gray-600">Lead your market with insightful, AI-generated market intelligence and impactful content creation.</p>
+                    <h4 className="font-medium text-lg mb-2">Surpass Others</h4>
+                    <p className="text-sm text-gray-600">Lead your market with insightful, innovative market intelligence that aligns with your vision.</p>
                   </div>
                 </div>
               </div>
@@ -86,19 +92,19 @@ const Services = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-medium">Defense: Optimizing Your Operations</h3>
+                  <h3 className="text-2xl md:text-3xl font-medium">Defense: Optimizing Operations</h3>
                 </div>
                 <p className="text-gray-700 mb-6 pl-14">Enhanced Points effectively secures your operational foundation by:</p>
                 
                 <div className="grid md:grid-cols-2 gap-6 pl-14">
                   <div className="border-l-2 border-blue-500 pl-4">
                     <h4 className="font-medium text-lg mb-2">Saving Valuable Time</h4>
-                    <p className="text-sm text-gray-600">Automating routine tasks like scheduling, follow-ups, and data entry, freeing your staff to focus on core operations.</p>
+                    <p className="text-sm text-gray-600">Reduce manual intervention, follow-ups, and data entry, freeing your staff to focus on only the core operations.</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4">
                     <h4 className="font-medium text-lg mb-2">Reducing Operational Risk</h4>
-                    <p className="text-sm text-gray-600">Minimizing costly errors and compliance risks through intelligent monitoring, proactive reminders, and consistent workflows.</p>
+                    <p className="text-sm text-gray-600">Minimizing costly errors and compliance risks through intelligent monitoring, consistent and predictable workflows, all within your regulatory guardrails.</p>
                   </div>
                 </div>
               </div>

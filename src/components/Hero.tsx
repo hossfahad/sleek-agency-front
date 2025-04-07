@@ -27,7 +27,7 @@ const Hero = () => {
                 }`}
                 style={{ transitionDelay: "300ms" }}
               >
-                Smart Solutions for
+                Rebuilding Ambitious Businesses
               </span>
               <span 
                 className={`block text-cambridge-blue transition-all duration-700 ${
@@ -35,7 +35,7 @@ const Hero = () => {
                 }`}
                 style={{ transitionDelay: "400ms" }}
               >
-                Ambitious Businesses.
+                for the AI Era
               </span>
             </h1>
             
@@ -45,7 +45,7 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: "500ms" }}
             >
-              We help businesses like yours generate more revenue, save valuable time, reduce unnecessary risks, and stand out in your market—using practical AI tools that actually work.
+              We embed bleeding-edge AI systems and automation into your organization. Slash costs. Unlock scale. Reimagine how your business runs.
             </p>
             
             <div 
@@ -58,7 +58,7 @@ const Hero = () => {
                 href="#contact" 
                 className="inline-flex items-center justify-center px-6 py-3 bg-viridian text-white rounded-md text-base font-medium hover:bg-cambridge-blue transition-colors duration-200"
               >
-                Book Your Free 30-Minute Strategy Call →
+                Book a Free Strategy Session →
               </a>
             </div>
           </div>

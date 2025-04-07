@@ -377,6 +377,16 @@ a:focus-visible, button:focus-visible {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   cursor: grab;
+  scroll-behavior: smooth;
+}
+
+.horizontal-scroll-container.scrolling {
+  cursor: grabbing;
+}
+
+.horizontal-scroll-container.scrolling::before,
+.horizontal-scroll-container.scrolling::after {
+  opacity: 0.1;
 }
 
 .horizontal-scroll-container:active {
@@ -409,6 +419,7 @@ a:focus-visible, button:focus-visible {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
   white-space: normal;
+  scroll-snap-align: center;
 }
 
 .service-card:hover {
@@ -426,6 +437,8 @@ a:focus-visible, button:focus-visible {
   height: 100%;
   z-index: 10;
   pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
 .horizontal-scroll-container::before {
@@ -454,11 +467,16 @@ a:focus-visible, button:focus-visible {
   cursor: pointer;
   z-index: 20;
   opacity: 0.7;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .scroll-button:hover {
   opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.scroll-button:active {
+  transform: translateY(-50%) scale(0.95);
 }
 
 .scroll-button-left {
@@ -467,5 +485,20 @@ a:focus-visible, button:focus-visible {
 
 .scroll-button-right {
   right: 10px;
+}
+
+/* Helper indicator - this can help visualize the area where scrolling works */
+@media (min-width: 768px) {
+  #solutions .md\:sticky::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(249, 249, 249, 0.8), rgba(249, 249, 249, 0));
+    pointer-events: none;
+    z-index: 5;
+  }
 }
 

@@ -11,6 +11,16 @@ interface ServiceSection {
 
 const serviceSections: ServiceSection[] = [
   {
+    title: "Rapid Market Validation",
+    description: "Build, test, and refine 0–1 product ideas or service offerings with AI-guided research, prototype generation, and customer feedback loops. Perfect for startups or new divisions looking to de-risk early decisions.",
+    features: [
+      "Launch greenfield applications with leading technologies",
+      "Launch new initiatives and features to assess new customer segments"
+    ],
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    borderColor: "border-blue-500"
+  },
+  {
     title: "Operational Efficiency",
     description: "Replace manual, repetitive tasks with intelligent AI agents. From scheduling to client follow-ups and internal coordination, we help you reduce operational overhead, scale without added headcount, all within your guardrails.",
     features: [
@@ -20,16 +30,6 @@ const serviceSections: ServiceSection[] = [
     ],
     icon: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4",
     borderColor: "border-green-500"
-  },
-  {
-    title: "Rapid Market Validation",
-    description: "Build, test, and refine 0–1 product ideas or service offerings with AI-guided research, prototype generation, and customer feedback loops. Perfect for startups or new divisions looking to de-risk early decisions.",
-    features: [
-      "Launch greenfield applications with leading technologies",
-      "Launch new initiatives and features to assess new customer segments"
-    ],
-    icon: "M13 10V3L4 14h7v7l9-11h-7z",
-    borderColor: "border-blue-500"
   },
   {
     title: "Conversational AI",
@@ -87,18 +87,30 @@ const AnimatedServices: React.FC = () => {
   const scrollContentRef = useRef<HTMLDivElement>(null);
   const reachedEnd = useRef<boolean>(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isScrollingRef = useRef<boolean>(false);
   
   // Global wheel event listener to handle horizontal scrolling when section is in view
   useEffect(() => {
     const handleGlobalWheel = (e: WheelEvent) => {
-      // Check if the section is in view
+      // First, check if the section is in view
       if (!sectionRef.current || !scrollContainerRef.current) return;
       
       const sectionRect = sectionRef.current.getBoundingClientRect();
       const isSectionInView = sectionRect.top <= window.innerHeight * 0.5 && sectionRect.bottom >= window.innerHeight * 0.5;
       
-      // Only handle horizontal scrolling when the section is in view
-      if (isSectionInView) {
+      if (!isSectionInView) return;
+      
+      // Get the header element (the sticky part of SolutionsCapabilities)
+      const headerElement = document.querySelector('#solutions .md\\:sticky');
+      if (!headerElement) return;
+      
+      const headerRect = headerElement.getBoundingClientRect();
+      
+      // Check if the mouse is horizontally past the header section
+      const isPastHeader = e.clientX > headerRect.right;
+      
+      // Only handle horizontal scrolling when we're past the header
+      if (isPastHeader) {
         const scrollContainer = scrollContainerRef.current;
         const isAtEnd = scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 20;
         const isAtStart = scrollContainer.scrollLeft <= 0;
@@ -116,7 +128,13 @@ const AnimatedServices: React.FC = () => {
         // If we're not at an edge or scrolling toward an edge, handle horizontal scrolling
         if (!reachedEnd.current) {
           e.preventDefault();
+          isScrollingRef.current = true;
           scrollContainer.scrollLeft += e.deltaY;
+          
+          // Reset scrolling flag after a short delay
+          setTimeout(() => {
+            isScrollingRef.current = false;
+          }, 200);
         }
       }
     };
@@ -208,7 +226,10 @@ const AnimatedServices: React.FC = () => {
 
   return (
     <div className="relative" ref={sectionRef}>
-      <div className="horizontal-scroll-container" ref={scrollContainerRef}>
+      <div 
+        className={`horizontal-scroll-container ${isScrollingRef.current ? 'scrolling' : ''}`} 
+        ref={scrollContainerRef}
+      >
         <div className="horizontal-scroll-content" ref={scrollContentRef}>
           {serviceSections.map((section, index) => (
             <div
