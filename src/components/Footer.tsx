@@ -39,6 +39,17 @@ const Footer = () => {
             <p className="text-sm text-cambridge-blue">We're more than just a tech company—we care about your results. Founded by experienced professionals who understand the challenges of running local to large enterprise businesses.</p>
           </div>
         </div>
+        
+        <div className="mt-8 pt-6 border-t border-mint-green flex flex-col md:flex-row justify-between items-center">
+          <div className="text-xs text-cambridge-blue mb-4 md:mb-0">
+            <a href="/privacy" className="hover:text-viridian transition-colors">Privacy Policy</a>
+            <span className="mx-2">•</span>
+            <a href="/terms" className="hover:text-viridian transition-colors">Terms & Conditions</a>
+          </div>
+          <div className="text-xs text-cambridge-blue">
+            Designed with ♥ for helping businesses grow
+          </div>
+        </div>
       </div>
     </footer>
   );

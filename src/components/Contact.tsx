@@ -1,6 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -9,6 +10,7 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [consentGiven, setConsentGiven] = useState(false);
   
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -17,6 +19,16 @@ const Contact = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!consentGiven) {
+      toast({
+        title: "Consent required",
+        description: "Please agree to our Privacy Policy to proceed.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     // Simulate form submission
@@ -26,6 +38,7 @@ const Contact = () => {
       setEmail("");
       setPhone("");
       setMessage("");
+      setConsentGiven(false);
       toast({
         title: "Discovery call requested!",
         description: "Our team will contact you shortly to schedule your free discovery call.",
@@ -76,7 +89,7 @@ const Contact = () => {
             }`}>
               <h3 className="font-medium mb-2 text-viridian">Contact Us</h3>
               <div className="flex flex-col space-y-2">
-                <a href="mailto:hello@enhancedpoints.ai" className="text-cambridge-blue hover:text-viridian">inquire@enhancedpoints.com</a>
+                <a href="mailto:inquire@enhancedpoints.com" className="text-cambridge-blue hover:text-viridian">inquire@enhancedpoints.com</a>
                 <div className="flex space-x-4 mt-2">
                   <a href="#" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">LinkedIn</a>
                   <a href="#" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">Instagram</a>
@@ -138,6 +151,21 @@ const Contact = () => {
                     placeholder="Tell us about your business needs..."
                     required
                   ></textarea>
+                </div>
+                
+                <div className="flex items-start space-x-2">
+                  <Checkbox 
+                    id="consent" 
+                    checked={consentGiven}
+                    onCheckedChange={(checked) => setConsentGiven(checked as boolean)}
+                    className="mt-1 data-[state=checked]:bg-viridian"
+                  />
+                  <label 
+                    htmlFor="consent" 
+                    className="text-sm text-cambridge-blue cursor-pointer"
+                  >
+                    I agree to the collection and processing of my personal information as described in the <a href="/privacy" className="text-viridian hover:underline" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                  </label>
                 </div>
                 
                 <button
