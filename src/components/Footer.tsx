@@ -19,21 +19,19 @@ const Footer = () => {
         <div className="mt-8 pt-6 border-t border-mint-green grid md:grid-cols-4 gap-8">
           <div>
             <h4 className="text-sm font-medium mb-4 text-viridian">Contact</h4>
-            <p className="text-sm text-cambridge-blue mb-2">inquire@enhancedpoints.com</p>
+            <a href="mailto:inquire@enhancedpoints.com" className="text-cambridge-blue hover:text-viridian">inquire@enhancedpoints.com</a>
           </div>
           
           <div>
             <h4 className="text-sm font-medium mb-4 text-viridian">Social</h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">LinkedIn</a>
-              <a href="#" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">Instagram</a>
-              <a href="#" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">Twitter</a>
+              <a href="https://www.linkedin.com/company/enhanced-points-ai/" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">LinkedIn</a>
             </div>
           </div>
           
           <div>
             <h4 className="text-sm font-medium mb-4 text-viridian">Our Team Comes From</h4>
-            <p className="text-sm text-cambridge-blue">Perplexity, S&P Global, NYS.GOV</p>
+            <p className="text-sm text-cambridge-blue">Perplexity, S&P Global, Northwell Health, MSKCC, and more.</p>
           </div>
           
           <div>
