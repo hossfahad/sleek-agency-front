@@ -365,28 +365,31 @@ a:focus-visible, button:focus-visible {
 	animation: a var(--duration) ease-in-out infinite both;
 }
 
-/* Horizontal Scroll Styles */
+/* Remove these duplicate styles as they're now defined with desktop-services-view prefix */
 .horizontal-scroll-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  cursor: grab;
-  scroll-behavior: smooth;
+  display: none;
 }
 
+.horizontal-scroll-content {
+  display: none;
+}
+
+.service-card {
+  display: none;
+}
+
+.scroll-button {
+  display: none;
+}
+
+/* Keep the scrolling behavior styles but hide them by default */
 .horizontal-scroll-container.scrolling {
   cursor: grabbing;
 }
 
 .horizontal-scroll-container.scrolling::before,
 .horizontal-scroll-container.scrolling::after {
-  opacity: 0.1;
+  opacity: 0;
 }
 
 .horizontal-scroll-container:active {
@@ -394,111 +397,195 @@ a:focus-visible, button:focus-visible {
 }
 
 .horizontal-scroll-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
-.horizontal-scroll-content {
-  display: inline-flex;
-  padding: 1rem;
-  gap: 2rem;
-  height: 100%;
-}
-
-.service-card {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 400px;
-  min-width: 400px;
-  height: 500px;
-  padding: 2rem;
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-  white-space: normal;
-  scroll-snap-align: center;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-/* Add scroll indicators */
+/* Scroll indicators that will only show on desktop */
 .horizontal-scroll-container::before,
 .horizontal-scroll-container::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
-  width: 50px;
-  height: 100%;
-  z-index: 10;
+  bottom: 0;
+  width: 60px;
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 5;
 }
 
 .horizontal-scroll-container::before {
   left: 0;
-  background: linear-gradient(to right, rgba(249, 249, 249, 1), rgba(249, 249, 249, 0));
+  background: linear-gradient(to right, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
 }
 
 .horizontal-scroll-container::after {
   right: 0;
-  background: linear-gradient(to left, rgba(249, 249, 249, 1), rgba(249, 249, 249, 0));
+  background: linear-gradient(to left, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
 }
 
-/* Add scroll buttons */
-.scroll-button {
+/* Horizontal Scroll Container - Desktop */
+.desktop-services-view .horizontal-scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 20px 60px;
+  margin: 0 -60px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.desktop-services-view .horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.desktop-services-view .horizontal-scroll-container.scrolling {
+  cursor: grabbing;
+}
+
+.desktop-services-view .horizontal-scroll-content {
+  display: inline-flex;
+  transition: transform 0.3s ease;
+  padding-bottom: 20px;
+}
+
+.desktop-services-view .service-card {
+  flex: 0 0 auto;
+  width: 300px;
+  padding: 20px;
+  margin-right: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  white-space: normal;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.desktop-services-view .horizontal-scroll-container:hover .service-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.desktop-services-view .scroll-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
+  background-color: #fff;
+  border: none;
   border-radius: 50%;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  z-index: 20;
-  opacity: 0.7;
-  transition: opacity 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.scroll-button:hover {
+.desktop-services-view:hover .scroll-button {
+  opacity: 0.9;
+}
+
+.desktop-services-view .scroll-button:hover {
   opacity: 1;
-  transform: translateY(-50%) scale(1.05);
+  transform: translateY(-50%) scale(1.1);
 }
 
-.scroll-button:active {
-  transform: translateY(-50%) scale(0.95);
+.desktop-services-view .scroll-button-left {
+  left: 15px;
 }
 
-.scroll-button-left {
-  left: 10px;
+.desktop-services-view .scroll-button-right {
+  right: 15px;
 }
 
-.scroll-button-right {
-  right: 10px;
+/* Mobile Services View */
+.mobile-services-view .vertical-scroll-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
 }
 
-/* Helper indicator - this can help visualize the area where scrolling works */
-@media (min-width: 768px) {
-  #solutions .md\:sticky::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: -20px;
-    width: 20px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(249, 249, 249, 0.8), rgba(249, 249, 249, 0));
-    pointer-events: none;
-    z-index: 5;
+.mobile-services-view .service-card-mobile {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+/* Tablet Services View */
+.tablet-services-view .grid-scroll-container {
+  padding: 0 20px;
+}
+
+.tablet-services-view .service-card-tablet {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  height: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+/* Make sure service cards remain visible on mobile and tablet */
+.mobile-services-view .service-card-mobile,
+.tablet-services-view .service-card-tablet {
+  animation-fill-mode: both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* Media query to ensure desktop components are visible at large screens */
+@media (min-width: 1024px) {
+  .desktop-services-view .horizontal-scroll-container,
+  .desktop-services-view .scroll-button {
+    display: block;
+  }
+  
+  .desktop-services-view .horizontal-scroll-content {
+    display: inline-flex;
+  }
+  
+  .desktop-services-view .service-card {
+    display: block;
+  }
+}
+
+/* For older browsers that don't support animation-delay with CSS variables */
+.service-card-mobile:nth-child(1),
+.service-card-tablet:nth-child(1) {
+  animation-delay: 100ms;
+}
+.service-card-mobile:nth-child(2),
+.service-card-tablet:nth-child(2) {
+  animation-delay: 200ms;
+}
+.service-card-mobile:nth-child(3),
+.service-card-tablet:nth-child(3) {
+  animation-delay: 300ms;
+}
+.service-card-mobile:nth-child(4),
+.service-card-tablet:nth-child(4) {
+  animation-delay: 400ms;
+}
+.service-card-mobile:nth-child(5),
+.service-card-tablet:nth-child(5) {
+  animation-delay: 500ms;
 }
 

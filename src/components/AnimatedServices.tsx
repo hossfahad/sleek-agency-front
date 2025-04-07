@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useInView } from "react-intersection-observer";
 
 interface ServiceSection {
@@ -88,9 +88,33 @@ const AnimatedServices: React.FC = () => {
   const reachedEnd = useRef<boolean>(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isScrollingRef = useRef<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isTablet, setIsTablet] = useState<boolean>(false);
+  
+  // Check device size and update state
+  useEffect(() => {
+    const checkDeviceSize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
+    };
+    
+    // Initial check
+    checkDeviceSize();
+    
+    // Listen for window resize
+    window.addEventListener('resize', checkDeviceSize);
+    
+    return () => {
+      window.removeEventListener('resize', checkDeviceSize);
+    };
+  }, []);
   
   // Global wheel event listener to handle horizontal scrolling when section is in view
+  // Only active on desktop
   useEffect(() => {
+    // Skip this effect on mobile and tablet
+    if (isMobile || isTablet) return;
+    
     const handleGlobalWheel = (e: WheelEvent) => {
       // First, check if the section is in view
       if (!sectionRef.current || !scrollContainerRef.current) return;
@@ -139,16 +163,19 @@ const AnimatedServices: React.FC = () => {
       }
     };
     
-    // Add the global wheel event listener
+    // Add the global wheel event listener only on desktop
     window.addEventListener('wheel', handleGlobalWheel, { passive: false });
     
     return () => {
       window.removeEventListener('wheel', handleGlobalWheel);
     };
-  }, []);
+  }, [isMobile, isTablet]);
   
-  // Listen for scroll events to detect when we reach the end
+  // Listen for scroll events to detect when we reach the end (desktop only)
   useEffect(() => {
+    // Skip this effect on mobile and tablet
+    if (isMobile || isTablet) return;
+    
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
     
@@ -180,10 +207,13 @@ const AnimatedServices: React.FC = () => {
     return () => {
       scrollContainer.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [isMobile, isTablet]);
   
   // Reset the reached end state when scrolling back into view
   useEffect(() => {
+    // Skip this effect on mobile and tablet
+    if (isMobile || isTablet) return;
+    
     const resetReachedEndState = () => {
       if (scrollContainerRef.current && sectionRef.current) {
         const containerRect = sectionRef.current.getBoundingClientRect();
@@ -200,18 +230,18 @@ const AnimatedServices: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', resetReachedEndState);
     };
-  }, []);
+  }, [isMobile, isTablet]);
   
-  // Scroll functions for the buttons
+  // Scroll functions for the buttons (desktop only)
   const scrollLeft = () => {
-    if (scrollContainerRef.current) {
+    if (scrollContainerRef.current && !isMobile && !isTablet) {
       scrollContainerRef.current.scrollBy({ left: -400, behavior: 'smooth' });
       reachedEnd.current = false;
     }
   };
   
   const scrollRight = () => {
-    if (scrollContainerRef.current) {
+    if (scrollContainerRef.current && !isMobile && !isTablet) {
       const scrollContainer = scrollContainerRef.current;
       scrollContainer.scrollBy({ left: 400, behavior: 'smooth' });
       
@@ -224,8 +254,93 @@ const AnimatedServices: React.FC = () => {
     }
   };
 
+  // Render for mobile view (vertical scroll)
+  if (isMobile) {
+    return (
+      <div className="relative mobile-services-view" ref={sectionRef}>
+        <div className="vertical-scroll-container py-4">
+          {serviceSections.map((section, index) => (
+            <div
+              key={index}
+              className="service-card-mobile mb-6"
+              style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+            >
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center mr-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={section.icon} />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-medium">{section.title}</h3>
+              </div>
+              
+              <p className="text-gray-700 mb-4 text-sm">{section.description}</p>
+              
+              <div className="grid gap-4">
+                {section.features.map((feature, featureIndex) => (
+                  <div key={featureIndex} className={`${section.borderColor} border-l-2 pl-3`}>
+                    <p className="text-xs text-gray-600">{feature}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  
+  // Render for tablet view (grid layout)
+  if (isTablet) {
+    return (
+      <div className="relative tablet-services-view" ref={sectionRef}>
+        <div className="grid-scroll-container grid grid-cols-2 gap-6 py-4">
+          {serviceSections.map((section, index) => (
+            <div
+              key={index}
+              className="service-card-tablet"
+              style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+            >
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center mr-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={section.icon} />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-medium">{section.title}</h3>
+              </div>
+              
+              <p className="text-gray-700 mb-4 text-sm">{section.description}</p>
+              
+              <div className="grid gap-4">
+                {section.features.map((feature, featureIndex) => (
+                  <div key={featureIndex} className={`${section.borderColor} border-l-2 pl-3`}>
+                    <p className="text-xs text-gray-600">{feature}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  
+  // Default desktop view (horizontal scroll)
   return (
-    <div className="relative" ref={sectionRef}>
+    <div className="relative desktop-services-view" ref={sectionRef}>
       <div 
         className={`horizontal-scroll-container ${isScrollingRef.current ? 'scrolling' : ''}`} 
         ref={scrollContainerRef}
@@ -266,7 +381,7 @@ const AnimatedServices: React.FC = () => {
         </div>
       </div>
       
-      {/* Scroll buttons */}
+      {/* Scroll buttons - only for desktop */}
       <button 
         className="scroll-button scroll-button-left" 
         onClick={scrollLeft}

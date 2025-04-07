@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from "react-intersection-observer";
 import AnimatedServices from "./AnimatedServices";
 
@@ -7,6 +7,27 @@ const SolutionsCapabilities: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1
   });
+  
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isTablet, setIsTablet] = useState<boolean>(false);
+  
+  // Check device size and update state
+  useEffect(() => {
+    const checkDeviceSize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024);
+    };
+    
+    // Initial check
+    checkDeviceSize();
+    
+    // Listen for window resize
+    window.addEventListener('resize', checkDeviceSize);
+    
+    return () => {
+      window.removeEventListener('resize', checkDeviceSize);
+    };
+  }, []);
 
   return (
     <section 
@@ -43,8 +64,16 @@ const SolutionsCapabilities: React.FC = () => {
             </a>
           </div>
 
-          {/* Services Grid with Horizontal Scroll */}
-          <div className="md:col-span-5 relative h-[600px]">
+          {/* Services Grid with responsive heights */}
+          <div 
+            className={`md:col-span-5 relative ${
+              isMobile 
+                ? 'h-auto' 
+                : isTablet 
+                  ? 'h-auto'
+                  : 'h-[600px]'
+            }`}
+          >
             <AnimatedServices />
           </div>
         </div>
