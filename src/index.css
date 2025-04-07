@@ -424,7 +424,11 @@ a:focus-visible, button:focus-visible {
   background: linear-gradient(to left, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
 }
 
-/* Horizontal Scroll Container - Desktop */
+/* Desktop Services View */
+.desktop-services-view {
+  opacity: 1;
+}
+
 .desktop-services-view .horizontal-scroll-container {
   overflow-x: auto;
   white-space: nowrap;
@@ -434,6 +438,8 @@ a:focus-visible, button:focus-visible {
   margin: 0 -60px;
   position: relative;
   transition: all 0.3s ease;
+  visibility: visible;
+  opacity: 1;
 }
 
 .desktop-services-view .horizontal-scroll-container::-webkit-scrollbar {
@@ -459,14 +465,14 @@ a:focus-visible, button:focus-visible {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   white-space: normal;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.desktop-services-view .horizontal-scroll-container:hover .service-card {
   opacity: 1;
   transform: translateY(0);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.desktop-services-view .service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .desktop-services-view .scroll-button {

@@ -36,7 +36,7 @@ const Footer = () => {
           
           <div>
             <h4 className="text-sm font-medium mb-4 text-viridian">About Us</h4>
-            <p className="text-sm text-cambridge-blue">We're more than just a tech company—we care about your results. Founded by experienced professionals who understand the challenges of running local to large enterprise businesses.</p>
+            <p className="text-sm text-cambridge-blue">Enhanced Points is based in New York, serving clients globally. We're founded by experienced professionals who understand the challenges of running local to large enterprise businesses.</p>
           </div>
         </div>
         
@@ -45,9 +45,6 @@ const Footer = () => {
             <a href="/privacy" className="hover:text-viridian transition-colors">Privacy Policy</a>
             <span className="mx-2">•</span>
             <a href="/terms" className="hover:text-viridian transition-colors">Terms & Conditions</a>
-          </div>
-          <div className="text-xs text-cambridge-blue">
-            Designed with ♥ for helping businesses grow
           </div>
         </div>
       </div>

@@ -254,6 +254,21 @@ const AnimatedServices: React.FC = () => {
     }
   };
 
+  // Ensure desktop view cards are visible when they enter the viewport
+  useEffect(() => {
+    if (inView && !isMobile && !isTablet && scrollContainerRef.current) {
+      // Force container to be visible
+      const container = scrollContainerRef.current;
+      
+      // Make sure all cards are fully visible
+      const cards = container.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        (card as HTMLElement).style.opacity = '1';
+        (card as HTMLElement).style.transform = 'translateY(0)';
+      });
+    }
+  }, [inView, isMobile, isTablet]);
+
   // Render for mobile view (vertical scroll)
   if (isMobile) {
     return (
@@ -350,7 +365,6 @@ const AnimatedServices: React.FC = () => {
             <div
               key={index}
               className="service-card"
-              style={{ transitionDelay: `${(index + 1) * 100}ms` }}
             >
               <div className="flex items-center mb-6">
                 <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center mr-4">
