@@ -71,3 +71,28 @@ Yes it is!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Contact Form Setup
+
+The contact form uses [FormSubmit.co](https://formsubmit.co/) to receive emails from the website. FormSubmit is a simple form endpoint service that forwards form submissions to your email address without requiring any backend code.
+
+The form is already configured to send submissions to inquire@enhancedpoints.com.
+
+Key features enabled:
+- Custom subject line for incoming emails
+- Disabled reCAPTCHA for smoother user experience
+- Direct forwarding to inquire@enhancedpoints.com
+
+When the site goes live, you'll receive a confirmation email from FormSubmit the first time someone submits the form. You'll need to confirm your email address to start receiving submissions.
+
+## Building for Production
+
+To build the site for production:
+
+```bash
+npm run build
+```
+
+## Deployment
+
+The site can be deployed to any static site hosting service, like Netlify, Vercel, GitHub Pages, etc.

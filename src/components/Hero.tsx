@@ -45,7 +45,7 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: "500ms" }}
             >
-              We embed bleeding-edge AI systems and automation into your organization. Slash costs. Unlock scale. Reimagine how your business runs.
+              We embed bleeding-edge AI systems and automation into your organization. Slash costs. Unlock scale. Reimagine how your business runs. Every improvement is measurable and tracked.
             </p>
             
             <div 

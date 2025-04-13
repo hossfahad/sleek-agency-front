@@ -8,6 +8,7 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CaseStudy from "@/components/CaseStudy";
+import MetricsSection from "@/components/MetricsSection";
 
 const Index = () => {
   return (
@@ -15,6 +16,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Services />
+      <MetricsSection />
       <SolutionsCapabilities />
       <Projects />
       <Pricing />

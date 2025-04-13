@@ -56,14 +56,18 @@ const Navbar = () => {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 px-4 sm:px-6 md:px-10 py-3 sm:py-4 md:py-5 ${
-        scrolled ? "bg-mint-cream shadow-sm" : "bg-transparent"
+        scrolled ? "bg-white shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-[1600px] mx-auto">
         <nav className="flex items-center justify-between relative">
           <div className="flex items-center">
             <a href="/" className="inline-flex items-center">
-              <img src="/images/logo.png" alt="Enhanced Points Logo" className="h-10 sm:h-12 md:h-14" />
+              <img 
+                src="/images/logo.png" 
+                alt="Enhanced Points Logo" 
+                className="h-8 sm:h-10 md:h-12"
+              />
             </a>
           </div>
           
@@ -113,7 +117,7 @@ const Navbar = () => {
         
         {/* Mobile Menu */}
         {isMobile && mobileMenuOpen && (
-          <div className="fixed inset-0 z-[55] bg-mint-cream pt-24 px-6">
+          <div className="fixed inset-0 z-[55] bg-white pt-24 px-6">
             <ul className="flex flex-col space-y-6 text-xl">
               <li>
                 <a href="#overview" onClick={handleLinkClick} className="block py-2 text-viridian">

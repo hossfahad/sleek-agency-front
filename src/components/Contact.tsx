@@ -1,5 +1,5 @@
 import { useInView } from "react-intersection-observer";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -11,6 +11,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [consentGiven, setConsentGiven] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
   
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -18,8 +19,9 @@ const Contact = () => {
   });
   
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); // Always prevent default form submission
     
+    // Check for consent
     if (!consentGiven) {
       toast({
         title: "Consent required",
@@ -31,8 +33,19 @@ const Contact = () => {
     
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    // Create form data
+    const formData = new FormData(formRef.current as HTMLFormElement);
+    
+    // Submit form data to FormSubmit via fetch to prevent redirect
+    fetch("https://formsubmit.co/inquire@enhancedpoints.com", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      // Handle response
       setIsSubmitting(false);
       setName("");
       setEmail("");
@@ -43,7 +56,16 @@ const Contact = () => {
         title: "Discovery call requested!",
         description: "Our team will contact you shortly to schedule your free discovery call.",
       });
-    }, 1500);
+    })
+    .catch(error => {
+      // Handle error
+      setIsSubmitting(false);
+      toast({
+        title: "Error sending message",
+        description: "There was a problem sending your message. Please try again or email us directly.",
+        variant: "destructive"
+      });
+    });
   };
   
   return (
@@ -92,8 +114,7 @@ const Contact = () => {
                 <a href="mailto:inquire@enhancedpoints.com" className="text-cambridge-blue hover:text-viridian">inquire@enhancedpoints.com</a>
                 <div className="flex space-x-4 mt-2">
                   <a href="#" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">LinkedIn</a>
-                  <a href="#" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">Instagram</a>
-                  <a href="#" className="text-sm text-cambridge-blue hover:text-viridian transition-colors">Twitter</a>
+
                 </div>
               </div>
             </div>
@@ -104,12 +125,22 @@ const Contact = () => {
           }`}>
             <div className="bg-white p-8 rounded-lg shadow-sm border border-mint-green">
               <h3 className="text-xl font-medium mb-6 text-viridian">Start Your Discovery Call Now</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                ref={formRef}
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                {/* FormSubmit configuration - these will be sent with the fetch request */}
+                <input type="hidden" name="_subject" value="New Discovery Call Request from Website" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_format" value="json" />
+                
                 <div>
                   <label htmlFor="name" className="block mb-2 text-sm font-medium text-cambridge-blue">Name</label>
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="w-full px-4 py-3 border border-mint-green rounded-md focus:outline-none focus:ring-2 focus:ring-cambridge-blue"
@@ -122,6 +153,7 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 border border-mint-green rounded-md focus:outline-none focus:ring-2 focus:ring-cambridge-blue"
@@ -134,6 +166,7 @@ const Contact = () => {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     className="w-full px-4 py-3 border border-mint-green rounded-md focus:outline-none focus:ring-2 focus:ring-cambridge-blue"
@@ -144,6 +177,7 @@ const Contact = () => {
                   <label htmlFor="message" className="block mb-2 text-sm font-medium text-cambridge-blue">Message</label>
                   <textarea
                     id="message"
+                    name="message"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     rows={4}
@@ -179,6 +213,16 @@ const Contact = () => {
                     <span>Contact Enhanced Points →</span>
                   )}
                 </button>
+                
+                <div className="text-center mt-4 text-sm text-cambridge-blue">
+                  Or email us directly at{" "}
+                  <a 
+                    href="mailto:inquire@enhancedpoints.com" 
+                    className="text-viridian hover:underline"
+                  >
+                    inquire@enhancedpoints.com
+                  </a>
+                </div>
               </form>
             </div>
           </div>

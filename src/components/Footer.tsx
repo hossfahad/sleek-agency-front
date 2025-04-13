@@ -7,7 +7,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <div className="flex items-center">
-              <img src="/images/logo.png" alt="Enhanced Points Logo" className="h-14" />
+              <img 
+                src="/images/logo.png" 
+                alt="Enhanced Points Logo" 
+                className="h-14"
+              />
             </div>
           </div>
           
