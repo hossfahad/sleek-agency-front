@@ -12,7 +12,6 @@ const Hero = () => {
       <div className="max-w-[1600px] mx-auto w-full">
         <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-center">
           <div className="md:col-span-7">
-
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium leading-[1.1] mb-6">
               <span 
                 className={`block transition-all duration-700 ${
@@ -20,6 +19,7 @@ const Hero = () => {
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
+                <div className="animation-container"></div>
               </span>
               <span 
                 className={`block transition-all duration-700 mt-3 ${
@@ -45,7 +45,7 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: "500ms" }}
             >
-              We embed bleeding-edge AI systems and automation into your organization. Slash costs. Unlock scale. Reimagine how your business runs. Every improvement is measurable and tracked.
+              We embed cutting-edge AI systems and automation into your organization to slash costs, unlock scale, and reimagine how your business runs.
             </p>
             
             <div 
@@ -56,7 +56,7 @@ const Hero = () => {
             >
               <a 
                 href="#contact" 
-                className="inline-flex items-center justify-center px-6 py-3 bg-viridian text-white rounded-md text-base font-medium hover:bg-cambridge-blue transition-colors duration-200"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-viridian text-white rounded-md hover:bg-viridian/90 transition-colors"
               >
                 Book a Free Strategy Session →
               </a>
@@ -65,7 +65,7 @@ const Hero = () => {
           
           <div className="md:col-span-5 h-full">
             <div 
-              className={`animation-container transition-all duration-700 ${
+              className={`animation-container h-[400px] transition-all duration-700 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{ transitionDelay: "700ms" }}

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [useCasesOpen, setUseCasesOpen] = useState(false);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -53,6 +55,11 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
+  const toggleUseCases = (e) => {
+    e.preventDefault();
+    setUseCasesOpen(!useCasesOpen);
+  };
+
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 px-4 sm:px-6 md:px-10 py-3 sm:py-4 md:py-5 ${
@@ -62,13 +69,13 @@ const Navbar = () => {
       <div className="max-w-[1600px] mx-auto">
         <nav className="flex items-center justify-between relative">
           <div className="flex items-center">
-            <a href="/" className="inline-flex items-center">
+            <Link to="/" className="inline-flex items-center">
               <img 
                 src="/images/logo.png" 
                 alt="Enhanced Points Logo" 
                 className="h-8 sm:h-10 md:h-12"
               />
-            </a>
+            </Link>
           </div>
           
           {isMobile ? (
@@ -93,8 +100,8 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#solutions" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[03]</span> Solutions
+                  <a href="#capabilities" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
+                    <span className="text-xs align-super mr-1">[03]</span> Capabilities
                   </a>
                 </li>
                 <li>
@@ -102,9 +109,37 @@ const Navbar = () => {
                     <span className="text-xs align-super mr-1">[04]</span> Industries
                   </a>
                 </li>
+                <li className="relative group">
+                  <a 
+                    href="#" 
+                    onClick={toggleUseCases} 
+                    className="text-viridian hover:opacity-100 flex items-center relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all"
+                  >
+                    <span className="text-xs align-super mr-1">[05]</span> Solutions
+                    {useCasesOpen ? <ChevronUp size={14} className="ml-1" /> : <ChevronDown size={14} className="ml-1" />}
+                  </a>
+                  
+                  {useCasesOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-2 z-50">
+                      <Link to="/use-cases" className="block px-4 py-2 text-sm text-viridian hover:bg-gray-100 font-medium">
+                        View All Solutions
+                      </Link>
+                      <div className="border-t border-gray-100 my-2"></div>
+                      <Link to="/use-cases/voice-agents" className="block px-4 py-2 text-sm text-viridian hover:bg-gray-100">
+                        AI Voice Agents
+                      </Link>
+                      <Link to="/use-cases/document-processing" className="block px-4 py-2 text-sm text-viridian hover:bg-gray-100">
+                        Document Processing
+                      </Link>
+                      <Link to="/use-cases/rapid-prototype" className="block px-4 py-2 text-sm text-viridian hover:bg-gray-100">
+                        Rapid Prototyping
+                      </Link>
+                    </div>
+                  )}
+                </li>
                 <li>
                   <a href="#pricing" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[05]</span> Pricing
+                    <span className="text-xs align-super mr-1">[06]</span> Pricing
                   </a>
                 </li>
               </ul>
@@ -130,8 +165,8 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="#solutions" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[03]</span> Solutions
+                <a href="#capabilities" onClick={handleLinkClick} className="block py-2 text-viridian">
+                  <span className="text-sm opacity-60 mr-2">[03]</span> Capabilities
                 </a>
               </li>
               <li>
@@ -140,8 +175,36 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
+                <div>
+                  <a href="#" onClick={toggleUseCases} className="flex items-center justify-between py-2 text-viridian">
+                    <span>
+                      <span className="text-sm opacity-60 mr-2">[05]</span> Solutions
+                    </span>
+                    {useCasesOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                  </a>
+                  
+                  {useCasesOpen && (
+                    <div className="pl-6 mt-2 space-y-3">
+                      <Link to="/use-cases" className="block py-1 text-viridian text-lg font-medium">
+                        View All Solutions
+                      </Link>
+                      <div className="border-t border-gray-100 my-2"></div>
+                      <Link to="/use-cases/voice-agents" className="block py-1 text-viridian text-lg">
+                        AI Voice Agents
+                      </Link>
+                      <Link to="/use-cases/document-processing" className="block py-1 text-viridian text-lg">
+                        Document Processing
+                      </Link>
+                      <Link to="/use-cases/rapid-prototype" className="block py-1 text-viridian text-lg">
+                        Rapid Prototyping
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </li>
+              <li>
                 <a href="#pricing" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[05]</span> Pricing
+                  <span className="text-sm opacity-60 mr-2">[06]</span> Pricing
                 </a>
               </li>
               <li className="pt-8">

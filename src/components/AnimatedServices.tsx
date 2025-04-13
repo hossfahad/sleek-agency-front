@@ -12,7 +12,7 @@ interface ServiceSection {
 const serviceSections: ServiceSection[] = [
   {
     title: "Rapid Market Validation",
-    description: "Build, test, and refine 0–1 product ideas or service offerings with AI-guided research, prototype generation, and customer feedback loops. Perfect for startups or new divisions looking to de-risk early decisions.",
+    description: "Build, test, and refine product ideas or service offerings with AI-guided research, prototype generation, and customer feedback loops. Perfect for startups or new divisions looking to de-risk early decisions.",
     features: [
       "Launch greenfield applications with leading technologies",
       "Launch new initiatives and features to assess new customer segments"
@@ -22,7 +22,7 @@ const serviceSections: ServiceSection[] = [
   },
   {
     title: "Operational Efficiency",
-    description: "Replace manual, repetitive tasks with intelligent AI agents. From scheduling to client follow-ups and internal coordination, we help you reduce operational overhead, scale without added headcount, all within your guardrails.",
+    description: "Replace manual, repetitive tasks with intelligent AI agents. From scheduling to client follow-ups and internal coordination, we help you reduce operational overhead and scale without added headcount.",
     features: [
       "We understand your workflow to find key opportunities to save time and resources",
       "Drastically reduce overhead with fully automated agentic overhauls or human-in-the-loop processes",
@@ -33,7 +33,7 @@ const serviceSections: ServiceSection[] = [
   },
   {
     title: "Conversational AI",
-    description: "Deploy human-like AI voice agents to handle outbound calls, appointment confirmations, or client intake. Our systems are ideal for high-touch services—healthcare, legal, recruiting—where every missed call could be lost revenue.",
+    description: "Deploy human-like AI voice agents to handle outbound calls, appointment confirmations, or client intake. Our systems are ideal for high-touch services where every missed call could be lost revenue.",
     features: [
       "Automated outbound appointment confirmations and reminders",
       "Intake surveys and onboarding for legal consultations",
@@ -44,7 +44,7 @@ const serviceSections: ServiceSection[] = [
   },
   {
     title: "B2B Lead Generation",
-    description: "Find and nurture high-value B2B leads using intelligent targeting, AI-crafted outreach, and automated CRM workflows. Whether you're running outbound campaigns or trying to scale partnerships, our system keeps your pipeline full.",
+    description: "Find and nurture high-value B2B leads using intelligent targeting, AI-crafted outreach, and automated CRM workflows. Keep your pipeline full with personalized engagement at scale.",
     features: [
       "Hyper-personalized outbound messages at scale",
       "Predictive lead scoring and automated segmentation",
@@ -55,7 +55,7 @@ const serviceSections: ServiceSection[] = [
   },
   {
     title: "Document Automation",
-    description: "Turn complex, document-heavy processes into fully integrated digital workflows. Extract key data from contracts, tax forms, scanned PDFs, and more—then auto-sync to your CRM, compliance systems, or databases for instant action.",
+    description: "Turn complex, document-heavy processes into fully integrated digital workflows. Extract key data from contracts, tax forms, and scanned PDFs, then auto-sync to your systems for instant action.",
     features: [
       "Investor subscription documents auto-processed for fund managers",
       "Tax and compliance paperwork digitized for accountants",
@@ -66,7 +66,7 @@ const serviceSections: ServiceSection[] = [
   },
   {
     title: "AI-Generated Content",
-    description: "Generate polished, on-brand content using just your voice or notes. From blog posts and newsletters to LinkedIn updates and SEO-optimized articles, we make it easy to stay visible and relevant—no content team required.",
+    description: "Generate polished, on-brand content using just your voice or notes. From blog posts and newsletters to LinkedIn updates and SEO-optimized articles, stay visible without a dedicated content team.",
     features: [
       "Weekly social media and email content for service providers",
       "Thought-leadership pieces from articles to podcasts",

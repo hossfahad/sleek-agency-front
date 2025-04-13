@@ -16,20 +16,14 @@ const Services = () => {
             <h2 className={`text-4xl md:text-5xl xl:text-6xl font-medium leading-[1.1] mb-8 transition-all duration-700 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}>
-              Our Outcomes-First Approach.
-              <span className="block mt-4 text-sm font-normal opacity-60">• Clear value proposition</span>
+              Our Outcomes-First Approach
+              <span className="block mt-4 text-sm font-normal opacity-60">• Outcomes-First Philosophy</span>
             </h2>
             
             <p className={`text-lg leading-relaxed mb-8 max-w-md transition-all duration-700 delay-100 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}>
-              Enhanced Points delivers AI-native business systems designed for clear outcomes.
-              We help businesses grow faster, operate leaner, and stay protected — by building intelligent automation that works across your entire business.
-            </p>
-            <p className={`text-lg leading-relaxed mb-8 max-w-md transition-all duration-700 delay-100 ${
-              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}>
-              We combine an Offense & Defense philosophy:
+              We believe in measuring success through business results, not technology implementation. Our dual approach ensures we address both growth opportunities and operational challenges.
             </p>
             
             <a 
@@ -64,17 +58,17 @@ const Services = () => {
                 <div className="grid md:grid-cols-3 gap-6 pl-14">
                   <div className="border-l-2 border-green-500 pl-4">
                     <h4 className="font-medium text-lg mb-2">Win New Clients</h4>
-                    <p className="text-sm text-gray-600">Capture and convert leads efficiently through hyper-personalized interactions.</p>
+                    <p className="text-sm text-gray-600">Capture and convert leads efficiently through hyper-personalized AI-driven interactions</p>
                   </div>
                   
                   <div className="border-l-2 border-green-500 pl-4">
                     <h4 className="font-medium text-lg mb-2">Scale Revenue</h4>
-                    <p className="text-sm text-gray-600">Grow systematically with automated client servicing, intelligent outreach, and continuous engagement.</p>
+                    <p className="text-sm text-gray-600">Grow systematically with automated client servicing, intelligent outreach, and continuous engagement</p>
                   </div>
                   
                   <div className="border-l-2 border-green-500 pl-4">
-                    <h4 className="font-medium text-lg mb-2">Surpass Others</h4>
-                    <p className="text-sm text-gray-600">Lead your market with insightful, innovative market intelligence that aligns with your vision.</p>
+                    <h4 className="font-medium text-lg mb-2">Surpass Competitors</h4>
+                    <p className="text-sm text-gray-600">Lead your market with insightful, innovative AI solutions that align with your vision</p>
                   </div>
                 </div>
               </div>
@@ -98,13 +92,13 @@ const Services = () => {
                 
                 <div className="grid md:grid-cols-2 gap-6 pl-14">
                   <div className="border-l-2 border-blue-500 pl-4">
-                    <h4 className="font-medium text-lg mb-2">Saving Valuable Time</h4>
-                    <p className="text-sm text-gray-600">Reduce manual intervention, follow-ups, and data entry, freeing your staff to focus on only the core operations.</p>
+                    <h4 className="font-medium text-lg mb-2">Save Valuable Time</h4>
+                    <p className="text-sm text-gray-600">Reduce manual intervention, follow-ups, and data entry, freeing your team to focus on core operations</p>
                   </div>
                   
                   <div className="border-l-2 border-blue-500 pl-4">
-                    <h4 className="font-medium text-lg mb-2">Reducing Operational Risk</h4>
-                    <p className="text-sm text-gray-600">Minimizing costly errors and compliance risks through intelligent monitoring, consistent and predictable workflows, all within your regulatory guardrails.</p>
+                    <h4 className="font-medium text-lg mb-2">Reduce Operational Risk</h4>
+                    <p className="text-sm text-gray-600">Minimize costly errors and compliance risks through intelligent monitoring and consistent workflows, all within regulatory guardrails</p>
                   </div>
                 </div>
               </div>

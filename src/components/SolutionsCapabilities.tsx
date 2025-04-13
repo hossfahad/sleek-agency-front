@@ -31,7 +31,7 @@ const SolutionsCapabilities: React.FC = () => {
 
   return (
     <section 
-      id="solutions" 
+      id="capabilities" 
       className="py-16 md:py-24 px-6 md:px-10 bg-[#f9f9f9] -mt-[30px]"
       ref={ref}
     >
