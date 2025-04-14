@@ -28,17 +28,14 @@ const Introduction: React.FC = () => {
               }`}
             >
               <p className="text-lg leading-relaxed">
-                At Enhanced Points, we transform ambitious businesses through strategic AI implementation. Our solutions aren't just about adding technology—they're about creating measurable business outcomes that drive growth and optimize operations.
-              </p>
+              Enhanced Points powers ambitious businesses with targeted AI solutions that accelerate growth and streamline operations.</p>
               
               <p className="text-lg leading-relaxed">
-                As your AI service partner, we focus on delivering smart, tailored solutions that address your specific industry challenges. Whether you're looking to validate new market opportunities, streamline operations, or enhance customer engagement, our expertise in rapid prototyping, voice AI, and agentic workflows ensures you get results that matter.
-              </p>
+              From market validation to workflow automation, we build tailored AI strategies designed for measurable impact.</p>
 
               <p className="text-lg leading-relaxed">
-                We combine offensive and defensive strategies to maximize your business potential while minimizing risks. Our dual approach ensures you're positioned for growth while simultaneously protected against potential threats.
-              </p>
-            </div>
+              Maximize opportunities, minimize risks, and stay ahead—partner with Enhanced Points for results-driven innovation.          </p>
+              </div>
           </div>
           
           {/* Right Column - Glass Card */}
@@ -58,7 +55,7 @@ const Introduction: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Rapid Prototyping</h4>
-                  <p className="text-gray-600 text-sm">Quickly build and test AI solutions to validate ideas</p>
+                  <p className="text-gray-600 text-sm">Quickly build and test solutions to validate ideas</p>
                 </div>
               </div>
               
@@ -70,7 +67,7 @@ const Introduction: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800 mb-1">Voice AI Integration</h4>
-                  <p className="text-gray-600 text-sm">Human-like conversational AI for seamless interactions</p>
+                  <p className="text-gray-600 text-sm">Human-like conversational AI to interact wtih your customers</p>
                 </div>
               </div>
               
@@ -81,8 +78,8 @@ const Introduction: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800 mb-1">Offense Strategy</h4>
-                  <p className="text-gray-600 text-sm">Proactive initiatives to drive growth and create competitive advantages</p>
+                  <h4 className="font-medium text-gray-800 mb-1">Multi Agent Integrations</h4>
+                  <p className="text-gray-600 text-sm">Analysis of your business workflows to embed end to end automation</p>
                 </div>
               </div>
               
@@ -93,8 +90,8 @@ const Introduction: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="font-medium text-gray-800 mb-1">Defense Strategy</h4>
-                  <p className="text-gray-600 text-sm">Protective measures to mitigate risks and ensure business continuity</p>
+                  <h4 className="font-medium text-gray-800 mb-1">Marketing Automation</h4>
+                  <p className="text-gray-600 text-sm">Campaign automation strategy, from inception to go-to-market. </p>
                 </div>
               </div>
               
