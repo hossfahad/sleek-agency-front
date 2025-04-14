@@ -317,9 +317,6 @@ const UseCases = () => {
                           <h3 className="text-xl font-medium mb-4">The Challenge</h3>
                           <p className="text-gray-700">{useCase.challenge}</p>
                         </div>
-                        
-
-                        
                         <div className="flex justify-start">
                           <a 
                             href="#contact" 
