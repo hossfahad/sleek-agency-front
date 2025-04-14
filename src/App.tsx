@@ -9,13 +9,41 @@ import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 
-// Import use case pages
-import VoiceAgents from "./pages/use-cases/voice-agents";
-import DocumentProcessing from "./pages/use-cases/document-processing";
-import RapidPrototype from "./pages/use-cases/rapid-prototype";
+// Import pages
 import UseCasesIndex from "./pages/use-cases/index";
+import MeasuredPerformance from "./pages/measured-performance";
+import Industries from "./pages/industries";
+import IndustriesIndex from "./pages/industries/index";
+import HealthcareIndustry from "./pages/industries/healthcare";
+import FinancialServicesIndustry from "./pages/industries/financial-services";
+import { useScrollManager } from "./hooks/useScrollManager";
 
 const queryClient = new QueryClient();
+
+// Main app component with routes
+const AppRoutes = () => {
+  // This hook handles scrolling to top on navigation and scrolling to hash links
+  useScrollManager();
+  
+  return (
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/terms" element={<Terms />} />
+      
+      {/* Solutions & Industries Routes */}
+      <Route path="/use-cases" element={<UseCasesIndex />} />
+      <Route path="/measured-performance" element={<MeasuredPerformance />} />
+      <Route path="/industries" element={<Industries />} />
+      <Route path="/industries/index" element={<IndustriesIndex />} />
+      <Route path="/industries/healthcare" element={<HealthcareIndustry />} />
+      <Route path="/industries/financial-services" element={<FinancialServicesIndustry />} />
+      
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -23,20 +51,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-          
-          {/* Use Case Routes */}
-          <Route path="/use-cases" element={<UseCasesIndex />} />
-          <Route path="/use-cases/voice-agents" element={<VoiceAgents />} />
-          <Route path="/use-cases/document-processing" element={<DocumentProcessing />} />
-          <Route path="/use-cases/rapid-prototype" element={<RapidPrototype />} />
-          
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

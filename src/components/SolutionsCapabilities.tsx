@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from "react-intersection-observer";
 import AnimatedServices from "./AnimatedServices";
+import { Link } from "react-router-dom";
 
 const SolutionsCapabilities: React.FC = () => {
   const [ref, inView] = useInView({
@@ -54,14 +55,23 @@ const SolutionsCapabilities: React.FC = () => {
               and efficiency across your business operations.
             </p>
             
-            <a 
-              href="#contact" 
-              className={`inline-block underline font-medium hover:opacity-70 transition-all duration-700 delay-200 ${
-                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-              }`}
-            >
-              Schedule a demo →
-            </a>
+            <div className={`flex flex-col sm:flex-row items-start gap-4 transition-all duration-700 delay-200 ${
+              inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            }`}>
+              <Link 
+                to="/use-cases" 
+                className="inline-block px-5 py-2 bg-viridian text-white rounded-lg hover:bg-cambridge-blue transition-colors"
+              >
+                View All Solutions →
+              </Link>
+              
+              <a 
+                href="#contact" 
+                className="inline-block underline font-medium hover:opacity-70"
+              >
+                Schedule a demo
+              </a>
+            </div>
           </div>
 
           {/* Services Grid with responsive heights */}

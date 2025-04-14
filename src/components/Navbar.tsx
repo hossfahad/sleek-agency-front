@@ -1,13 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import ScrollLink from "./ScrollLink";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [useCasesOpen, setUseCasesOpen] = useState(false);
+  const [industriesOpen, setIndustriesOpen] = useState(false);
+  const location = useLocation();
   const isMobile = useIsMobile();
+  const industriesDropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,51 +22,34 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Add smooth scroll functionality
-  const handleLinkClick = (e) => {
-    e.preventDefault();
-    const href = e.currentTarget.getAttribute('href');
-    if (href && href.startsWith('#')) {
-      // Target the section number span element
-      const sectionId = href.substring(1); // Remove the # character
-      const sectionNumberElement = document.querySelector(`section#${sectionId} .text-xs.opacity-60`);
-      
-      if (sectionNumberElement) {
-        const navHeight = 80; // Approximate navbar height
-        const elementPosition = sectionNumberElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-      } else {
-        // Fallback to the section itself if the span isn't found
-        const element = document.querySelector(href);
-        if (element) {
-          const navHeight = 80; // Approximate navbar height
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
-        }
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (industriesDropdownRef.current && !industriesDropdownRef.current.contains(event.target)) {
+        setIndustriesOpen(false);
       }
-    }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleLinkClick = () => {
     setMobileMenuOpen(false);
+    setIndustriesOpen(false);
   };
 
-  const toggleUseCases = (e) => {
-    e.preventDefault();
-    setUseCasesOpen(!useCasesOpen);
+  const toggleIndustriesDropdown = () => {
+    if (isMobile) {
+      setIndustriesOpen(!industriesOpen);
+    }
   };
 
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 px-4 sm:px-6 md:px-10 py-3 sm:py-4 md:py-5 ${
-        scrolled ? "bg-white shadow-sm" : "bg-transparent"
+        scrolled || mobileMenuOpen || industriesOpen ? "bg-white shadow-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-[1600px] mx-auto">
@@ -87,65 +73,139 @@ const Navbar = () => {
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           ) : (
-            <div className="flex items-center space-x-6 lg:space-x-10">
-              <ul className="flex space-x-4 sm:space-x-6 lg:space-x-8 text-sm">
-                <li>
-                  <a href="#overview" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[01]</span> Overview
-                  </a>
-                </li>
-                <li>
-                  <a href="#how-we-help" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[02]</span> How We Help
-                  </a>
-                </li>
-                <li>
-                  <a href="#capabilities" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[03]</span> Capabilities
-                  </a>
-                </li>
-                <li>
-                  <a href="#businesses" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[04]</span> Industries
-                  </a>
-                </li>
-                <li className="relative group">
-                  <a 
-                    href="#" 
-                    onClick={toggleUseCases} 
-                    className="text-viridian hover:opacity-100 flex items-center relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all"
+            <div className="flex items-center">
+              <ul className="flex space-x-8 text-sm font-medium">
+                <li className="relative group" ref={industriesDropdownRef}>
+                  <button 
+                    className={`py-2 px-1 inline-flex items-center transition-colors hover:text-viridian relative ${
+                      location.pathname.includes("/industries") ? 
+                      "text-viridian after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-viridian" : 
+                      "text-gray-700"
+                    }`}
+                    onClick={toggleIndustriesDropdown}
+                    aria-expanded={industriesOpen}
+                    aria-haspopup="true"
                   >
-                    <span className="text-xs align-super mr-1">[05]</span> Solutions
-                    {useCasesOpen ? <ChevronUp size={14} className="ml-1" /> : <ChevronDown size={14} className="ml-1" />}
-                  </a>
-                  
-                  {useCasesOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md py-2 z-50">
-                      <Link to="/use-cases" className="block px-4 py-2 text-sm text-viridian hover:bg-gray-100 font-medium">
-                        View All Solutions
+                    Industries
+                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                  </button>
+
+                  <div className="absolute top-full left-0 w-[320px] pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden p-6 grid gap-6 border border-gray-100">
+                      <Link 
+                        to="/industries" 
+                        className="flex items-center gap-3 text-gray-700 hover:text-viridian transition-colors group/item"
+                        onClick={handleLinkClick}
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center group-hover/item:bg-viridian/10 transition-colors">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-viridian" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                          </svg>
+                        </div>
+                        <div>
+                          <span className="font-medium">All Industries</span>
+                          <p className="text-xs text-gray-500">Overview of our industry solutions</p>
+                        </div>
                       </Link>
-                      <div className="border-t border-gray-100 my-2"></div>
-                      <Link to="/use-cases/voice-agents" className="block px-4 py-2 text-sm text-viridian hover:bg-gray-100">
-                        AI Voice Agents
+
+                      <Link 
+                        to="/industries/healthcare" 
+                        className="flex items-center gap-3 text-gray-700 hover:text-viridian transition-colors group/item"
+                        onClick={handleLinkClick}
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center group-hover/item:bg-viridian/10 transition-colors">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-viridian" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                        </div>
+                        <div>
+                          <span className="font-medium">Healthcare</span>
+                          <p className="text-xs text-gray-500">AI solutions for healthcare</p>
+                        </div>
                       </Link>
-                      <Link to="/use-cases/document-processing" className="block px-4 py-2 text-sm text-viridian hover:bg-gray-100">
-                        Document Processing
+
+                      <Link 
+                        to="/industries/financial-services" 
+                        className="flex items-center gap-3 text-gray-700 hover:text-viridian transition-colors group/item"
+                        onClick={handleLinkClick}
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center group-hover/item:bg-viridian/10 transition-colors">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-viridian" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <span className="font-medium">Financial Services</span>
+                          <p className="text-xs text-gray-500">AI solutions for finance</p>
+                        </div>
                       </Link>
-                      <Link to="/use-cases/rapid-prototype" className="block px-4 py-2 text-sm text-viridian hover:bg-gray-100">
-                        Rapid Prototyping
-                      </Link>
+
+                      <div className="flex items-center gap-3 text-gray-400 group/item">
+                        <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <span className="font-medium">eCommerce</span>
+                          <p className="text-xs text-gray-500">Coming soon</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3 text-gray-400 group/item">
+                        <div className="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                        </div>
+                        <div>
+                          <span className="font-medium">Construction</span>
+                          <p className="text-xs text-gray-500">Coming soon</p>
+                        </div>
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </li>
                 <li>
-                  <a href="#pricing" onClick={handleLinkClick} className="text-viridian hover:opacity-100 relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 hover:after:w-full after:bg-viridian after:transition-all">
-                    <span className="text-xs align-super mr-1">[06]</span> Pricing
-                  </a>
+                  <Link 
+                    to="/use-cases" 
+                    className={`py-2 px-1 inline-block transition-colors hover:text-viridian relative ${
+                      location.pathname.includes("/use-cases") ? 
+                      "text-viridian after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-viridian" : 
+                      "text-gray-700"
+                    }`}
+                  >
+                    Solutions
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/measured-performance" 
+                    className={`py-2 px-1 inline-block transition-colors hover:text-viridian relative ${
+                      location.pathname === "/measured-performance" ? 
+                      "text-viridian after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-viridian" : 
+                      "text-gray-700"
+                    }`}
+                  >
+                    Savings Calculator
+                  </Link>
+                </li>
+                <li>
+                  <ScrollLink 
+                    to="#contact" 
+                    className="py-2 px-1 inline-block text-gray-700 transition-colors hover:text-viridian"
+                  >
+                    Contact
+                  </ScrollLink>
                 </li>
               </ul>
-              <a href="#contact" onClick={handleLinkClick} className="underline font-medium text-viridian hover:text-cambridge-blue transition-colors">
-                Discuss with Us →
-              </a>
+              
+              <ScrollLink
+                to="#contact"
+                className="ml-8 px-5 py-2 bg-viridian text-white rounded-lg hover:bg-cambridge-blue transition-colors duration-300"
+              >
+                Get Started
+              </ScrollLink>
             </div>
           )}
         </nav>
@@ -155,62 +215,81 @@ const Navbar = () => {
           <div className="fixed inset-0 z-[55] bg-white pt-24 px-6">
             <ul className="flex flex-col space-y-6 text-xl">
               <li>
-                <a href="#overview" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[01]</span> Overview
-                </a>
-              </li>
-              <li>
-                <a href="#how-we-help" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[02]</span> How We Help
-                </a>
-              </li>
-              <li>
-                <a href="#capabilities" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[03]</span> Capabilities
-                </a>
-              </li>
-              <li>
-                <a href="#businesses" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[04]</span> Industries
-                </a>
-              </li>
-              <li>
-                <div>
-                  <a href="#" onClick={toggleUseCases} className="flex items-center justify-between py-2 text-viridian">
-                    <span>
-                      <span className="text-sm opacity-60 mr-2">[05]</span> Solutions
-                    </span>
-                    {useCasesOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                  </a>
-                  
-                  {useCasesOpen && (
-                    <div className="pl-6 mt-2 space-y-3">
-                      <Link to="/use-cases" className="block py-1 text-viridian text-lg font-medium">
-                        View All Solutions
-                      </Link>
-                      <div className="border-t border-gray-100 my-2"></div>
-                      <Link to="/use-cases/voice-agents" className="block py-1 text-viridian text-lg">
-                        AI Voice Agents
-                      </Link>
-                      <Link to="/use-cases/document-processing" className="block py-1 text-viridian text-lg">
-                        Document Processing
-                      </Link>
-                      <Link to="/use-cases/rapid-prototype" className="block py-1 text-viridian text-lg">
-                        Rapid Prototyping
-                      </Link>
+                <button 
+                  className={`flex items-center justify-between w-full py-2 ${location.pathname.includes("/industries") ? "text-viridian font-medium" : "text-gray-700"}`}
+                  onClick={() => setIndustriesOpen(!industriesOpen)}
+                >
+                  <span>Industries</span>
+                  {industriesOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                </button>
+                
+                {industriesOpen && (
+                  <div className="mt-4 pl-4 space-y-4 animate-in slide-in-from-left-4 duration-200">
+                    <Link 
+                      to="/industries" 
+                      className={`block py-2 ${location.pathname === "/industries" ? "text-viridian" : "text-gray-600"}`}
+                      onClick={handleLinkClick}
+                    >
+                      All Industries
+                    </Link>
+                    <Link 
+                      to="/industries/healthcare" 
+                      className={`block py-2 ${location.pathname === "/industries/healthcare" ? "text-viridian" : "text-gray-600"}`}
+                      onClick={handleLinkClick}
+                    >
+                      Healthcare
+                    </Link>
+                    <Link 
+                      to="/industries/financial-services" 
+                      className={`block py-2 ${location.pathname === "/industries/financial-services" ? "text-viridian" : "text-gray-600"}`}
+                      onClick={handleLinkClick}
+                    >
+                      Financial Services
+                    </Link>
+                    <div className="py-2 text-gray-400">
+                      eCommerce <span className="text-xs">(Coming Soon)</span>
                     </div>
-                  )}
-                </div>
+                    <div className="py-2 text-gray-400">
+                      Construction <span className="text-xs">(Coming Soon)</span>
+                    </div>
+                  </div>
+                )}
               </li>
               <li>
-                <a href="#pricing" onClick={handleLinkClick} className="block py-2 text-viridian">
-                  <span className="text-sm opacity-60 mr-2">[06]</span> Pricing
-                </a>
+                <Link 
+                  to="/use-cases" 
+                  className={`block py-2 ${location.pathname.includes("/use-cases") ? "text-viridian font-medium" : "text-gray-700"}`}
+                  onClick={handleLinkClick}
+                >
+                  Solutions
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/measured-performance" 
+                  className={`block py-2 ${location.pathname === "/measured-performance" ? "text-viridian font-medium" : "text-gray-700"}`}
+                  onClick={handleLinkClick}
+                >
+                  Savings Calculator
+                </Link>
+              </li>
+              <li>
+                <ScrollLink 
+                  to="#contact" 
+                  className="block py-2 text-gray-700"
+                  onClick={handleLinkClick}
+                >
+                  Contact
+                </ScrollLink>
               </li>
               <li className="pt-8">
-                <a href="#contact" onClick={handleLinkClick} className="block underline font-medium text-viridian">
-                  Discuss with Us →
-                </a>
+                <ScrollLink
+                  to="#contact"
+                  onClick={handleLinkClick}
+                  className="inline-flex items-center px-5 py-2 bg-viridian text-white rounded-lg hover:bg-cambridge-blue transition-colors duration-300"
+                >
+                  Get Started
+                </ScrollLink>
               </li>
             </ul>
           </div>

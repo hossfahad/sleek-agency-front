@@ -11,7 +11,6 @@ const Pricing = () => {
       <div className="max-w-[1600px] mx-auto">
         <div className="grid md:grid-cols-8 gap-8 md:gap-16 items-start">
           <div className="md:col-span-3 sticky top-24">
-            <span className="text-xs text-viridian opacity-80 mb-6 block">[05]</span>
             <h2 className={`text-4xl md:text-5xl xl:text-6xl font-medium leading-[1.1] mb-8 transition-all duration-700 text-gray-950 ${
               inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}>
