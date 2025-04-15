@@ -199,7 +199,7 @@ const MeasuredPerformance = () => {
                       <label className="text-xl font-medium text-white mb-3 block">
                         Average hourly wage? <span className="text-white/70 text-base">(optional)</span>
                       </label>
-                      <p className="text-sm text-gray-300 -mt-2 mb-3">Estimate the average hourly cost of employees performing these tasks. We default to $30.</p>
+                      <p className="text-sm text-gray-300 -mt-2 mb-3">Estimate the average hourly cost of employees performing these tasks.</p>
                       <Input 
                         type="number" 
                         inputMode="numeric" 
