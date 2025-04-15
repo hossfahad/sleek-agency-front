@@ -7,7 +7,6 @@ import { calculateSavings } from "../lib/utils";
 import { Card, CardContent } from "../components/ui/card";
 import { Slider } from "../components/ui/slider";
 import { Input } from "../components/ui/input";
-import { Button } from "../components/ui/button";
 
 const MeasuredPerformance = () => {
   const [ref, inView] = useInView({
@@ -110,7 +109,7 @@ const MeasuredPerformance = () => {
             <div className="bg-[#0F3D3E] rounded-2xl p-6 md:p-10 shadow-xl">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {/* Top Left Card: Employees Slider */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.1s'}}>
+                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn order-1 lg:order-1" style={{animationDelay: '0.1s'}}>
                   <div className="flex flex-col gap-4">
                     <label className="text-xl font-medium text-white">
                       How many employees?
@@ -138,7 +137,7 @@ const MeasuredPerformance = () => {
                 </div>
 
                 {/* Top Right Card: Results with Enhanced Points */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.3s'}}>
+                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn order-3 lg:order-2" style={{animationDelay: '0.3s'}}>
                   <div className="flex flex-col gap-4">
                     <h3 className="text-xl font-medium text-white">With Enhanced Points</h3>
                     <div className="text-4xl font-bold text-green-200 mt-2">
@@ -165,7 +164,7 @@ const MeasuredPerformance = () => {
                 </div>
 
                 {/* Bottom Left Card: Task Inputs */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.2s'}}>
+                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn order-2 lg:order-4" style={{animationDelay: '0.2s'}}>
                   <div className="flex flex-col gap-5">
                     <div>
                       <label className="text-xl font-medium text-white mb-3 block">
@@ -222,7 +221,7 @@ const MeasuredPerformance = () => {
                 </div>
 
                 {/* Bottom Right Card: Results without Enhanced Points */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.4s'}}>
+                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn order-4 lg:order-3" style={{animationDelay: '0.4s'}}>
                   <div className="flex flex-col gap-4">
                     <h3 className="text-xl font-medium text-white">Without Enhanced Points</h3>
                     <div className="text-4xl font-bold text-white/80 mt-2">
@@ -245,12 +244,13 @@ const MeasuredPerformance = () => {
               
               {/* Strong CTA at the bottom */}
               <div className="mt-10 flex justify-center">
-                <Button 
-                  className="bg-white text-[#0F3D3E] rounded-full px-8 py-3 shadow-md font-bold text-lg hover:bg-green-100 transition-all duration-300 hover:scale-105 hover:shadow-lg transform" 
+                <a 
+                  href="#contact"
+                  className="bg-white text-[#0F3D3E] rounded-full px-8 py-3 shadow-md font-bold text-lg hover:bg-green-100 transition-all duration-300 hover:scale-105 hover:shadow-lg transform inline-block" 
                   style={{fontFamily: 'Inter, sans-serif'}}
                 >
                   Schedule a Free Audit
-                </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -324,6 +324,9 @@ const MeasuredPerformance = () => {
           }
         `
       }} />
+      <div id="contact">
+        <Contact />
+      </div>
       <Footer />
     </div>
   );
