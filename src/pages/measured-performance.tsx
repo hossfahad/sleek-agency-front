@@ -138,28 +138,34 @@ const MeasuredPerformance = () => {
                 </div>
 
                 {/* Top Right Card: Results with Enhanced Points */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.2s'}}>
+                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.3s'}}>
                   <div className="flex flex-col gap-4">
                     <h3 className="text-xl font-medium text-white">With Enhanced Points</h3>
-                    <div className="text-4xl font-bold text-white mt-2">
-                      <span className="text-5xl">${monthlySavings.toLocaleString(undefined, {maximumFractionDigits: 0})}</span>
-                      <span className="text-2xl text-white/80">/month</span>
-                    </div>
-                    <p className="text-white/80 mb-1">saved</p>
-                    
-                    <div className="text-3xl font-bold text-white mt-2">
-                      {hoursSaved.toLocaleString(undefined, {maximumFractionDigits: 0})} <span className="text-xl font-normal">hours saved</span>
+                    <div className="text-4xl font-bold text-green-200 mt-2">
+                      ${monthlySavings.toLocaleString(undefined, {maximumFractionDigits: 0})} <span className="text-2xl text-white/60">saved monthly</span>
                     </div>
                     
-                    <div className="mt-2">
-                      <p className="text-white/80">Equivalent to</p>
-                      <p className="text-2xl font-bold text-white">{workdaysSaved.toLocaleString(undefined, {maximumFractionDigits: 0})} workdays a month</p>
+                    <div className="mt-4 grid grid-cols-2 gap-4">
+                      <div>
+                        <p className="text-white/80">Hours saved:</p>
+                        <p className="text-3xl font-bold text-green-200">{hoursSaved.toLocaleString(undefined, {maximumFractionDigits: 0})}</p>
+                      </div>
+                      <div>
+                        <p className="text-white/80">Workdays saved:</p>
+                        <p className="text-3xl font-bold text-green-200">{workdaysSaved.toLocaleString(undefined, {maximumFractionDigits: 1})}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-2 bg-white/10 p-3 rounded-lg">
+                      <p className="text-white/90 text-sm">
+                        Based on {employees} employees spending {totalTimePerDay} minutes each per day at ${hourlyWage}/hour
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Bottom Left Card: Task Inputs */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.3s'}}>
+                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.2s'}}>
                   <div className="flex flex-col gap-5">
                     <div>
                       <label className="text-xl font-medium text-white mb-3 block">
@@ -180,9 +186,9 @@ const MeasuredPerformance = () => {
                     
                     <div>
                       <label className="text-xl font-medium text-white mb-3 block">
-                        Total time spent on these tasks daily? <span className="text-white/70 text-base">(minutes)</span>
+                        Minutes per employee per day
                       </label>
-                      <p className="text-sm text-gray-300 -mt-2 mb-3">Estimate the total minutes spent by the team on these tasks each day.</p>
+                      <p className="text-sm text-gray-300 -mt-2 mb-3">Average time each employee spends on tasks that could be automated (per day)</p>
                       <Input 
                         type="number" 
                         inputMode="numeric" 
@@ -226,6 +232,12 @@ const MeasuredPerformance = () => {
                     <div className="mt-4">
                       <p className="text-white/80">Time wasted each month:</p>
                       <p className="text-3xl font-bold text-red-200">{hoursSaved.toLocaleString(undefined, {maximumFractionDigits: 0})} hours</p>
+                    </div>
+                    
+                    <div className="mt-2 bg-white/10 p-3 rounded-lg">
+                      <p className="text-white/90 text-sm">
+                        Your team is spending {(hoursSaved / employees).toFixed(1)} hours per person on tasks that could be automated
+                      </p>
                     </div>
                   </div>
                 </div>

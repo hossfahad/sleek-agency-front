@@ -54,24 +54,24 @@ const HealthcareIndustry = () => {
                 <div className={`mb-16 transition-all duration-700 ${
                   contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}>
-                  <h2 className="text-3xl font-medium mb-6">The Healthcare Challenge</h2>
-                  <p className="text-lg mb-4">
-                    Healthcare providers face mounting administrative burdens, with staff spending up to 20% of their time on routine tasks instead of patient care. Manual processes lead to inefficiencies, communication gaps, and increased costs.
-                  </p>
-                  <p className="text-lg">
-                    Meanwhile, patients expect modern, digital-first experiences that many healthcare systems struggle to provide while maintaining strict compliance with HIPAA and other regulations.
-                  </p>
+                  <h2 className="text-3xl font-medium mb-6">Common Time Sinks We Eliminate</h2>
+                  <ul className="list-disc pl-5 space-y-2 text-lg">
+                    <li>Manual appointment scheduling and patient reminders</li>
+                    <li>Repetitive insurance verification and eligibility checks</li>
+                    <li>Time-consuming medical record entry and retrieval</li>
+                    <li>Inefficient patient follow-up and communication</li>
+                  </ul>
                 </div>
 
                 <div className={`mb-16 transition-all duration-700 delay-100 ${
                   contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}>
-                  <h2 className="text-3xl font-medium mb-6">Our Healthcare AI Solutions</h2>
+                  <h2 className="text-3xl font-medium mb-6">Sample Automations</h2>
                   
                   <div className="space-y-8">
                     <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
                       <h3 className="text-xl font-medium mb-3">Intelligent Patient Communication</h3>
-                      <p>Automated appointment reminders, follow-ups, and healthcare instructions that adapt to patient responses, reducing no-shows by up to 30% while maintaining a personal touch.</p>
+                      <p>Automated appointment reminders, follow-ups, and healthcare instructions that adapt to patient responses while maintaining a personal touch.</p>
                     </div>
                     
                     <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
@@ -89,19 +89,23 @@ const HealthcareIndustry = () => {
                 <div className={`transition-all duration-700 delay-200 ${
                   contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}>
-                  <h2 className="text-3xl font-medium mb-6">Measured Results</h2>
-                  <div className="grid grid-cols-3 gap-6 mb-8">
+                  <h2 className="text-3xl font-medium mb-6">Outcomes We Deliver</h2>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                     <div className="bg-red-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-red-500 block mb-2">30%</span>
-                      <span className="text-sm text-gray-600">Reduction in no-shows</span>
+                      <span className="text-4xl font-bold text-red-500 block mb-2">↓</span>
+                      <span className="text-sm text-gray-600">Reduced no-shows</span>
                     </div>
                     <div className="bg-red-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-red-500 block mb-2">45%</span>
-                      <span className="text-sm text-gray-600">Less time on paperwork</span>
+                      <span className="text-4xl font-bold text-red-500 block mb-2">↑</span>
+                      <span className="text-sm text-gray-600">Staff productivity</span>
                     </div>
                     <div className="bg-red-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-red-500 block mb-2">20%</span>
-                      <span className="text-sm text-gray-600">Increase in patient satisfaction</span>
+                      <span className="text-4xl font-bold text-red-500 block mb-2">↑</span>
+                      <span className="text-sm text-gray-600">Patient satisfaction</span>
+                    </div>
+                    <div className="bg-red-50 p-6 rounded-lg text-center">
+                      <span className="text-4xl font-bold text-red-500 block mb-2">↓</span>
+                      <span className="text-sm text-gray-600">Administrative costs</span>
                     </div>
                   </div>
                   <p className="text-lg">
@@ -120,7 +124,7 @@ const HealthcareIndustry = () => {
                     href="#contact" 
                     className="block w-full py-3 bg-viridian text-white rounded-lg text-center font-medium hover:bg-cambridge-blue transition-colors"
                   >
-                    Book a Healthcare Strategy Session
+                    Schedule a Free Strategy Call
                   </a>
                 </div>
               </div>

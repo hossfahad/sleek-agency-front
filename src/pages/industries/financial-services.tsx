@@ -54,24 +54,24 @@ const FinancialServicesIndustry = () => {
                 <div className={`mb-16 transition-all duration-700 ${
                   contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}>
-                  <h2 className="text-3xl font-medium mb-6">The Financial Services Challenge</h2>
-                  <p className="text-lg mb-4">
-                    Financial institutions face increasing pressure to streamline operations, improve customer experience, and maintain rigorous compliance with evolving regulations. Manual processes and legacy systems create bottlenecks, increase risk, and limit growth potential.
-                  </p>
-                  <p className="text-lg">
-                    Meanwhile, customer expectations for real-time service, personalized recommendations, and frictionless experiences continue to rise, while competition from fintech disruptors intensifies.
-                  </p>
+                  <h2 className="text-3xl font-medium mb-6">Common Time Sinks We Eliminate</h2>
+                  <ul className="list-disc pl-5 space-y-2 text-lg">
+                    <li>Manual document review and data extraction</li>
+                    <li>Repetitive client onboarding and KYC processes</li>
+                    <li>Time-consuming regulatory compliance reporting</li>
+                    <li>Inefficient customer service and inquiry handling</li>
+                  </ul>
                 </div>
 
                 <div className={`mb-16 transition-all duration-700 delay-100 ${
                   contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}>
-                  <h2 className="text-3xl font-medium mb-6">Our Financial AI Solutions</h2>
+                  <h2 className="text-3xl font-medium mb-6">Sample Automations</h2>
                   
                   <div className="space-y-8">
                     <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
                       <h3 className="text-xl font-medium mb-3">Intelligent Document Processing</h3>
-                      <p>Automated extraction, classification, and validation of financial documents including applications, statements, and compliance documentation with 99%+ accuracy.</p>
+                      <p>Automated extraction, classification, and validation of financial documents including applications, statements, and compliance documentation.</p>
                     </div>
                     
                     <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
@@ -89,19 +89,23 @@ const FinancialServicesIndustry = () => {
                 <div className={`transition-all duration-700 delay-200 ${
                   contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}>
-                  <h2 className="text-3xl font-medium mb-6">Measured Results</h2>
-                  <div className="grid grid-cols-3 gap-6 mb-8">
+                  <h2 className="text-3xl font-medium mb-6">Outcomes We Deliver</h2>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
                     <div className="bg-blue-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-blue-500 block mb-2">60%</span>
-                      <span className="text-sm text-gray-600">Faster document processing</span>
+                      <span className="text-4xl font-bold text-blue-500 block mb-2">↑</span>
+                      <span className="text-sm text-gray-600">Processing speed</span>
                     </div>
                     <div className="bg-blue-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-blue-500 block mb-2">40%</span>
-                      <span className="text-sm text-gray-600">Reduction in compliance costs</span>
+                      <span className="text-4xl font-bold text-blue-500 block mb-2">↓</span>
+                      <span className="text-sm text-gray-600">Compliance costs</span>
                     </div>
                     <div className="bg-blue-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-blue-500 block mb-2">35%</span>
-                      <span className="text-sm text-gray-600">Improvement in client satisfaction</span>
+                      <span className="text-4xl font-bold text-blue-500 block mb-2">↑</span>
+                      <span className="text-sm text-gray-600">Client satisfaction</span>
+                    </div>
+                    <div className="bg-blue-50 p-6 rounded-lg text-center">
+                      <span className="text-4xl font-bold text-blue-500 block mb-2">↓</span>
+                      <span className="text-sm text-gray-600">Operational errors</span>
                     </div>
                   </div>
                   <p className="text-lg">
@@ -120,7 +124,7 @@ const FinancialServicesIndustry = () => {
                     href="#contact" 
                     className="block w-full py-3 bg-viridian text-white rounded-lg text-center font-medium hover:bg-cambridge-blue transition-colors"
                   >
-                    Book a Financial Services Strategy Session
+                    Schedule a Free Strategy Call
                   </a>
                 </div>
               </div>

@@ -73,17 +73,16 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <span className="text-gray-400">
-                  eCommerce
-                  <span className="ml-2 text-xs text-gray-400">(Coming Soon)</span>
-                </span>
+                <Link to="/industries/hotels-hospitality" className="text-gray-500 hover:text-viridian transition-colors">
+                  Hotels & Hospitality
+                </Link>
               </li>
               <li>
-                <span className="text-gray-400">
-                  Construction
-                  <span className="ml-2 text-xs text-gray-400">(Coming Soon)</span>
-                </span>
+                <Link to="/industries/transportation" className="text-gray-500 hover:text-viridian transition-colors">
+                  Transportation
+                </Link>
               </li>
+              
             </ul>
           </div>
           
