@@ -27,6 +27,26 @@ const industries = [
     link: "/industries/financial-services"
   },
   {
+    title: "Hotels & Hospitality",
+    description: "Automate guest services and back-office operations to cut costs, boost revenue, and elevate guest satisfaction across voice, web, and back-office systems.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      </svg>
+    ),
+    link: "/industries/hotels-hospitality"
+  },
+  {
+    title: "Ground Transportation",
+    description: "Help transportation businesses reduce overhead, handle more bookings, and improve dispatch reliability using AI-powered automations that streamline operations.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+      </svg>
+    ),
+    link: "/industries/transportation"
+  },
+  {
     title: "eCommerce Markets",
     description: "Enhance customer engagement, automate inventory management, and deliver hyper-personalized shopping experiences that drive conversion and loyalty.",
     icon: (
