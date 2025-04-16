@@ -91,7 +91,7 @@ const MeasuredPerformance = () => {
           <div className="text-center mb-12 transition-all duration-700">
             <span className="text-xs opacity-60 mb-2 block">[SAVINGS CALCULATOR]</span>
             <h2 className="text-3xl md:text-4xl font-medium mb-6">
-              ROI Calculator
+              See How Much You Can Save
             </h2>
             <p className="max-w-2xl mx-auto text-gray-600">
               Estimate the potential impact of our solutions on your business with our interactive ROI calculator.
@@ -107,136 +107,149 @@ const MeasuredPerformance = () => {
 
             {/* Bento Grid Container */}
             <div className="bg-[#0F3D3E] rounded-2xl p-6 md:p-10 shadow-xl">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {/* Top Left Card: Employees Slider */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn order-1 lg:order-1" style={{animationDelay: '0.1s'}}>
-                  <div className="flex flex-col gap-4">
-                    <label className="text-xl font-medium text-white">
-                      How many employees?
-                    </label>
-                    <p className="text-sm text-gray-300 -mt-2 mb-2">This is the number of people, be it in the team or business unit, who are responsible for the task.</p>
-                    <div className="relative pt-6 pb-2">
-                      <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-white/90 text-[#0F3D3E] font-bold rounded-lg px-3 py-1 text-lg min-w-[3rem] text-center">
-                        {employees}
-                      </div>
-                      <Slider
-                        min={1}
-                        max={500}
-                        step={1}
-                        value={[employees]}
-                        onValueChange={([val]) => setEmployees(val)}
-                        className="mt-4"
-                      />
-                      <div className="flex justify-between w-full text-xs text-gray-300 mt-2">
-                        <span>1</span>
-                        <span>500</span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-300">Just a guess is fine.</p>
-                  </div>
-                </div>
-
-                {/* Top Right Card: Results with Enhanced Points */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn order-3 lg:order-2" style={{animationDelay: '0.3s'}}>
-                  <div className="flex flex-col gap-4">
-                    <h3 className="text-xl font-medium text-white">With Enhanced Points</h3>
-                    <div className="text-4xl font-bold text-green-200 mt-2">
-                      ${monthlySavings.toLocaleString(undefined, {maximumFractionDigits: 0})} <span className="text-2xl text-white/60">saved monthly</span>
-                    </div>
-                    
-                    <div className="mt-4 grid grid-cols-2 gap-4">
-                      <div>
-                        <p className="text-white/80">Hours saved:</p>
-                        <p className="text-3xl font-bold text-green-200">{hoursSaved.toLocaleString(undefined, {maximumFractionDigits: 0})}</p>
-                      </div>
-                      <div>
-                        <p className="text-white/80">Workdays saved:</p>
-                        <p className="text-3xl font-bold text-green-200">{workdaysSaved.toLocaleString(undefined, {maximumFractionDigits: 1})}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-2 bg-white/10 p-3 rounded-lg">
-                      <p className="text-white/90 text-sm">
-                        Based on {employees} employees spending {totalTimePerDay} minutes each per day at ${hourlyWage}/hour
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Left Column: Input Cards */}
+                <div className="flex flex-col gap-6 order-1">
+                  {/* Employees Slider Card */}
+                  <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.1s'}}>
+                    <div className="flex flex-col gap-4">
+                      <label className="text-xl font-medium text-white">
+                        How many employees?
+                      </label>
+                      <p className="text-sm text-gray-300 -mt-2 mb-2">
+                        This is the number of people, be it in the team or business unit, who are responsible for the task.
                       </p>
+                      <div className="relative pt-6 pb-2">
+                        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 bg-white/90 text-[#0F3D3E] font-bold rounded-lg px-3 py-1 text-lg min-w-[3rem] text-center">
+                          {employees}
+                        </div>
+                        <Slider
+                          min={1}
+                          max={500}
+                          step={1}
+                          value={[employees]}
+                          onValueChange={([val]) => setEmployees(val)}
+                          className="mt-4"
+                        />
+                        <div className="flex justify-between w-full text-xs text-gray-300 mt-2">
+                          <span>1</span>
+                          <span>500</span>
+                        </div>
+                      </div>
+                      <p className="text-sm text-gray-300">Just a guess is fine.</p>
+                    </div>
+                  </div>
+
+                  {/* Task Inputs Card */}
+                  <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.2s'}}>
+                    <div className="flex flex-col gap-5">
+                      <div>
+                        <label className="text-xl font-medium text-white mb-3 block">
+                          How many repetitive tasks per day?
+                        </label>
+                        <p className="text-sm text-gray-300 -mt-2 mb-3">
+                          Count the routine tasks your team does every day - like email engagements, extracting forms and entering data, or answering questions.
+                        </p>
+                        <Input 
+                          type="number" 
+                          inputMode="numeric" 
+                          pattern="[0-9]*" 
+                          min={0} 
+                          step={1} 
+                          value={tasksPerDay} 
+                          onChange={handleTasksPerDayChange} 
+                          className="text-black font-sans bg-white/90 rounded-lg border-0 shadow-inner transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:bg-white" 
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="text-xl font-medium text-white mb-3 block">
+                          Minutes per employee per day
+                        </label>
+                        <p className="text-sm text-gray-300 -mt-2 mb-3">
+                          Average time each employee spends on tasks that could be automated (per day)
+                        </p>
+                        <Input 
+                          type="number" 
+                          inputMode="numeric" 
+                          pattern="[0-9]*" 
+                          min={0} 
+                          step={1} 
+                          value={totalTimePerDay} 
+                          onChange={handleTotalTimePerDayChange} 
+                          className="text-black font-sans bg-white/90 rounded-lg border-0 shadow-inner transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:bg-white" 
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="text-xl font-medium text-white mb-3 block">
+                          Average hourly wage? 
+                        </label>
+                        <p className="text-sm text-gray-300 -mt-2 mb-3">
+                          Estimate the average hourly cost of employees performing these tasks.
+                        </p>
+                        <Input 
+                          type="number" 
+                          inputMode="numeric" 
+                          pattern="[0-9]*" 
+                          min={0} 
+                          step={1} 
+                          value={hourlyWage} 
+                          onChange={handleHourlyWageChange} 
+                          placeholder="30"
+                          className="text-black font-sans bg-white/90 rounded-lg border-0 shadow-inner transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:bg-white" 
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Bottom Left Card: Task Inputs */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn order-2 lg:order-4" style={{animationDelay: '0.2s'}}>
-                  <div className="flex flex-col gap-5">
-                    <div>
-                      <label className="text-xl font-medium text-white mb-3 block">
-                        How many repetitive tasks per day?
-                      </label>
-                      <p className="text-sm text-gray-300 -mt-2 mb-3">Count the routine tasks your team does every day - like email engagements, extracting forms and entering data, or answering questions.</p>
-                      <Input 
-                        type="number" 
-                        inputMode="numeric" 
-                        pattern="[0-9]*" 
-                        min={0} 
-                        step={1} 
-                        value={tasksPerDay} 
-                        onChange={handleTasksPerDayChange} 
-                        className="text-black font-sans bg-white/90 rounded-lg border-0 shadow-inner transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:bg-white" 
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="text-xl font-medium text-white mb-3 block">
-                        Minutes per employee per day
-                      </label>
-                      <p className="text-sm text-gray-300 -mt-2 mb-3">Average time each employee spends on tasks that could be automated (per day)</p>
-                      <Input 
-                        type="number" 
-                        inputMode="numeric" 
-                        pattern="[0-9]*" 
-                        min={0} 
-                        step={1} 
-                        value={totalTimePerDay} 
-                        onChange={handleTotalTimePerDayChange} 
-                        className="text-black font-sans bg-white/90 rounded-lg border-0 shadow-inner transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:bg-white" 
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="text-xl font-medium text-white mb-3 block">
-                        Average hourly wage? <span className="text-white/70 text-base">(optional)</span>
-                      </label>
-                      <p className="text-sm text-gray-300 -mt-2 mb-3">Estimate the average hourly cost of employees performing these tasks.</p>
-                      <Input 
-                        type="number" 
-                        inputMode="numeric" 
-                        pattern="[0-9]*" 
-                        min={0} 
-                        step={1} 
-                        value={hourlyWage} 
-                        onChange={handleHourlyWageChange} 
-                        placeholder="30"
-                        className="text-black font-sans bg-white/90 rounded-lg border-0 shadow-inner transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:bg-white" 
-                      />
+                {/* Right Column: Output Cards */}
+                <div className="flex flex-col gap-6 order-2 lg:order-2">
+                  {/* Results with Enhanced Points Card */}
+                  <div className="bg-gradient-to-br from-green-600 to-teal-700 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.3s'}}>
+                    <div className="flex flex-col gap-4">
+                      <h3 className="text-xl font-medium text-white">With Enhanced Points</h3>
+                      <div className="text-4xl font-bold text-white mt-2">
+                        ${monthlySavings.toLocaleString(undefined, {maximumFractionDigits: 0})} <span className="text-2xl text-white/70">saved monthly</span>
+                      </div>
+                      
+                      <div className="mt-4">
+                        <p className="text-white/80">Hours saved each month:</p>
+                        <p className="text-3xl font-bold text-green-200">{hoursSaved.toLocaleString(undefined, {maximumFractionDigits: 0})} hours</p>
+                      </div>
+                      
+                      <div className="mt-4">
+                        <p className="text-white/80">Equivalent to:</p>
+                        <p className="text-3xl font-bold text-green-200">{workdaysSaved.toLocaleString(undefined, {maximumFractionDigits: 1})} workdays</p>
+                      </div>
+                      
+                      <div className="mt-2 bg-white/10 p-3 rounded-lg">
+                        <p className="text-white/90 text-sm">
+                          That's {(workdaysSaved / employees).toFixed(1)} days per employee that can be redirected to higher-value work
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Bottom Right Card: Results without Enhanced Points */}
-                <div className="bg-[#0F3D3E]/80 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn order-4 lg:order-3" style={{animationDelay: '0.4s'}}>
-                  <div className="flex flex-col gap-4">
-                    <h3 className="text-xl font-medium text-white">Without Enhanced Points</h3>
-                    <div className="text-4xl font-bold text-white/80 mt-2">
-                      $0 <span className="text-2xl text-white/60">saved</span>
-                    </div>
-                    
-                    <div className="mt-4">
-                      <p className="text-white/80">Time wasted each month:</p>
-                      <p className="text-3xl font-bold text-red-200">{hoursSaved.toLocaleString(undefined, {maximumFractionDigits: 0})} hours</p>
-                    </div>
-                    
-                    <div className="mt-2 bg-white/10 p-3 rounded-lg">
-                      <p className="text-white/90 text-sm">
-                        Your team is spending {(hoursSaved / employees).toFixed(1)} hours per person on tasks that could be automated
-                      </p>
+                  {/* Results without Enhanced Points Card */}
+                  <div className="bg-gradient-to-br from-red-700 to-red-900 backdrop-blur-lg rounded-xl p-6 shadow-md border border-white/10 transform transition-all duration-500 hover:shadow-xl animate-fadeIn" style={{animationDelay: '0.4s'}}>
+                    <div className="flex flex-col gap-4">
+                      <h3 className="text-xl font-medium text-white">Without Enhanced Points</h3>
+                      <div className="text-4xl font-bold text-white/80 mt-2">
+                        $0 <span className="text-2xl text-white/60">saved</span>
+                      </div>
+                      
+                      <div className="mt-4">
+                        <p className="text-white/80">Time wasted each month:</p>
+                        <p className="text-3xl font-bold text-red-200">{hoursSaved.toLocaleString(undefined, {maximumFractionDigits: 0})} hours</p>
+                      </div>
+                      
+                      <div className="mt-2 bg-white/10 p-3 rounded-lg">
+                        <p className="text-white/90 text-sm">
+                          Each employee is spending {(hoursSaved / employees).toFixed(1)} hours/month on tasks that could be automated
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

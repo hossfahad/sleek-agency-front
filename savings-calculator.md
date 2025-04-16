@@ -32,7 +32,7 @@ Inspired by the Yonder design — clean, interactive, and lead-conversion focuse
 ### 2. Average hourly wage ($)
 - `type`: number input (default to $25 if blank)
 - `infotip`:  
-  > "How much do you pay per hour on average? We'll use $25/hr if you’re not sure."
+  > "How much do you pay per hour on average?"
 
 ---
 
