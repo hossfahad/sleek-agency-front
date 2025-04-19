@@ -1,7 +1,7 @@
 # Enhanced Points | Smart Solutions for Your Growing Business
 
 **SEO Title:**  
-Enhanced Points | Intelligent Solutions That Grow Your Business
+Enhanced Points | AI Solutions That Grow Your Business
 
 **SEO Meta Description:**  
 Enhanced Points helps businesses like yours achieve real results—more customers, more time, fewer headaches, and smarter operations through practical AI solutions tailored to your needs.

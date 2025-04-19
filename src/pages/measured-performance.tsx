@@ -21,7 +21,7 @@ const MeasuredPerformance = () => {
 
   // Update document title and meta description
   useEffect(() => {
-    document.title = "Savings Calculator | Sleek Agency";
+    document.title = "Savings Calculator | Enhanced Points | AI-Driven Business Solutions";
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
