@@ -4,17 +4,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import { Link } from "react-router-dom";
+import VoiceDemoCard from "@/components/VoiceDemoCard";
 
 const TransportationIndustry = () => {
-  const [heroRef, heroInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
-
-  const [contentRef, contentInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
+  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [contentRef, contentInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div className="min-h-screen bg-white">
@@ -30,108 +24,119 @@ const TransportationIndustry = () => {
               <span className="text-gray-400">/</span>
               <span className="text-viridian font-medium">Ground Transportation</span>
             </div>
-            
-            <div className={`max-w-3xl transition-all duration-700 ${
-              heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}>
-              <span className="text-xs opacity-60 mb-6 block">[TRANSPORTATION INDUSTRY]</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6">
-                Ground Transportation Solutions
-              </h1>
-              <p className="text-lg md:text-xl text-gray-700 mb-8">
-                Drive more bookings with less admin. From limo companies to local shuttle operators, 
-                we help transportation businesses reduce overhead, handle more bookings, and improve 
-                dispatch reliability using AI-powered automations.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Main Content */}
-        <section className="py-16 md:py-24 px-6 md:px-10 bg-white" ref={contentRef}>
-          <div className="max-w-[1600px] mx-auto">
-            <div className="grid md:grid-cols-12 gap-12">
-              <div className="md:col-span-8">
-                <div className={`mb-16 transition-all duration-700 ${
-                  contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}>
-                  <h2 className="text-3xl font-medium mb-6">Common Time Sinks We Eliminate</h2>
-                  <ul className="list-disc pl-5 space-y-2 text-lg">
-                    <li>Booking confirmations and reschedules done manually</li>
-                    <li>Endless phone calls for pickup times, ETA, and trip changes</li>
-                    <li>Manual dispatch communication between drivers and admins</li>
-                    <li>Billing, receipts, and insurance verification delays</li>
-                  </ul>
-                </div>
-
-                <div className={`mb-16 transition-all duration-700 delay-100 ${
-                  contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}>
-                  <h2 className="text-3xl font-medium mb-6">Sample Automations</h2>
-                  
-                  <div className="space-y-8">
-                    <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                      <h3 className="text-xl font-medium mb-3">AI Booking Line</h3>
-                      <p>A voice agent that books, reschedules, and confirms rides without staff involvement.</p>
-                    </div>
-                    
-                    <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                      <h3 className="text-xl font-medium mb-3">Driver Coordination Tools</h3>
-                      <p>AI-driven alerts for pickup changes, traffic reroutes, and vehicle availability.</p>
-                    </div>
-                    
-                    <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                      <h3 className="text-xl font-medium mb-3">Auto-Invoicing and Receipt Agents</h3>
-                      <p>Automatically generate and send payment confirmations and receipts based on trip completion.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className={`transition-all duration-700 delay-200 ${
-                  contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}>
-                  <h2 className="text-3xl font-medium mb-6">Outcomes We Deliver</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-                    <div className="bg-green-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-green-500 block mb-2">40-70%</span>
-                      <span className="text-sm text-gray-600">Drop in booking-related admin tasks</span>
-                    </div>
-                    <div className="bg-green-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-green-500 block mb-2">↓</span>
-                      <span className="text-sm text-gray-600">Fewer missed pickups</span>
-                    </div>
-                    <div className="bg-green-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-green-500 block mb-2">↑</span>
-                      <span className="text-sm text-gray-600">Faster invoice cycles</span>
-                    </div>
-                    <div className="bg-green-50 p-6 rounded-lg text-center">
-                      <span className="text-4xl font-bold text-green-500 block mb-2">↑</span>
-                      <span className="text-sm text-gray-600">Happier customers</span>
-                    </div>
-                  </div>
-                  <p className="text-lg">
-                    Our transportation clients report significant improvements in operational efficiency, customer satisfaction, and revenue collection while reducing the administrative burden on staff.
-                  </p>
-                </div>
+            <div className={`flex flex-col md:flex-row items-center transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>  
+              <div className="w-full md:w-1/2">
+                <span className="text-xs opacity-60 mb-6 block">[GROUND TRANSPORTATION]</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6">
+                  AI Receptionist & Dispatcher for Ground Transportation
+                </h1>
+                <p className="text-lg md:text-xl text-gray-700 mb-8">
+                  <strong>Answer every call. Dispatch every ride. Without lifting a finger.</strong> <br />
+                  Enhanced Points builds custom AI voice receptionists that answer calls, take trip details, send dispatch messages, and integrate directly with your system—like LimoAnywhere or RideBits.
+                </p>
               </div>
-              
-              <div className="md:col-span-4">
-                <div className={`bg-gray-50 p-6 rounded-lg sticky top-24 transition-all duration-700 delay-300 ${
-                  contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                }`}>
-                  <h3 className="text-xl font-medium mb-4">Don't let phone calls slow down your fleet</h3>
-                  <p className="mb-6">Our automations help you run smoother routes, respond faster to customers, and cut manual work across your operations.</p>
-                  <a 
-                    href="#contact" 
-                    className="block w-full py-3 bg-viridian text-white rounded-lg text-center font-medium hover:bg-cambridge-blue transition-colors"
-                  >
-                    Schedule a Free Strategy Call
-                  </a>
-                </div>
+              <div className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-8">
+                <img src="/images/car-service-receptionist.jpg" alt="Car Service Receptionist" className="w-full rounded-lg shadow-lg" />
               </div>
             </div>
           </div>
         </section>
+
+        {/* Problem & Solution Side-by-Side */}
+        <section className="py-12 px-6 md:px-10 bg-white" ref={contentRef}>
+          <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Problem */}
+            <div className="bg-red-50 p-8 rounded-xl shadow-md transition-all duration-700">
+              <h2 className="text-2xl md:text-3xl font-light mb-4 text-red-600">
+                Problem: You're losing time & money when…
+              </h2>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li><span className="text-red-600 font-semibold">Missed calls</span> from customers ready to book</li>
+                <li><span className="text-red-600 font-semibold">Overwhelmed dispatchers</span> multitasking</li>
+                <li><span className="text-red-600 font-semibold">Manual data entry</span> into LimoAnywhere or RideBits</li>
+                <li><span className="text-red-600 font-semibold">Uncertain customers</span> wondering “Is my car confirmed?”</li>
+              </ul>
+            </div>
+            {/* Solution */}
+            <div className="bg-green-50 p-8 rounded-xl shadow-md transition-all duration-700">
+              <h2 className="text-2xl md:text-3xl font-light mb-4 text-green-700">
+                Our Solution: A Voice AI Built <em>Just</em> for You
+              </h2>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li><span className="text-green-700 font-semibold">24/7 call answering</span> in a natural, human voice</li>
+                <li><span className="text-green-700 font-semibold">Automated ride details</span> (name, time, pickup, dropoff, passengers)</li>
+                <li><span className="text-green-700 font-semibold">Dispatcher notifications</span> for approval or handoff</li>
+                <li><span className="text-green-700 font-semibold">Seamless integration</span> with your limo software (LimoAnywhere or RideBits)</li>
+                <li><span className="text-green-700 font-semibold">Instant confirmations</span> via SMS or email</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
+          <div className="max-w-[900px] mx-auto">
+            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-150 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+              <h2 className="text-2xl md:text-3xl font-light mb-4">
+                How It Works (Step-by-Step)
+              </h2>
+              <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-decimal list-inside text-lg">
+                <li>Customer Calls — AI answers with a warm, professional greeting</li>
+                <li>Gathers Ride Info — Pickup/dropoff, date/time, name, etc.</li>
+                <li>Human Approval — AI sends summary to dispatcher before confirming</li>
+                <li>Dispatch Action — Once approved, AI logs into LimoAnywhere/RideBits or sends dispatch message</li>
+                <li>Driver Gets Notified — Via SMS or email</li>
+                <li>Customer Confirmation — AI sends ride confirmation with full details</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        {/* Integrations Section */}
+        <section className="py-12 px-6 md:px-10 bg-gradient-to-b from-white to-green-50 border-b border-gray-100">
+          <div className="max-w-[900px] mx-auto">
+            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-200 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+              <h2 className="text-2xl md:text-3xl font-light mb-4">
+                Integrated With
+              </h2>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 list-disc list-inside text-lg">
+                <li><strong>LimoAnywhere</strong> – real-time dispatch & customer records</li>
+                <li><strong>RideBits</strong> – modern fleet management with webhook-friendly support</li>
+                <li>Optional: connect with <strong>Twilio, Mailgun, or Slack</strong> for alerts</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Compliance & Privacy Section */}
+        <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
+          <div className="max-w-[900px] mx-auto">
+            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-250 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+              <h2 className="text-2xl md:text-3xl font-light mb-4">
+                Compliance & Privacy
+              </h2>
+              <div className="mb-2 text-lg">
+                <em>We do not store call recordings or sensitive PII.</em> <br />
+                Your AI receptionist operates under strict security guidelines and optional HIPAA-grade handling (upon request).
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Voice Demo Card Section */}
+        <section className="py-12 px-6 md:px-10 bg-transparent">
+          <VoiceDemoCard />
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-12 px-6 md:px-10 bg-white">
+          <div className="max-w-[900px] mx-auto text-center transition-all duration-700 delay-350 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+            <h2 className="text-2xl md:text-3xl font-light mb-4">Ready to Answer Every Call?</h2>
+            <p className="mb-8 text-lg">Schedule a free strategy call to see how Enhanced Points can automate your bookings and dispatch—no obligation, just insights.</p>
+            <a href="#contact" className="inline-block px-8 py-3 bg-viridian text-white font-medium rounded-lg shadow-lg hover:bg-cambridge-blue transition-colors">Book My Free Strategy Call</a>
+          </div>
+        </section>
+
       </main>
       <div id="contact">
         <Contact />

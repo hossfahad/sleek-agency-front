@@ -19,9 +19,23 @@
     <meta name="twitter:description" content="Enhanced Points offers practical AI tools designed to help your business achieve real results." />
     
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <!-- Vapi SDK -->
+    <script src="https://cdn.vapi.ai/vapi-widget.js"></script>
+    <script>
+      if (window.VapiWidget) {
+        window.vapiWidget = VapiWidget.init({
+          assistantId: '68682619-14e2-4ec1-b4c1-b0b5e667b3a7',
+          shareKey: '4a0b1278-fa3a-41af-a9d2-e87151de2da4',
+          autoInit: false,
+          hideWidget: true,
+        });
+      } else {
+        console.error('VapiWidget script failed to load');
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
-</html> 
+</html>
