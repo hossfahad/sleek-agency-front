@@ -20,34 +20,26 @@ const HotelsHospitalityIndustry = () => {
           className="py-24 md:py-32 px-6 md:px-10 bg-gradient-to-b from-white to-orange-50"
           ref={heroRef}
         >
-          <div className="max-w-[1600px] mx-auto">
-            <div className="flex items-center gap-4 mb-12">
-              <Link to="/industries" className="text-gray-500 hover:text-orange-600 transition-colors">
-                Industries
-              </Link>
-              <span className="text-gray-400">/</span>
-              <span className="text-orange-600 font-medium">Hotels & Hospitality</span>
+          <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+            <div className={`transition-all duration-700 ${
+                heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              }`}>
+              <img src="/images/hotel-reception.jpg" alt="Hotel Reception" className="w-full rounded-lg shadow-lg" />
             </div>
-            <div
-              className={`max-w-3xl mx-auto text-center transition-all duration-700 ${
-                heroInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-              }`}
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-4">
-                Experience a Real AI Hotel Receptionist
-              </h1>
-              <p className="text-lg md:text-xl text-gray-700 mb-4">
-                Hear how your guests are greeted 24/7 by our AI concierge.
-              </p>
-              <a
-                href="#demo"
-                className="inline-block px-8 py-3 bg-orange-600 text-white font-medium rounded-lg shadow-lg hover:bg-orange-700 transition-colors"
-              >
+            <div className={`transition-all duration-700 ${
+                heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              }`}>
+              <div className="flex items-center gap-4 mb-6">
+                <Link to="/industries" className="text-gray-500 hover:text-orange-600 transition-colors">Industries</Link>
+                <span className="text-gray-400">/</span>
+                <span className="text-orange-600 font-medium">Hotels & Hospitality</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-4">Experience a Real AI Hotel Receptionist</h1>
+              <p className="text-lg md:text-xl text-gray-700 mb-4">Hear how your guests are greeted 24/7 by our AI concierge.</p>
+              <a href="#demo" className="inline-block px-8 py-3 bg-orange-600 text-white font-medium rounded-lg shadow-lg hover:bg-orange-700 transition-colors mb-4">
                 Experience the AI Concierge →
               </a>
-              <div className="text-sm text-gray-500">
-                Trusted by top independent hotels & boutique properties.
-              </div>
+              <div className="text-sm text-gray-500">Trusted by top independent hotels & boutique properties.</div>
             </div>
           </div>
         </section>
@@ -66,11 +58,11 @@ const HotelsHospitalityIndustry = () => {
           <div className="max-w-[900px] mx-auto">
             <div className="bg-red-50 p-8 rounded-xl shadow-md">
               <h2 className="text-2xl md:text-3xl font-light mb-4 text-red-600">Problem: Front Desk Burnout</h2>
-              <ul className="list-inside text-lg space-y-2">
-                <li><span className="text-red-600 mr-2">🛑</span>Guests can't get through when reception is overwhelmed</li>
-                <li><span className="text-red-600 mr-2">💤</span>Missed calls mean missed bookings and lost revenue</li>
-                <li><span className="text-red-600 mr-2">💬</span>Staff spends hours on repetitive requests (late check-outs, directions, etc.)</li>
-                <li><span className="text-red-600 mr-2">⌛</span>Night shift calls often go unanswered or delayed</li>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li>Guests can't get through when reception is overwhelmed</li>
+                <li>Missed calls mean missed bookings and lost revenue</li>
+                <li>Staff spends hours on repetitive requests (late check-outs, directions, etc.)</li>
+                <li>Night shift calls often go unanswered or delayed</li>
               </ul>
             </div>
           </div>
@@ -81,14 +73,23 @@ const HotelsHospitalityIndustry = () => {
           <div className="max-w-[900px] mx-auto">
             <div className="bg-orange-50 p-8 rounded-xl shadow-md">
               <h2 className="text-2xl md:text-3xl font-light mb-4 text-orange-700">Our Solution: Voice AI That Knows Your Property</h2>
-              <ul className="list-inside text-lg space-y-2">
-                <li><span className="text-orange-700 mr-2">✅</span>Answers guest calls 24/7 with a warm, humanlike voice</li>
-                <li><span className="text-orange-700 mr-2">✅</span>Books rooms, cancels, or updates reservations</li>
-                <li><span className="text-orange-700 mr-2">✅</span>Handles guest questions like check-in times, parking, and amenities</li>
-                <li><span className="text-orange-700 mr-2">✅</span>Escalates complex or VIP calls to your front desk staff</li>
-                <li><span className="text-orange-700 mr-2">✅</span>Integrates with Mews, Cloudbeds, or your custom PMS</li>
+              <ul className="list-disc list-inside text-lg space-y-2">
+                <li>Answers guest calls 24/7 with a warm, humanlike voice</li>
+                <li>Books rooms, cancels, or updates reservations</li>
+                <li>Handles guest questions like check-in times, parking, and amenities</li>
+                <li>Escalates complex or VIP calls to your front desk staff</li>
+                <li>Integrates with Mews, Cloudbeds, or your custom PMS</li>
               </ul>
             </div>
+          </div>
+        </section>
+
+        {/* Multi-language & White-label Section */}
+        <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
+          <div className="max-w-[900px] mx-auto">
+            <p className="text-lg text-gray-700">
+              We offer multi-language support (100+ languages) and fully white-labelled experiences tailored to your hotel’s branding.
+            </p>
           </div>
         </section>
 
@@ -129,11 +130,11 @@ const HotelsHospitalityIndustry = () => {
           </div>
         </section>
 
-        {/* Pricing Note */}
+        {/* Pricing Section */}
         <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
-          <div className="max-w-[900px] mx-auto">
-            <p className="text-lg text-gray-700">
-              Pricing is based on your hotel’s call volume, always transparent, with premier support from our team at all times.
+          <div className="max-w-[900px] mx-auto text-center">
+            <p className="text-lg text-gray-700 mb-4">
+              Pricing is transparent and guarantees a <span className="text-orange-600 text-2xl">40% savings</span> compared to your existing virtual assistant, with broader language support and a more curated, tailored experience for your customers.
             </p>
           </div>
         </section>
