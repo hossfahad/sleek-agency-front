@@ -171,6 +171,22 @@ const Navbar = () => {
                           <p className="text-xs text-gray-500 mt-1">Booking & dispatch automation</p>
                         </div>
                       </Link>
+
+                      <Link 
+                        to="/industries/restaurants-takeouts" 
+                        className="flex items-center gap-3 text-gray-700 hover:text-viridian transition-colors group/item"
+                        onClick={handleLinkClick}
+                      >
+                        <div className="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center group-hover/item:bg-yellow-100 transition-colors">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7h18v13H3V7zM5 7V5a3 3 0 016 0v2M13 7V5a3 3 0 016 0v2" />
+                          </svg>
+                        </div>
+                        <div>
+                          <span className="font-medium">Restaurants & Takeouts</span>
+                          <p className="text-xs text-gray-500 mt-1">Order & delivery automation</p>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 </li>
@@ -267,6 +283,13 @@ const Navbar = () => {
                       onClick={handleLinkClick}
                     >
                       Ground Transportation
+                    </Link>
+                    <Link 
+                      to="/industries/restaurants-takeouts" 
+                      className={`block py-2 ${location.pathname === "/industries/restaurants-takeouts" ? "text-viridian" : "text-gray-600"}`} 
+                      onClick={handleLinkClick}
+                    >
+                      Restaurants & Takeouts
                     </Link>
                   </div>
                 )}

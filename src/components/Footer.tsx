@@ -82,7 +82,11 @@ const Footer = () => {
                   Transportation
                 </Link>
               </li>
-              
+              <li>
+                <Link to="/industries/restaurants-takeouts" className="text-gray-500 hover:text-viridian transition-colors">
+                  Restaurants & Takeouts
+                </Link>
+              </li>
             </ul>
           </div>
           

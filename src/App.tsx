@@ -18,6 +18,7 @@ import HealthcareIndustry from "./pages/industries/healthcare";
 import FinancialServicesIndustry from "./pages/industries/financial-services";
 import HotelsHospitalityIndustry from "./pages/industries/hotels-hospitality";
 import TransportationIndustry from "./pages/industries/transportation";
+import RestaurantsTakeoutsIndustry from "./pages/industries/restaurants-takeouts";
 import { useScrollManager } from "./hooks/useScrollManager";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const AppRoutes = () => {
       <Route path="/industries/financial-services" element={<FinancialServicesIndustry />} />
       <Route path="/industries/hotels-hospitality" element={<HotelsHospitalityIndustry />} />
       <Route path="/industries/transportation" element={<TransportationIndustry />} />
+      <Route path="/industries/restaurants-takeouts" element={<RestaurantsTakeoutsIndustry />} />
       
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />

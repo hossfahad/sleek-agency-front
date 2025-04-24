@@ -47,6 +47,16 @@ const industries = [
     link: "/industries/transportation"
   },
   {
+    title: "Restaurants & Takeouts",
+    description: "Turn missed calls into paid orders. Enhanced Points helps restaurants answer every call, take accurate orders, and send instant confirmations — with no third-party fees or new hardware required.",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7h18v13H3V7zM5 7V5a3 3 0 016 0v2M13 7V5a3 3 0 016 0v2" />
+      </svg>
+    ),
+    link: "/industries/restaurants-takeouts"
+  },
+  {
     title: "eCommerce Markets",
     description: "Enhance customer engagement, automate inventory management, and deliver hyper-personalized shopping experiences that drive conversion and loyalty.",
     icon: (

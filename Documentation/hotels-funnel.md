@@ -103,4 +103,4 @@ Let me know if you want me to generate:
 - Bubble-style inquiry previews
 - A revised Vapi test card image for the hotel demo
 
-Ready to move into **Spas & Salons** next when you are.
+Ready to move into **Spas & Salons** next when you are.npm install @heroicons/react
