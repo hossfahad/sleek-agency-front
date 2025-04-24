@@ -9,7 +9,6 @@ import { PhoneIcon, CalendarIcon, ChatBubbleLeftRightIcon, UserIcon, EnvelopeIco
 
 const HotelsHospitalityIndustry = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [partnersRef, partnersInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div className="min-h-screen bg-white">
@@ -53,9 +52,10 @@ const HotelsHospitalityIndustry = () => {
           />
         </section>
 
-        {/* Problem Section */}
+        {/* Problem and Solution Bento Section */}
         <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
-          <div className="max-w-[900px] mx-auto">
+          <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Problem */}
             <div className="bg-red-50 p-8 rounded-xl shadow-md">
               <h2 className="text-2xl md:text-3xl font-light mb-4 text-red-600">Problem: Front Desk Burnout</h2>
               <ul className="list-disc list-inside text-lg space-y-2">
@@ -65,12 +65,7 @@ const HotelsHospitalityIndustry = () => {
                 <li>Night shift calls often go unanswered or delayed</li>
               </ul>
             </div>
-          </div>
-        </section>
-
-        {/* Solution Section */}
-        <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
-          <div className="max-w-[900px] mx-auto">
+            {/* Solution */}
             <div className="bg-orange-50 p-8 rounded-xl shadow-md">
               <h2 className="text-2xl md:text-3xl font-light mb-4 text-orange-700">Our Solution: Voice AI That Knows Your Property</h2>
               <ul className="list-disc list-inside text-lg space-y-2">
@@ -131,8 +126,8 @@ const HotelsHospitalityIndustry = () => {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
-          <div className="max-w-[900px] mx-auto text-center">
+        <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100 text-center">
+          <div className="max-w-[900px] mx-auto">
             <p className="text-lg text-gray-700 mb-4">
               Pricing is transparent and guarantees a <span className="text-orange-600 text-2xl">40% savings</span> compared to your existing virtual assistant, with broader language support and a more curated, tailored experience for your customers.
             </p>
@@ -140,8 +135,8 @@ const HotelsHospitalityIndustry = () => {
         </section>
 
         {/* Partners & CTA */}
-        <section className="py-12 px-6 md:px-10 bg-gradient-to-b from-white to-orange-50" ref={partnersRef}>
-          <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-700 ${partnersInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+        <section className="py-12 px-6 md:px-10 bg-gradient-to-b from-white to-orange-50">
+          <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Tech Partners */}
             <div className="bg-white p-8 rounded-xl shadow-md">
               <h2 className="text-2xl md:text-3xl font-light mb-4">
