@@ -82,7 +82,7 @@ const RestaurantsTakeoutsIndustry = () => {
           <div className="max-w-[900px] mx-auto">
             <h2 className="text-2xl md:text-3xl font-medium mb-6">Menu-to-Mouth Workflow</h2>
             <ol className="list-decimal list-inside space-y-2 text-lg">
-              <li><strong>Customer calls in</strong></li>
+              <li>Customer calls in</li>
               <li>AI takes the order and confirms total</li>
               <li>Customer is able to pay instantly.</li>
               <li>Order is integrated into your POS (Stripe, Clover) automatically</li>
