@@ -83,7 +83,7 @@ const HotelsHospitalityIndustry = () => {
         <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
           <div className="max-w-[900px] mx-auto">
             <p className="text-lg text-gray-700">
-              We offer multi-language support (100+ languages) and fully white-labelled experiences tailored to your hotel’s branding.
+              We offer multi-language support (20+ languages) and fully white-labelled experiences tailored to your hotel’s branding.
             </p>
           </div>
         </section>

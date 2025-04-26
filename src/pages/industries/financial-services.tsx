@@ -22,23 +22,23 @@ const FinancialServicesIndustry = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="py-24 md:py-32 px-6 md:px-10 bg-gradient-to-b from-white to-blue-50" ref={heroRef}>
-          <div className="max-w-[1600px] mx-auto">
-            <div className="flex items-center gap-4 mb-12">
-              <Link to="/industries" className="text-gray-500 hover:text-viridian transition-colors">
-                Industries
-              </Link>
-              <span className="text-gray-400">/</span>
-              <span className="text-viridian font-medium">Financial Services</span>
+          <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+            <div className={`transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+              <img src="/images/financial-services-hero.jpg" alt="Financial Services" className="w-full md:w-3/5 rounded-lg shadow-lg mx-auto" />
             </div>
-            
-            <div className={`max-w-3xl transition-all duration-700 ${
-              heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}>
-              <span className="text-xs opacity-60 mb-6 block">[FINANCIAL SERVICES]</span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-6">
+            <div className={`max-w-3xl transition-all duration-700 ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+              <div className="flex items-center gap-4 mb-6">
+                <Link to="/industries" className="text-gray-500 hover:text-viridian transition-colors">
+                  Industries
+                </Link>
+                <span className="text-gray-400">/</span>
+                <span className="text-viridian font-medium">Financial Services</span>
+              </div>
+              <span className="text-xs opacity-60 mb-4 block">[FINANCIAL SERVICES]</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-4">
                 Financial Services Solutions
               </h1>
-              <p className="text-lg md:text-xl text-gray-700 mb-8">
+              <p className="text-lg md:text-xl text-gray-700 mb-6">
                 Support large-scale data servicing, client interactions, document processing, and 
                 regulatory compliance with intelligent automation systems.
               </p>
