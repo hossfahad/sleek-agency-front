@@ -20,7 +20,7 @@ import HotelsHospitalityIndustry from "./pages/industries/hotels-hospitality";
 import TransportationIndustry from "./pages/industries/transportation";
 import RestaurantsTakeoutsIndustry from "./pages/industries/restaurants-takeouts";
 import ProductsIndex from "./pages/products/index";
-// import AIRPage from "./pages/products/air";
+import AIRPage from "./pages/products/air";
 import { useScrollManager } from "./hooks/useScrollManager";
 import VapiLoader from "./components/VapiLoader";
 
@@ -50,7 +50,7 @@ const AppRoutes = () => {
       
       {/* Products Routes */}
       <Route path="/products" element={<ProductsIndex />} />
-      {/* <Route path="/products/air" element={<AIRPage />} /> */}
+      <Route path="/products/air" element={<AIRPage />} />
       
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
