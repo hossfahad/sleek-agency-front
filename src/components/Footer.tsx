@@ -69,17 +69,17 @@ const Footer = () => {
     </Link>
   </li>
   <li>
-    <Link to="/products/aisa" className="text-gray-400 cursor-default" aria-disabled="true">
+                <Link to="#" className="text-gray-400 cursor-default" aria-disabled="true">
       <span className="font-semibold">AI:SA</span> – AI SDR <i>(Coming Soon)</i>
     </Link>
   </li>
   <li>
-    <Link to="/products/aime" className="text-gray-400 cursor-default" aria-disabled="true">
+                <Link to="#" className="text-gray-400 cursor-default" aria-disabled="true">
       <span className="font-semibold">AI:M</span> – AI Marketing Agent <i>(Coming Soon)</i>
     </Link>
   </li>
   <li>
-    <Link to="/products/aics" className="text-gray-400 cursor-default" aria-disabled="true">
+                <Link to="#" className="text-gray-400 cursor-default" aria-disabled="true">
       <span className="font-semibold">AI:CE</span> – AI Customer Engagement <i>(Coming Soon)</i>
     </Link>
   </li>
@@ -121,6 +121,8 @@ const Footer = () => {
         <div className="pt-6 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm text-gray-500 mb-4 md:mb-0">
             &copy; {year} Enhanced Points. All rights reserved.
+            <br />
+            <span className="block mt-1">Enhanced Points is based in New York, serving clients globally.</span>
           </div>
           
           <div className="text-sm text-gray-500">

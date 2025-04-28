@@ -194,7 +194,7 @@ const Navbar = () => {
                   <Link
                     to="/use-cases"
                     className={`py-2 px-1 inline-flex items-center transition-colors hover:text-viridian relative ${
-                      location.pathname.includes("/use-cases") ? 
+                      location.pathname.includes("#") ? 
                       "text-viridian after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-viridian" : 
                       "text-gray-700"
                     }`}
