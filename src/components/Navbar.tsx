@@ -311,11 +311,11 @@ const Navbar = () => {
               </li>
               <li>
                 <Link 
-                  to="/use-cases" 
+                  to="#" 
                   className={`block py-2 ${location.pathname.includes("/use-cases") ? "text-viridian font-medium" : "text-gray-700"}`}
                   onClick={handleLinkClick}
                 >
-                  Solutions
+                  Agents
                 </Link>
                 <ul className="ml-4 mt-1 space-y-1">
                   <li>
@@ -324,7 +324,7 @@ const Navbar = () => {
                       className={`block py-1 pl-2 text-sm ${location.pathname === "/products/air" ? "text-viridian font-semibold" : "text-gray-600"}`}
                       onClick={handleLinkClick}
                     >
-                      AIR Product
+                      AI:R - Receptionist Agent
                     </Link>
                   </li>
                 </ul>
