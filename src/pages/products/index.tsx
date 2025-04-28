@@ -1,7 +1,5 @@
 import React from 'react';
-import { Trans } from '@lingui/macro';
 import { Link } from 'react-router-dom';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import Head from '@/components/Head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -74,14 +72,13 @@ const ProductsIndex = () => {
           title="AI Products for Business Automation | Enhanced Points"
           description="Discover Enhanced Points' suite of AI products designed to automate and enhance your business operations."
         />
-        <Breadcrumbs path={[{ label: 'Home', href: '/' }, { label: 'Products', href: '/products' }]} />
         <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 glassmorphism">
-              <Trans>Enhanced Points AI Products</Trans>
+              <span>Enhanced Points AI Products</span>
             </h1>
             <p className="text-xl max-w-3xl mx-auto">
-              <Trans>Our suite of AI solutions designed to automate and enhance your business operations.</Trans>
+              <span>Our suite of AI solutions designed to automate and enhance your business operations.</span>
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -102,14 +99,14 @@ const ProductsIndex = () => {
                     to={`/products/${product.id}`}
                     className="inline-block px-4 py-2 bg-viridian text-white rounded-lg font-medium hover:bg-cambridge-blue transition-colors"
                   >
-                    <Trans>Learn More</Trans>
+                    <span>Learn More</span>
                   </Link>
                 ) : (
                   <Link 
                     to={`/products/${product.id}`}
                     className="inline-block px-4 py-2 bg-gray-700 text-white rounded-lg font-medium cursor-pointer"
                   >
-                    <Trans>Coming Soon</Trans>
+                    <span>Coming Soon</span>
                   </Link>
                 )}
               </div>

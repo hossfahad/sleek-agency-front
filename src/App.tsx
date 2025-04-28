@@ -19,7 +19,10 @@ import FinancialServicesIndustry from "./pages/industries/financial-services";
 import HotelsHospitalityIndustry from "./pages/industries/hotels-hospitality";
 import TransportationIndustry from "./pages/industries/transportation";
 import RestaurantsTakeoutsIndustry from "./pages/industries/restaurants-takeouts";
+import ProductsIndex from "./pages/products/index";
+// import AIRPage from "./pages/products/air";
 import { useScrollManager } from "./hooks/useScrollManager";
+import VapiLoader from "./components/VapiLoader";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +48,10 @@ const AppRoutes = () => {
       <Route path="/industries/transportation" element={<TransportationIndustry />} />
       <Route path="/industries/restaurants-takeouts" element={<RestaurantsTakeoutsIndustry />} />
       
+      {/* Products Routes */}
+      <Route path="/products" element={<ProductsIndex />} />
+      {/* <Route path="/products/air" element={<AIRPage />} /> */}
+      
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
@@ -57,6 +64,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <VapiLoader />
         <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>

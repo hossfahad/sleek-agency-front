@@ -4,9 +4,10 @@ const Footer = () => {
   const year = new Date().getFullYear();
   
   return (
-    <footer className="py-12 px-6 md:px-10 border-t border-gray-100 bg-white">
-      <div className="max-w-[1600px] mx-auto">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+    <footer className="bg-white border-t border-gray-100 text-gray-700 text-sm">
+      <div className="max-w-[1600px] mx-auto px-4 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-0 lg:pl-20">
+          {/* Column 1: Logo/About */}
           <div>
             <div className="mb-6">
               <img 
@@ -32,23 +33,13 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
-          <div>
-            <h4 className="text-base font-medium mb-4 text-gray-900">Pages</h4>
-            <ul className="space-y-3">
+          {/* Column 2: Enhanced Points + Contact */}
+          <div className="lg:pl-20">
+            <h4 className="text-base font-medium mb-4 text-gray-900">Enhanced Points</h4>
+            <ul className="space-y-3 mb-6">
               <li>
                 <Link to="/" className="text-gray-500 hover:text-viridian transition-colors">
                   Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/industries" className="text-gray-500 hover:text-viridian transition-colors">
-                  Industries
-                </Link>
-              </li>
-              <li>
-                <Link to="/use-cases" className="text-gray-500 hover:text-viridian transition-colors">
-                  Solutions
                 </Link>
               </li>
               <li>
@@ -56,6 +47,42 @@ const Footer = () => {
                   Savings Calculator
                 </Link>
               </li>
+              <li>
+  <a
+                  href="https://medium.com/enhanced-points"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-500 hover:text-viridian transition-colors"
+  >
+    Blog
+  </a>
+</li>
+            </ul>
+          </div>
+          {/* Column 3: Agent Solutions */}
+          <div>
+            <h4 className="text-base font-medium mb-4 text-gray-900">Agent Solutions</h4>
+            <ul className="space-y-3">
+            <li>
+    <Link to="/products/air" className="text-gray-500 hover:text-viridian transition-colors">
+      <span className="font-semibold">AI:R</span> – Receptionist Agent
+    </Link>
+  </li>
+  <li>
+    <Link to="/products/aisa" className="text-gray-400 cursor-default" aria-disabled="true">
+      <span className="font-semibold">AI:SA</span> – AI SDR <i>(Coming Soon)</i>
+    </Link>
+  </li>
+  <li>
+    <Link to="/products/aime" className="text-gray-400 cursor-default" aria-disabled="true">
+      <span className="font-semibold">AI:M</span> – AI Marketing Agent <i>(Coming Soon)</i>
+    </Link>
+  </li>
+  <li>
+    <Link to="/products/aics" className="text-gray-400 cursor-default" aria-disabled="true">
+      <span className="font-semibold">AI:CE</span> – AI Customer Engagement <i>(Coming Soon)</i>
+    </Link>
+  </li>
             </ul>
           </div>
           
@@ -88,22 +115,6 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-base font-medium mb-4 text-gray-900">Contact</h4>
-            <a href="mailto:inquire@enhancedpoints.com" className="text-gray-500 hover:text-viridian transition-colors block mb-3">
-              inquire@enhancedpoints.com
-            </a>
-            <p className="text-sm text-gray-500 mb-4">
-              Enhanced Points is based in New York, serving clients globally.
-            </p>
-            <a 
-              href="#contact" 
-              className="inline-flex items-center justify-center px-4 py-2 text-sm bg-viridian text-white rounded-lg hover:bg-viridian/90 transition-colors"
-            >
-              Get in Touch
-            </a>
           </div>
         </div>
         

@@ -190,17 +190,32 @@ const Navbar = () => {
                     </div>
                   </div>
                 </li>
-                <li>
-                  <Link 
-                    to="/use-cases" 
-                    className={`py-2 px-1 inline-block transition-colors hover:text-viridian relative ${
+                <li className="relative group">
+                  <Link
+                    to="/use-cases"
+                    className={`py-2 px-1 inline-flex items-center transition-colors hover:text-viridian relative ${
                       location.pathname.includes("/use-cases") ? 
                       "text-viridian after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-viridian" : 
                       "text-gray-700"
                     }`}
+                    onClick={handleLinkClick}
                   >
-                    Solutions
+                    Agents
+                    <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                   </Link>
+
+                  <div className="absolute top-full left-0 w-[320px] pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden p-6 grid gap-6 border border-gray-100">
+                      <Link
+                        to="/products/air"
+                        className="flex flex-col gap-2 text-gray-700 hover:text-viridian transition-colors"
+                        onClick={handleLinkClick}
+                      >
+                        <span className="font-medium"><strong>AI:R - Receptionist Agent</strong></span>
+                        <span className="text-sm">Your 24/7 virtual receptionist that handles calls, books appointments, and provides a professional first impression.</span>
+                      </Link>
+                    </div>
+                  </div>
                 </li>
                 <li>
                   <Link 
@@ -244,7 +259,7 @@ const Navbar = () => {
                   onClick={() => setIndustriesOpen(!industriesOpen)}
                 >
                   <span>Industries</span>
-                  {industriesOpen ? <ChevronUp className="h-5 w-5" /> : <ChevronDown className="h-5 w-5" />}
+                  {industriesOpen ? <ChevronUp className="h-span5" /> : <ChevronDown className="h-5 w-5" />}
                 </button>
                 
                 {industriesOpen && (
@@ -302,6 +317,17 @@ const Navbar = () => {
                 >
                   Solutions
                 </Link>
+                <ul className="ml-4 mt-1 space-y-1">
+                  <li>
+                    <Link
+                      to="/products/air"
+                      className={`block py-1 pl-2 text-sm ${location.pathname === "/products/air" ? "text-viridian font-semibold" : "text-gray-600"}`}
+                      onClick={handleLinkClick}
+                    >
+                      AIR Product
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li>
                 <Link 
