@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Head from '@/components/Head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Contact from '@/components/Contact';
 import { useInView } from 'react-intersection-observer';
+import { useVoiceDemo } from '@/hooks/useVoiceDemo';
 
 const featureSteps = [
   {
@@ -51,10 +52,15 @@ const SectionFadeIn: React.FC<{ children: React.ReactNode; className?: string }>
 };
 
 const AIRPage = () => {
+  const { start, stop, active } = useVoiceDemo(
+    '4a0b1278-fa3a-41af-a9d2-e87151de2da4',
+    'dbb5dc71-8c84-4f52-aae6-6ffe31792344'
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#e9f9f7] via-[#f0fbf7] to-[#b7e5e1] flex flex-col" style={{ fontFamily: "'Inter', 'Open Sans', sans-serif" }}>
       <Navbar />
-      <Head title="AIR Product – AI Receptionist | Enhanced Points" description="Meet AIR, your always-on AI receptionist. Handles calls, books appointments, takes orders, and delivers a professional customer experience for service businesses." />
+      <Head title="AIR Agent – AI Receptionist | Enhanced Points" description="Meet AIR, your always-on AI receptionist agent. Handles calls, books appointments, takes orders, and delivers a professional customer experience for service businesses." />
       <main className="flex-grow">
         {/* HERO SECTION */}
         <SectionFadeIn>
@@ -83,9 +89,20 @@ const AIRPage = () => {
                 <p className="mt-6 text-2xl md:text-3xl text-gray-700 font-thin max-w-3xl animate-fade-in-up delay-100">
                   Your autonomous, always-on AI receptionist. Every call, every time—handled with calm, clarity, and a human touch.
                 </p>
-                <a href="#contact" className="mt-12 px-12 py-4 rounded-2xl bg-gradient-to-r from-viridian to-cambridge-blue text-white text-2xl font-thin shadow-xl hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-200">
-                  Ask for a Demo
-                </a>
+                <div className="mt-12 flex flex-wrap items-center space-x-4 animate-fade-in-up delay-200">
+                  <a
+                    href="#contact"
+                    className="px-8 py-3 rounded-2xl bg-gradient-to-r from-viridian to-cambridge-blue text-white text-xl font-thin shadow-xl hover:scale-105 transition-transform duration-300"
+                  >
+                    Schedule a Demo
+                  </a>
+                  <button
+                    onClick={() => (active ? stop() : start())}
+                    className="px-6 py-3 rounded-2xl bg-white/80 text-xl text-viridian font-thin shadow hover:scale-105 transition-transform duration-300"
+                  >
+                    {active ? 'Hang up' : 'Try it out'}
+                  </button>
+                </div>
               </div>
             </div>
           </div>

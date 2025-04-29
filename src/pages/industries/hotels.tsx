@@ -4,11 +4,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import { Link } from "react-router-dom";
-import VoiceDemoCard from "@/components/VoiceDemoCard";
+import { useVoiceDemo } from '@/hooks/useVoiceDemo';
 
 const HotelsIndustry = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [partnersRef, partnersInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { start, stop, active } = useVoiceDemo(
+    '4a0b1278-ef0f-4ddc-9d21-bd3ccddf52b6',
+    '9f6a46f6-ef0f-4ddc-9d21-bd3ccddf52b6'
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -50,7 +54,14 @@ const HotelsIndustry = () => {
 
         {/* Demo Section */}
         <section id="demo" className="py-12 px-6 md:px-10 bg-white">
-          <VoiceDemoCard assistantId="9f6a46f6-ef0f-4ddc-9d21-bd3ccddf52b6" />
+          <div className="max-w-xl mx-auto text-center">
+            <button
+              onClick={() => (active ? stop() : start())}
+              className="w-full max-w-xs py-3 px-6 rounded-full bg-viridian text-white font-medium shadow hover:bg-cambridge-blue transition-colors"
+            >
+              {active ? 'Stop Demo' : 'Try the AI Concierge Now →'}
+            </button>
+          </div>
         </section>
 
         {/* Partners & CTA */}

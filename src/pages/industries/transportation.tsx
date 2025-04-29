@@ -4,11 +4,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import { Link } from "react-router-dom";
-import VoiceDemoCard from "@/components/VoiceDemoCard";
+import { useVoiceDemo } from '@/hooks/useVoiceDemo';
 
 const TransportationIndustry = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [contentRef, contentInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { start, stop, active } = useVoiceDemo(
+    '4a0b1278-fa3a-41af-a9d2-e87151de2da4',
+    '68682619-14e2-4ec1-b4c1-b0b5e667b3a7'
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -34,6 +37,12 @@ const TransportationIndustry = () => {
                   <strong>Answer every call. Dispatch every ride. Without lifting a finger.</strong> <br />
                   Enhanced Points builds custom AI voice receptionists that answer calls, take trip details, send dispatch messages, and integrate directly with your system—like LimoAnywhere or RideBits.
                 </p>
+                <button
+                  onClick={() => (active ? stop() : start())}
+                  className="inline-block px-8 py-3 bg-viridian text-white font-medium rounded-lg shadow-lg hover:bg-cambridge-blue transition-colors mt-6"
+                >
+                  {active ? 'Stop Demo' : 'Try a Live Voice Demo'}
+                </button>
               </div>
               <div className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-8">
                 <img src="/images/car-service-receptionist.jpg" alt="Car Service Receptionist" className="w-full rounded-lg shadow-lg" />
@@ -43,7 +52,7 @@ const TransportationIndustry = () => {
         </section>
 
         {/* Problem & Solution Side-by-Side */}
-        <section className="py-12 px-6 md:px-10 bg-white" ref={contentRef}>
+        <section className="py-12 px-6 md:px-10 bg-white">
           <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Problem */}
             <div className="bg-red-50 p-8 rounded-xl shadow-md transition-all duration-700">
@@ -76,7 +85,7 @@ const TransportationIndustry = () => {
         {/* How It Works Section */}
         <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
           <div className="max-w-[900px] mx-auto">
-            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-150 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-150">
               <h2 className="text-2xl md:text-3xl font-light mb-4">
                 How It Works (Step-by-Step)
               </h2>
@@ -95,7 +104,7 @@ const TransportationIndustry = () => {
         {/* Integrations Section */}
         <section className="py-12 px-6 md:px-10 bg-gradient-to-b from-white to-green-50 border-b border-gray-100">
           <div className="max-w-[900px] mx-auto">
-            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-200 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-200">
               <h2 className="text-2xl md:text-3xl font-light mb-4">
                 Integrated With
               </h2>
@@ -111,7 +120,7 @@ const TransportationIndustry = () => {
         {/* Compliance & Privacy Section */}
         <section className="py-12 px-6 md:px-10 bg-white border-b border-gray-100">
           <div className="max-w-[900px] mx-auto">
-            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-250 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+            <div className="bg-white p-8 rounded-xl shadow-md transition-all duration-700 delay-250">
               <h2 className="text-2xl md:text-3xl font-light mb-4">
                 Compliance & Privacy
               </h2>
@@ -123,14 +132,9 @@ const TransportationIndustry = () => {
           </div>
         </section>
 
-        {/* Voice Demo Card Section */}
-        <section className="py-12 px-6 md:px-10 bg-transparent">
-          <VoiceDemoCard />
-        </section>
-
         {/* CTA Section */}
         <section className="py-12 px-6 md:px-10 bg-white">
-          <div className="max-w-[900px] mx-auto text-center transition-all duration-700 delay-350 ${contentInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}">
+          <div className="max-w-[900px] mx-auto text-center transition-all duration-700 delay-350">
             <h2 className="text-2xl md:text-3xl font-light mb-4">Ready to Answer Every Call?</h2>
             <p className="mb-8 text-lg">Schedule a free strategy call to see how Enhanced Points can automate your bookings and dispatch—no obligation, just insights.</p>
             <a href="#contact" className="inline-block px-8 py-3 bg-viridian text-white font-medium rounded-lg shadow-lg hover:bg-cambridge-blue transition-colors">Book My Free Strategy Call</a>
