@@ -4,12 +4,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import { Link } from "react-router-dom";
+import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 
 const RestaurantsTakeoutsIndustry = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div className="min-h-screen bg-white">
+      <AnnouncementBanner />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

@@ -4,6 +4,7 @@ import { Input } from '../components/ui/input';
 import { Tooltip, TooltipTrigger, TooltipContent } from '../components/ui/tooltip';
 import { Button } from '../components/ui/button';
 import { calculateSavings } from '../lib/utils';
+import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 
 const SavingsCalculator = () => {
   const [employees, setEmployees] = useState(0);
@@ -11,10 +12,11 @@ const SavingsCalculator = () => {
   const [tasksPerDay, setTasksPerDay] = useState(0);
   const [timePerTask, setTimePerTask] = useState(0);
 
-  const { hoursSaved, monthlySavings, workdaysSaved } = calculateSavings(tasksPerDay, timePerTask, hourlyWage);
+  const { hoursSaved, monthlySavings, workdaysSaved } = calculateSavings(employees, tasksPerDay, timePerTask, hourlyWage);
 
   return (
     <div className="min-h-screen bg-[#0F3D3E] text-white p-6">
+      <AnnouncementBanner />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h2 className="text-xl font-bold mb-4">Input Your Details</h2>

@@ -17,8 +17,8 @@ const HotelsIndustry = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       <AnnouncementBanner />
+      <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
         <section

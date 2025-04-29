@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Head from '@/components/Head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Contact from '@/components/Contact';
 import { useInView } from 'react-intersection-observer';
-import { useVoiceDemo } from '@/hooks/useVoiceDemo';
 
 const featureSteps = [
   {
@@ -52,10 +51,21 @@ const SectionFadeIn: React.FC<{ children: React.ReactNode; className?: string }>
 };
 
 const AIRPage = () => {
-  const { start, stop, active } = useVoiceDemo(
-    '4a0b1278-fa3a-41af-a9d2-e87151de2da4',
-    'dbb5dc71-8c84-4f52-aae6-6ffe31792344'
-  );
+  const vapiInstanceRef = useRef<any>(null);
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@vapi-ai/web';
+    script.async = true;
+    script.onload = () => {
+      vapiInstanceRef.current = (window as any).vapiAssistant({
+        assistantId: 'dbb5dc71-8c84-4f52-aae6-6ffe31792344',
+        showFab: false,
+        theme: 'light',
+      });
+    };
+    document.body.appendChild(script);
+    return () => { document.body.removeChild(script); };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#e9f9f7] via-[#f0fbf7] to-[#b7e5e1] flex flex-col" style={{ fontFamily: "'Inter', 'Open Sans', sans-serif" }}>
@@ -89,18 +99,18 @@ const AIRPage = () => {
                 <p className="mt-6 text-2xl md:text-3xl text-gray-700 font-thin max-w-3xl animate-fade-in-up delay-100">
                   Your autonomous, always-on AI receptionist. Every call, every time—handled with calm, clarity, and a human touch.
                 </p>
-                <div className="mt-12 flex flex-wrap items-center space-x-4 animate-fade-in-up delay-200">
+                <div className="flex items-center mt-8 animate-fade-in-up delay-200 space-x-4">
                   <a
                     href="#contact"
-                    className="px-8 py-3 rounded-2xl bg-gradient-to-r from-viridian to-cambridge-blue text-white text-xl font-thin shadow-xl hover:scale-105 transition-transform duration-300"
+                    className="px-6 py-2 rounded-2xl bg-gradient-to-r from-viridian to-cambridge-blue text-white text-lg font-thin shadow-xl hover:scale-105 transition-transform duration-300"
                   >
-                    Schedule a Demo
+                    Schedule a Call
                   </a>
                   <button
-                    onClick={() => (active ? stop() : start())}
-                    className="px-6 py-3 rounded-2xl bg-white/80 text-xl text-viridian font-thin shadow hover:scale-105 transition-transform duration-300"
+                    onClick={() => vapiInstanceRef.current?.start()}
+                    className="px-6 py-2 rounded-2xl bg-white/80 text-lg text-viridian font-thin shadow hover:scale-105 transition-transform duration-300"
                   >
-                    {active ? 'Hang up' : 'Try it out'}
+                    Try out AIR
                   </button>
                 </div>
               </div>

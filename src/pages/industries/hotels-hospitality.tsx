@@ -6,12 +6,15 @@ import Contact from "@/components/Contact";
 import { Link } from "react-router-dom";
 import VoiceDemoCard from "@/components/VoiceDemoCard";
 import { PhoneIcon, CalendarIcon, ChatBubbleLeftRightIcon, UserIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 
 const HotelsHospitalityIndustry = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <div className="min-h-screen bg-white">
+
+      <AnnouncementBanner />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

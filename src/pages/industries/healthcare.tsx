@@ -14,8 +14,8 @@ const HealthcareIndustry = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
       <AnnouncementBanner />
+      <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="py-24 md:py-32 px-6 md:px-10 bg-gradient-to-b from-white to-red-50" ref={heroRef}>
