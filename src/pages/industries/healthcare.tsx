@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import { Link } from "react-router-dom";
+import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 
 const HealthcareIndustry = () => {
   const [heroRef, heroInView] = useInView({
@@ -14,6 +15,7 @@ const HealthcareIndustry = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <AnnouncementBanner />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="py-24 md:py-32 px-6 md:px-10 bg-gradient-to-b from-white to-red-50" ref={heroRef}>

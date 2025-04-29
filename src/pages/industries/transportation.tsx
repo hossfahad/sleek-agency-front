@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import { Link } from "react-router-dom";
 import { useVoiceDemo } from '@/hooks/useVoiceDemo';
+import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 
 const TransportationIndustry = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -16,6 +17,7 @@ const TransportationIndustry = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
+      <AnnouncementBanner />
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="py-24 md:py-32 px-6 md:px-10 bg-gradient-to-b from-white to-green-50" ref={heroRef}>
