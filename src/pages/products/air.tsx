@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Contact from '@/components/Contact';
 import { useInView } from 'react-intersection-observer';
+import Vapi from "@vapi-ai/web";
 
 const featureSteps = [
   {
@@ -38,11 +39,12 @@ const featureSteps = [
   }
 ];
 
-const SectionFadeIn: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
+const SectionFadeIn: React.FC<{ children: React.ReactNode; className?: string; id?: string }> = ({ children, className = '', id }) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
   return (
     <section
       ref={ref}
+      id={id}
       className={`transition-all duration-700 ease-out transform ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}
     >
       {children}
@@ -51,21 +53,109 @@ const SectionFadeIn: React.FC<{ children: React.ReactNode; className?: string }>
 };
 
 const AIRPage = () => {
-  const vapiInstanceRef = useRef<any>(null);
+  const [call, setCall] = useState<any>(null);
+  const [active, setActive] = useState(false);
+  const vapi = useRef<any>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const micStreamRef = useRef<MediaStream | null>(null);
+
+  // Create a hidden audio element to help force audio context closure
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@vapi-ai/web';
-    script.async = true;
-    script.onload = () => {
-      vapiInstanceRef.current = (window as any).vapiAssistant({
-        assistantId: 'dbb5dc71-8c84-4f52-aae6-6ffe31792344',
-        showFab: false,
-        theme: 'light',
-      });
+    // Create a silent audio element that we can use to force audio context changes
+    const audio = new Audio();
+    audio.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
+    audio.volume = 0.01;
+    audioRef.current = audio;
+    
+    // Initialize Vapi on component mount
+    vapi.current = new Vapi("4a0b1278-fa3a-41af-a9d2-e87151de2da4");
+    
+    return () => {
+      forceStopAllAudio();
     };
-    document.body.appendChild(script);
-    return () => { document.body.removeChild(script); };
   }, []);
+
+  // Force stop all audio and media
+  const forceStopAllAudio = () => {
+    // Stop any active call
+    if (call) {
+      try {
+        call.stop();
+      } catch (e) {
+        console.error("Error stopping call:", e);
+      }
+    }
+    
+    // Force browser to release audio context by playing and stopping a silent sound
+    if (audioRef.current) {
+      try {
+        audioRef.current.play().then(() => {
+          setTimeout(() => {
+            audioRef.current?.pause();
+          }, 50);
+        }).catch(e => console.error("Audio play error:", e));
+      } catch (e) {
+        console.error("Audio error:", e);
+      }
+    }
+    
+    // Stop and release any saved microphone stream
+    if (micStreamRef.current) {
+      micStreamRef.current.getTracks().forEach(track => {
+        track.stop();
+        track.enabled = false;
+      });
+      micStreamRef.current = null;
+    }
+    
+    // Force stop all media tracks in the document
+    try {
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          // Save reference to mic stream for future muting
+          micStreamRef.current = stream;
+          
+          // Immediately mute it
+          stream.getTracks().forEach(track => {
+            track.enabled = false;
+          });
+        })
+        .catch(e => console.error("Media error:", e));
+    } catch (e) {
+      console.error("Media device error:", e);
+    }
+  };
+
+  const handleVoiceDemo = async () => {
+    // If demo is active, stop it immediately
+    if (call || active) {
+      // Update UI state immediately for responsive feedback
+      setActive(false);
+      
+      // Force immediate termination with multiple methods
+      forceStopAllAudio();
+      
+      // Clear the call reference
+      setCall(null);
+      
+      // Force page refresh after a brief delay to allow UI to update
+      setTimeout(() => {
+        window.location.reload();
+      }, 100);
+      
+      return;
+    }
+    
+    // Starting the demo
+    setActive(true);
+    try {
+      const newCall = await vapi.current.start("dbb5dc71-8c84-4f52-aae6-6ffe31792344");
+      setCall(newCall);
+    } catch (err) {
+      console.error("Failed to start call", err);
+      setActive(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#e9f9f7] via-[#f0fbf7] to-[#b7e5e1] flex flex-col" style={{ fontFamily: "'Inter', 'Open Sans', sans-serif" }}>
@@ -107,10 +197,25 @@ const AIRPage = () => {
                     Schedule a Call
                   </a>
                   <button
-                    onClick={() => vapiInstanceRef.current?.start()}
-                    className="px-6 py-2 rounded-2xl bg-white/80 text-lg text-viridian font-thin shadow hover:scale-105 transition-transform duration-300"
+                    onClick={handleVoiceDemo}
+                    className={`px-6 py-2 rounded-2xl ${active ? 'bg-cambridge-blue text-white' : 'bg-white/80 text-viridian'} text-lg font-thin shadow hover:scale-105 transition-transform duration-300 flex items-center gap-2`}
                   >
-                    Try out AIR
+                    {active ? (
+                      <>
+                        <span>Stop Demo</span>
+                        <div className="flex items-end gap-1 h-5">
+                          {[1, 2, 3].map((bar, i) => (
+                            <div
+                              key={bar}
+                              className={`w-1 rounded bg-white animate-audio-bar${i+1}`}
+                              style={{ height: `${6 + Math.random() * 10}px` }}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      'Try out AIR'
+                    )}
                   </button>
                 </div>
               </div>
@@ -216,6 +321,19 @@ const AIRPage = () => {
         </SectionFadeIn>
       </main>
       <Footer />
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes audio-bar1 { 0%, 100% { height: 6px; } 50% { height: 14px; } }
+        @keyframes audio-bar2 { 0%, 100% { height: 10px; } 50% { height: 6px; } }
+        @keyframes audio-bar3 { 0%, 100% { height: 8px; } 50% { height: 16px; } }
+        .animate-audio-bar1 { animation: audio-bar1 1s infinite linear; }
+        .animate-audio-bar2 { animation: audio-bar2 1.1s infinite linear; }
+        .animate-audio-bar3 { animation: audio-bar3 0.9s infinite linear; }
+        .animate-fade-in { animation: fadeIn 0.5s linear; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      `}} />
+      {audioRef.current && (
+        <audio ref={audioRef} style={{ display: 'none' }} />
+      )}
     </div>
   );
 };
