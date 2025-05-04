@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Head from '@/components/Head';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Contact from '@/components/Contact';
 import { useInView } from 'react-intersection-observer';
-import { useVoiceDemo } from '@/hooks/useVoiceDemo';
 
 const featureSteps = [
   {
@@ -52,8 +51,21 @@ const SectionFadeIn: React.FC<{ children: React.ReactNode; className?: string }>
 };
 
 const AIRPage = () => {
-  const publicKey = import.meta.env.VITE_VAPI_PUBLIC_KEY as string;
-  const { start } = useVoiceDemo(publicKey, 'dbb5dc71-8c84-4f52-aae6-6ffe31792344');
+  const vapiInstanceRef = useRef<any>(null);
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@vapi-ai/web';
+    script.async = true;
+    script.onload = () => {
+      vapiInstanceRef.current = (window as any).vapiAssistant({
+        assistantId: 'dbb5dc71-8c84-4f52-aae6-6ffe31792344',
+        showFab: false,
+        theme: 'light',
+      });
+    };
+    document.body.appendChild(script);
+    return () => { document.body.removeChild(script); };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#e9f9f7] via-[#f0fbf7] to-[#b7e5e1] flex flex-col" style={{ fontFamily: "'Inter', 'Open Sans', sans-serif" }}>
@@ -95,7 +107,7 @@ const AIRPage = () => {
                     Schedule a Call
                   </a>
                   <button
-                    onClick={start}
+                    onClick={() => vapiInstanceRef.current?.start()}
                     className="px-6 py-2 rounded-2xl bg-white/80 text-lg text-viridian font-thin shadow hover:scale-105 transition-transform duration-300"
                   >
                     Try out AIR
