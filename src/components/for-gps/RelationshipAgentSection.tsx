@@ -4,7 +4,7 @@ import { Users, CheckCircle } from "lucide-react";
 
 const RelationshipAgentSection = () => {
   return (
-    <section className="py-24 bg-gray-50">
+    <section id="relationship-section" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4 max-w-5xl">
         <ScrollAnimation animationType="fadeUp">
           <div className="text-center mb-16">

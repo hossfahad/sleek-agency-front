@@ -53,7 +53,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, subtitle, descri
 const AgentEcosystemSection = () => {
   return (
     <ScrollAnimation animationType="fadeUp">
-      <section className="py-24 bg-gradient-to-b from-[#F8FAF9] to-white">
+      <section id="ai-sdr-section" className="py-24 bg-gradient-to-b from-[#F8FAF9] to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <div className="mb-6">

@@ -4,7 +4,7 @@ import { FileText, CheckCircle } from "lucide-react";
 
 const DataRoomAgentSection = () => {
   return (
-    <section className="py-24 bg-white">
+    <section id="data-room-section" className="py-24 bg-white">
       <div className="container mx-auto px-4 max-w-5xl">
         <ScrollAnimation animationType="fadeUp">
           <div className="text-center mb-16">

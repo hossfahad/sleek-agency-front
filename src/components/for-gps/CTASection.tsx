@@ -40,7 +40,7 @@ const CTASection = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#0A382C] to-[#0A382C]/90 relative overflow-hidden">
+    <section id="cta-section" className="py-24 bg-gradient-to-br from-[#0A382C] to-[#0A382C]/90 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent"></div>
