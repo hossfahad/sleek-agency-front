@@ -1,0 +1,56 @@
+/* Efficient Frontier Animation Styles */
+.axis-label {
+  font-size: 12px;
+  fill: #666;
+  font-weight: 500;
+}
+
+.x-axis, .y-axis {
+  font-size: 11px;
+  color: #888;
+}
+
+.portfolio-point:hover {
+  filter: brightness(1.1);
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+.frontier-curve {
+  stroke-linecap: round;
+}
+
+/* Scroll Animation Styles */
+.scroll-animate-initial {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-animation-container {
+    min-height: 400px;
+    padding: 2rem 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-point,
+  .frontier-curve {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .scroll-animate-initial,
+  .scroll-animate-in {
+    transition: none !important;
+    animation: none !important;
+  }
+}

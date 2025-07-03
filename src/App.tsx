@@ -21,6 +21,8 @@ import TransportationIndustry from "./pages/industries/transportation";
 import RestaurantsTakeoutsIndustry from "./pages/industries/restaurants-takeouts";
 import ProductsIndex from "./pages/products/index";
 import AIRPage from "./pages/products/air";
+import ForGPsPage from "./pages/for-gps/index";
+import GPLandingRedesign from "./pages/for-gps/redesign";
 import { useScrollManager } from "./hooks/useScrollManager";
 import VapiLoader from "./components/VapiLoader";
 
@@ -51,6 +53,10 @@ const AppRoutes = () => {
       {/* Products Routes */}
       <Route path="/products" element={<ProductsIndex />} />
       <Route path="/products/air" element={<AIRPage />} />
+      
+      {/* For GPs Routes */}
+      <Route path="/for-gps" element={<ForGPsPage />} />
+      <Route path="/for-gps/redesign" element={<GPLandingRedesign />} />
       
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
