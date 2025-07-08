@@ -51,8 +51,8 @@ const AiSdrAgentSection = () => {
                     <CheckCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-[#0A382C]">Autonomous Outreach</h3>
-                    <p className="text-gray-600">Conducts personalized, multi-channel outreach campaigns to qualified LPs.</p>
+                    <h3 className="text-lg font-medium text-[#0A382C]">Long-Term Relationship Building</h3>
+                    <p className="text-gray-600">Conducts personalized, multi-channel relationship building campaigns to qualified LPs, transitioning to outreach naturally.</p>
                   </div>
                 </div>
 
@@ -62,7 +62,7 @@ const AiSdrAgentSection = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-[#0A382C]">Intelligent Qualification</h3>
-                    <p className="text-gray-600">Evaluates LP fit using 50+ data points and proprietary scoring algorithms.</p>
+                    <p className="text-gray-600">Evaluates LP fit using deeply enriched and proprietary data sources</p>
                   </div>
                 </div>
 
@@ -92,24 +92,24 @@ const AiSdrAgentSection = () => {
               <div className="bg-white p-6 rounded-xl border border-gray-100">
                 <div className="flex items-center gap-3 mb-4">
                   <BarChart3 className="h-5 w-5 text-[#0A382C]" />
-                  <h3 className="text-lg font-medium text-[#0A382C]">AI SDR Performance Metrics</h3>
+                  <h3 className="text-lg font-medium text-[#0A382C]">Key Benefits</h3>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div>
+                  {/* <div>
                     <div className="text-sm text-gray-500">Average Response Rate</div>
                     <div className="text-xl font-medium text-[#0A382C]">32%</div>
-                  </div>
-                  <div>
+                  </div> */}
+                  {/* <div>
                     <div className="text-sm text-gray-500">Meeting Conversion</div>
-                    <div className="text-xl font-medium text-[#0A382C]">18%</div>
-                  </div>
+                    <div className="text-xl font-medium text-[#0A382C]"></div>
+                  </div> */}
                   <div>
                     <div className="text-sm text-gray-500">Daily Outreach Capacity</div>
                     <div className="text-xl font-medium text-[#0A382C]">200+</div>
                   </div>
                   <div>
                     <div className="text-sm text-gray-500">Cost vs. Human SDR</div>
-                    <div className="text-xl font-medium text-[#0A382C]">-78%</div>
+                    <div className="text-xl font-medium text-[#0A382C]">-70%</div>
                   </div>
                 </div>
               </div>

@@ -28,7 +28,7 @@ const DataRoomAgentSection = () => {
 
             <ScrollAnimation animationType="fadeUp" delay={300}>
               <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-3">
+                {/* <div className="flex items-start gap-3">
                   <div className="mt-1 text-[#0A382C]">
                     <CheckCircle className="h-5 w-5" />
                   </div>
@@ -36,6 +36,16 @@ const DataRoomAgentSection = () => {
                     <h3 className="text-lg font-medium text-[#0A382C]">Automated DDQ Responses</h3>
                     <p className="text-gray-600">Instantly answers investor DDQs with 99.3% accuracy.</p>
                   </div>
+                </div> */}
+
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 text-[#0A382C]">
+                    <CheckCircle className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-medium text-[#0A382C]">Easily Share Your Data Room</h3>
+                    <p className="text-gray-600">Easily share your data room with prospects, partners, and investors.</p>
+                  </div>
                 </div>
 
                 <div className="flex items-start gap-3">
@@ -43,18 +53,8 @@ const DataRoomAgentSection = () => {
                     <CheckCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-[#0A382C]">Risk Mitigation</h3>
-                    <p className="text-gray-600">Ensures identical, accurate answers across all documents, eliminating human error.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 text-[#0A382C]">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-[#0A382C]">Accelerated LOI Generation</h3>
-                    <p className="text-gray-600">Produces first-draft Letters of Intent tailored to specific LPs.</p>
+                    <h3 className="text-lg font-medium text-[#0A382C]">Fully Secured</h3>
+                    <p className="text-gray-600">Your data room is fully secured with the latest encryption and access controls.</p>
                   </div>
                 </div>
 
