@@ -9,6 +9,7 @@ import AiSdrAgentSection from "@/components/for-gps/AiSdrAgentSection";
 import DataRoomAgentSection from "@/components/for-gps/DataRoomAgentSection";
 import RelationshipAgentSection from "@/components/for-gps/RelationshipAgentSection";
 import LPCommunicationsAgentSection from "@/components/for-gps/LPCommunicationsAgentSection";
+import SecuritySection from "@/components/for-gps/SecuritySection";
 import CTASection from "@/components/for-gps/CTASection";
 
 
@@ -144,6 +145,14 @@ const ForGPsPage = () => {
           style={{ transitionDelay: "800ms" }}
         >
           <LPCommunicationsAgentSection />
+        </div>
+        
+        <div 
+          id="security-section" 
+          className={`section-container mx-4 md:mx-auto my-8 max-w-6xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+          style={{ transitionDelay: "850ms" }}
+        >
+          <SecuritySection />
         </div>
         
         {/* Agent Orchestration Section */}
