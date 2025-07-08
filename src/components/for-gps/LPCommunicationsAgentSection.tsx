@@ -22,7 +22,7 @@ const LPCommunicationsAgentSection = () => {
           <div className="lg:col-span-3">
             <ScrollAnimation animationType="fadeUp" delay={200}>
               <p className="text-xl text-gray-700 mb-8 font-light leading-relaxed">
-                Maintain institutional-grade communications with your LPs at scale. This agent drafts, personalizes, 
+                Maintain communications with your LPs at scale. Our agent drafts, personalizes, 
                 and schedules communications that maintain your firm's voice while ensuring timely delivery of critical 
                 updates and reports.
               </p>
@@ -36,7 +36,7 @@ const LPCommunicationsAgentSection = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-[#0A382C]">Personalized Updates</h3>
-                    <p className="text-gray-600">Tailors communications based on LP preferences and relationship history.</p>
+                    <p className="text-gray-600">Tailors communications based on LP investor types, and regional preferences.</p>
                   </div>
                 </div>
 
@@ -55,8 +55,8 @@ const LPCommunicationsAgentSection = () => {
                     <CheckCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-[#0A382C]">Automated Reporting</h3>
-                    <p className="text-gray-600">Generates quarterly updates and performance reports from your data.</p>
+                    <h3 className="text-lg font-medium text-[#0A382C]">AI for your LP Reporting</h3>
+                    <p className="text-gray-600">Generates quarterly updates and performance reports through your data room.</p>
                   </div>
                 </div>
 
@@ -65,7 +65,7 @@ const LPCommunicationsAgentSection = () => {
                     <CheckCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-[#0A382C]">Compliance Verification</h3>
+                    <h3 className="text-lg font-medium text-[#0A382C]">Compliance First</h3>
                     <p className="text-gray-600">Ensures all communications meet regulatory requirements.</p>
                   </div>
                 </div>

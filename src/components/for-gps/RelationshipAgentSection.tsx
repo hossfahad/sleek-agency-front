@@ -30,7 +30,7 @@ const RelationshipAgentSection = () => {
                     87%
                   </div>
                   <div className="text-lg text-[#0A382C]/80 font-medium">
-                    Increased LP Engagement
+                    Scale Long Term Relations with your LPs
                   </div>
                 </div>
               </div>
@@ -41,22 +41,14 @@ const RelationshipAgentSection = () => {
           <div className="lg:col-span-3">
             <ScrollAnimation animationType="fadeUp" delay={300}>
               <p className="text-xl text-gray-700 mb-8 font-light leading-relaxed">
-                Leverage AI to transform your LP relationship management. This agent analyzes communication patterns, 
-                identifies engagement opportunities, and provides strategic insights to strengthen investor relationships 
-                and increase re-ups.
+                Leverage AI to transform your LP relationship management. Our agent analyzes communication patterns across various internal and external factors with unmatched context windows, nurturing and growing your LP relationships, 
+                Let us analyze your engagement opportunities, and manage your long term engagement sequencing with AI.
               </p>
             </ScrollAnimation>
 
             <ScrollAnimation animationType="fadeUp" delay={400}>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 text-[#0A382C]">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-[#0A382C]">Relationship Mapping</h3>
-                    <p className="text-gray-600">Creates visual network maps of LP connections and influence.</p>
-                  </div>
                 </div>
 
                 <div className="flex items-start gap-3">
@@ -75,17 +67,7 @@ const RelationshipAgentSection = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-[#0A382C]">Strategic Recommendations</h3>
-                    <p className="text-gray-600">Suggests optimal timing and content for LP outreach.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="mt-1 text-[#0A382C]">
-                    <CheckCircle className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-[#0A382C]">Re-up Prediction</h3>
-                    <p className="text-gray-600">Forecasts LP re-up probability with 92% accuracy.</p>
+                    <p className="text-gray-600">Suggests optimal timing and content for LP outreach based on market analysis, and a multitude of automated touch points.</p>
                   </div>
                 </div>
               </div>

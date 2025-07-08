@@ -9,9 +9,11 @@ const DataRoomAgentSection = () => {
         <ScrollAnimation animationType="fadeUp">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-[#0A382C]/10 text-[#0A382C] rounded-full text-sm font-medium mb-6">
-              Data Room Intelligence Agent
+              Data Room Intelligence
             </span>
-
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extralight text-[#0A382C] mb-6">
+              Bridge the Gap through our Data Room
+            </h2>
           </div>
         </ScrollAnimation>
 
@@ -20,9 +22,7 @@ const DataRoomAgentSection = () => {
           <div className="lg:col-span-3">
             <ScrollAnimation animationType="fadeUp" delay={200}>
               <p className="text-xl text-gray-700 mb-8 font-light leading-relaxed">
-                Transform your data room into an active, intelligent asset. This agent responds to Due Diligence 
-                Questionnaires with institutional-grade precision in minutes, not weeks, ensuring perfect 
-                consistency and accelerating your commitment timelines.
+                Transform your data room into an active, intelligent asset. Easily store and share documents to prospects, partners, and investors.
               </p>
             </ScrollAnimation>
 
