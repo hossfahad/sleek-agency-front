@@ -74,19 +74,16 @@ const LPCommunicationsAgentSection = () => {
           </div>
 
           {/* Right Visual */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 flex items-center">
             <ScrollAnimation animationType="fadeUp" delay={400}>
-              <div className="bg-gradient-to-br from-[#0A382C]/5 to-[#0A382C]/10 p-8 rounded-2xl shadow-lg">
-                <div className="flex justify-center mb-6">
-                  <MessageSquare className="h-16 w-16 text-[#0A382C]" />
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-light text-[#0A382C] mb-2">
-                    68%
-                  </div>
-                  <div className="text-lg text-[#0A382C]/80 font-medium">
-                    Time Saved on Communications
-                  </div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#0A382C]/20 to-[#0A382C]/10 rounded-xl blur-lg"></div>
+                <div className="relative bg-white p-2 rounded-xl shadow-xl overflow-hidden">
+                  <img 
+                    src="/images/LP-Comms.png" 
+                    alt="LP Communications Agent" 
+                    className="rounded-lg w-full min-w-[800px] object-cover"
+                  />
                 </div>
               </div>
             </ScrollAnimation>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import SpiralAnimation from "@/components/animations/SpiralAnimation";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -98,12 +99,14 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section py-24 relative overflow-hidden bg-gradient-to-br from-[#F8FAF9] to-white">
-      {/* Background animation */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden">
+      {/* Spiral Animation Background */}
+      <SpiralAnimation />
+      {/* Original wave animation kept as fallback */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden" style={{ zIndex: -1 }}>
         <canvas 
           ref={canvasRef} 
           className="w-full h-full"
-          style={{ display: 'block', position: 'absolute', top: 0, left: 0 }}
+          style={{ display: 'block', position: 'absolute', top: 0, left: 0, opacity: 0.5 }}
         />
       </div>
       
@@ -116,7 +119,7 @@ const HeroSection = () => {
               className={`inline-block px-4 py-2 bg-[#0A382C]/10 text-[#0A382C] rounded-full text-sm font-medium mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "100ms" }}
             >
-              Multi-Agent AI Architecture for Alternative Assets
+              Multi-Agent Platform for Asset Managers
             </span>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-[#0A382C] mb-6 leading-tight">
@@ -124,13 +127,12 @@ const HeroSection = () => {
                 className={`block transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 style={{ transitionDelay: "200ms" }}
               >
-                The Agentic OS for 
-              </span>
+                The Agentic Outreach Layer for </span>
               <span 
                 className={`block font-normal transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 style={{ transitionDelay: "300ms" }}
               >
-                Alternative Asset Managers
+                Asset Managers.
               </span>
             </h1>
             
@@ -139,8 +141,7 @@ const HeroSection = () => {
               style={{ transitionDelay: "400ms" }}
             >
               Our sophisticated multi-agent architecture orchestrates complex workflows across your firm's 
-              operations, delivering institutional-grade automation with the technical depth and precision 
-              demanded by alternative asset managers.
+              operations, delivering state-of-the-art outreach plans with the technical depth and precision to strengthen investor trust.
             </p>
             
             <div 
@@ -157,19 +158,24 @@ const HeroSection = () => {
               style={{ transitionDelay: "600ms" }}
             >
               <div>
-                <div className="text-2xl font-light text-[#0A382C]">1,000+</div>
-                <div className="text-sm text-gray-600">LP Interactions</div>
+                <div className="text-2xl font-light text-[#0A382C]">52 Week</div>
+                <div className="text-sm text-gray-600">Sales Sequence Framework</div>
               </div>
               <div>
                 <div className="text-2xl font-light text-[#0A382C]">10 Year</div>
-                <div className="text-sm text-gray-600">Memory Retention</div>
+                <div className="text-sm text-gray-600">Client Context Window</div>
               </div>
             </div>
           </div>
           
-          {/* Right Column - Empty space for balance */}
+          {/* Right Column - Empty for balance */}
           <div className="md:col-span-5 h-full">
-            <div className="h-[400px]"></div>
+            <div 
+              className={`relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}
+              style={{ transitionDelay: "600ms" }}
+            >
+              {/* Content removed as requested */}
+            </div>
           </div>
         </div>
       </div>

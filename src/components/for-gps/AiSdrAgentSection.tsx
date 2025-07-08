@@ -19,19 +19,16 @@ const AiSdrAgentSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center mb-16">
           {/* Left Visual */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 flex items-center justify-end relative">
             <ScrollAnimation animationType="fadeUp" delay={200}>
-              <div className="bg-gradient-to-br from-[#0A382C]/5 to-[#0A382C]/10 p-8 rounded-2xl shadow-lg">
-                <div className="flex justify-center mb-6">
-                  <UserPlus className="h-16 w-16 text-[#0A382C]" />
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-light text-[#0A382C] mb-2">
-                    3.2x
-                  </div>
-                  <div className="text-lg text-[#0A382C]/80 font-medium">
-                    Increase in LP Meetings
-                  </div>
+              <div className="relative" style={{ marginRight: "50px" }}>
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#0A382C]/20 to-[#0A382C]/10 rounded-xl blur-lg"></div>
+                <div className="relative bg-white p-2 rounded-xl shadow-xl overflow-hidden">
+                  <img 
+                    src="/images/headshot.png" 
+                    alt="AI SDR Agent" 
+                    className="rounded-lg w-full min-w-[800px] object-cover"
+                  />
                 </div>
               </div>
             </ScrollAnimation>

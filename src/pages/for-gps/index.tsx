@@ -80,34 +80,34 @@ const ForGPsPage = () => {
               className={`text-3xl md:text-4xl font-extralight text-[#0A382C] mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "200ms" }}
             >
-              The Complete AI Agent Ecosystem for Alternative Asset Managers
+              Exponentially Scale Your Business with Agents
             </h2>
             <p 
               className={`text-xl text-gray-700 mb-8 font-light leading-relaxed transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "300ms" }}
             >
               Our specialized AI agents work together to automate your most critical operations, 
-              from capital raising and investor relations to deal sourcing and portfolio management.
+              from capital raising and investor relations.
             </p>
             <div 
               className={`grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "400ms" }}
             >
               <div className="text-center">
-                <div className="text-3xl font-light text-[#0A382C] mb-2">5</div>
-                <div className="text-sm text-gray-600">Specialized AI Agents</div>
+                <div className="text-3xl font-light text-[#0A382C] mb-2">5+</div>
+                <div className="text-sm text-gray-600">Multi-Agent Orchestration</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-light text-[#0A382C] mb-2">92%</div>
-                <div className="text-sm text-gray-600">Increase in Team Efficiency</div>
+                <div className="text-3xl font-light text-[#0A382C] mb-2">↑</div>
+                <div className="text-sm text-gray-600">Increased Efficiency for IR Teams</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-light text-[#0A382C] mb-2">24/7</div>
                 <div className="text-sm text-gray-600">Continuous Operation</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-light text-[#0A382C] mb-2">3.4x</div>
-                <div className="text-sm text-gray-600">ROI in First Year</div>
+                <div className="text-3xl font-light text-[#0A382C] mb-2">↑</div>
+                <div className="text-sm text-gray-600">Fundraising Goals</div>
               </div>
             </div>
           </div>
@@ -130,13 +130,13 @@ const ForGPsPage = () => {
           <DataRoomAgentSection />
         </div>
         
-        <div 
+        {/* <div 
           id="relationship-section" 
           className={`section-container mx-4 md:mx-auto my-8 max-w-6xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
           style={{ transitionDelay: "700ms" }}
         >
           <RelationshipAgentSection />
-        </div>
+        </div> */}
         
         <div 
           id="lp-communications-section" 

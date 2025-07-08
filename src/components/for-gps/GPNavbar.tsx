@@ -28,7 +28,7 @@ const GPNavbar = () => {
   return (
     <header
       className={`sticky top-0 w-full z-50 transition-all duration-300 px-4 sm:px-6 md:px-10 py-3 sm:py-4 md:py-5 ${
-        scrolled ? "bg-white shadow-sm" : "bg-transparent"
+        scrolled ? "bg-white shadow-sm" : "bg-white"
       }`}
     >
       <div className="max-w-[1600px] mx-auto">
