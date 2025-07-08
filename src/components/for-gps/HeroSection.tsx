@@ -140,8 +140,7 @@ const HeroSection = () => {
               className={`text-xl text-gray-700 mb-8 font-light leading-relaxed max-w-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "400ms" }}
             >
-              Our sophisticated multi-agent architecture orchestrates complex workflows across your firm's 
-              operations, delivering state-of-the-art outreach plans with the technical depth and precision to strengthen investor trust.
+              Enhanced Points provides your firm with Agents that can help you scale your outreach efforts autonomously, and at scale never seen before. 
             </p>
             
             <div 

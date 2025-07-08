@@ -38,9 +38,7 @@ const AiSdrAgentSection = () => {
           <div className="lg:col-span-3">
             <ScrollAnimation animationType="fadeUp" delay={300}>
               <p className="text-xl text-gray-700 mb-8 font-light leading-relaxed">
-                Our AI SDR Agent works tirelessly to identify, engage, and qualify potential limited partners, 
-                creating a consistent pipeline of institutional capital for your firm. Unlike human SDRs, this agent 
-                operates 24/7, scales infinitely, and never loses institutional knowledge.
+                Our Agent analyzes your fund and LP database and autonomously starts building your relationshship campaigns. 
               </p>
             </ScrollAnimation>
 
@@ -81,8 +79,8 @@ const AiSdrAgentSection = () => {
                     <CheckCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-[#0A382C]">Performance Analytics</h3>
-                    <p className="text-gray-600">Provides detailed metrics on outreach effectiveness and LP engagement.</p>
+                    <h3 className="text-lg font-medium text-[#0A382C]">Strategic Support</h3>
+                    <p className="text-gray-600">Our team can assist in finding and building your prospect list for you.</p>
                   </div>
                 </div>
               </div>

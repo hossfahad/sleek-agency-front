@@ -44,6 +44,14 @@ const SpiralAnimation = () => {
       context.strokeStyle = "rgba(10, 56, 44, 0.1)"; // Match the brand color with low opacity
       context.shadowColor = "rgba(10, 56, 44, 0.2)"; // Match the brand color with slightly higher opacity
       context.lineWidth = 3;
+      
+      // Save the current state
+      context.save();
+      
+      // Flip the entire context horizontally
+      context.translate(width, 0);
+      context.scale(-1, 1);
+      
       context.beginPath();
       for (let i = POINTS; i > 0; i--) {
         let value = i * SPACING + (time % SPACING);
@@ -57,14 +65,20 @@ const SpiralAnimation = () => {
         y += (x / cx) * width * 0.1;
         context.globalAlpha = 1 - value / MAX_OFFSET;
         context.shadowBlur = SHADOW_STRENGTH * o;
-        context.lineTo(cx + x, cy + y);
+        
+        // Adjust x-coordinate for the flipped context
+        let flippedX = cx + x;
+        context.lineTo(flippedX, cy + y);
         context.stroke();
         context.beginPath();
-        context.moveTo(cx + x, cy + y);
+        context.moveTo(flippedX, cy + y);
       }
       context.lineTo(cx, cy - 200);
       context.lineTo(cx, 0);
       context.stroke();
+      
+      // Restore the original state
+      context.restore();
     }
 
     function step() {
