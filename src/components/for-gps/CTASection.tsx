@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowRight, Loader2 } from "lucide-react";
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from "@/config/emailjs";
 
 const CTASection = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +19,13 @@ const CTASection = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  
+  // Initialize EmailJS once when component mounts
+  useEffect(() => {
+    // Initialize EmailJS with the user ID from config
+    emailjs.init(EMAILJS_CONFIG.USER_ID);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,12 +36,41 @@ const CTASection = () => {
       return;
     }
     
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", formData);
+    setIsLoading(true);
     
-    // Show success state
-    setSubmitted(true);
-    setError("");
+    // Prepare template parameters for EmailJS
+    const templateParams = {
+      to_email: "fahad@enhancedpoints.com",
+      from_name: formData.firmName,
+      from_email: formData.email,
+      subject: `New GP Contact Form Submission from ${formData.firmName}`,
+      message: `
+        Firm Name: ${formData.firmName}
+        Email: ${formData.email}
+        Role: ${formData.role}
+        AUM: ${formData.aum}
+        Primary Challenge: ${formData.primaryChallenge}
+        Timeline: ${formData.timeline}
+      `
+    };
+    
+    // Send email using EmailJS
+    emailjs.send(
+      EMAILJS_CONFIG.SERVICE_ID,
+      EMAILJS_CONFIG.TEMPLATE_ID,
+      templateParams
+    )
+    .then((response) => {
+      console.log('Email sent successfully:', response);
+      setSubmitted(true);
+      setError("");
+      setIsLoading(false);
+    })
+    .catch((err) => {
+      console.error('Failed to send email:', err);
+      setError("There was an error sending your message. Please try again later.");
+      setIsLoading(false);
+    });
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -189,9 +227,19 @@ const CTASection = () => {
                 <Button 
                   type="submit" 
                   className="w-full bg-[#0A382C] hover:bg-[#0A382C]/90 text-white py-6 text-lg font-light rounded-lg transition-all hover:scale-[1.02] group"
+                  disabled={isLoading}
                 >
-                  Secure My Foundational Partner Position
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Secure My Foundational Partner Position
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </Button>
                 
                 <p className="text-xs text-gray-500 text-center font-light mt-4">

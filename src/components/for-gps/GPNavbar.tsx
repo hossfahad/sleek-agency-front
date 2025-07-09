@@ -66,19 +66,19 @@ const GPNavbar = () => {
                     onClick={() => scrollToSection('ai-sdr-section')}
                     className="block w-full text-left px-4 py-2 text-[#0A382C] hover:bg-[#0A382C]/5 transition-colors"
                   >
-                    AI SDR Agent
+                    Sales Outreach
                   </button>
                   <button 
                     onClick={() => scrollToSection('data-room-section')}
                     className="block w-full text-left px-4 py-2 text-[#0A382C] hover:bg-[#0A382C]/5 transition-colors"
                   >
-                    Data Room Intelligence Agent
+                    Data Room Management
                   </button>
                   <button 
                     onClick={() => scrollToSection('relationship-section')}
                     className="block w-full text-left px-4 py-2 text-[#0A382C] hover:bg-[#0A382C]/5 transition-colors"
                   >
-                    Relationship Intelligence Agent
+                    Investor Relationships
                   </button>
                 </div>
               )}
