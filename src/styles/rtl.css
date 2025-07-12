@@ -1,0 +1,119 @@
+/* RTL styles for Arabic language support */
+.rtl {
+  /* RTL-specific styles */
+  text-align: right;
+}
+
+.rtl .flex-row {
+  flex-direction: row-reverse;
+}
+
+.rtl .text-left {
+  text-align: right;
+}
+
+.rtl .text-right {
+  text-align: left;
+}
+
+/* Margin and padding adjustments */
+.rtl .ml-1, .rtl .ms-1 {
+  margin-left: 0;
+  margin-right: 0.25rem;
+}
+
+.rtl .ml-2, .rtl .ms-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+.rtl .ml-3, .rtl .ms-3 {
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
+.rtl .ml-4, .rtl .ms-4 {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+.rtl .ml-6, .rtl .ms-6 {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+.rtl .mr-1, .rtl .me-1 {
+  margin-right: 0;
+  margin-left: 0.25rem;
+}
+
+.rtl .mr-2, .rtl .me-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+.rtl .mr-3, .rtl .me-3 {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+.rtl .mr-4, .rtl .me-4 {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+/* Border radius adjustments */
+.rtl .rounded-l {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.rtl .rounded-r {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+/* Icon rotations */
+.rtl .rotate-180 {
+  transform: rotate(0deg);
+}
+
+.rtl .rotate-0 {
+  transform: rotate(180deg);
+}
+
+/* Specific component adjustments */
+.rtl .space-x-4 > * + * {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+.rtl .space-x-6 > * + * {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+.rtl .space-x-8 > * + * {
+  margin-left: 0;
+  margin-right: 2rem;
+}
+
+/* Security section adjustments */
+.rtl .flex-col {
+  align-items: flex-end;
+}
+
+.rtl p {
+  text-align: right;
+}
+
+/* Fix for language switcher in RTL */
+.rtl .language-switcher select {
+  padding-right: 0.5rem;
+  padding-left: 1.5rem;
+  background-position: 0.5rem center;
+}

@@ -5,8 +5,12 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const CTASection = () => {
+  const { t, i18n } = useTranslation(['features', 'common']);
+  const isRTL = i18n.dir() === 'rtl';
+  
   const [formData, setFormData] = useState({
     email: "",
     firmName: "",
@@ -50,16 +54,15 @@ const CTASection = () => {
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="mb-6">
             <span className="inline-block px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium">
-              Limited Foundational Partner Program
+              {t('features:readyToTransform')}
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extralight text-white mb-8">
-            Deploy the First AI Operating System
-            <span className="block text-white/80">Natively Built for Alternative GPs</span>
+            {t('features:readyToTransform')}
+            <span className="block text-white/80">{t('features:getStartedDesc')}</span>
           </h2>
           <p className="text-xl text-white/90 font-light leading-relaxed max-w-3xl mx-auto">
-            Join an exclusive cohort of forward-thinking alternative asset managers who will shape the future 
-            of institutional fundraising and investor relations through multi-agent AI architecture.
+            {t('features:getStartedDesc')}
           </p>
         </div>
         
@@ -68,10 +71,10 @@ const CTASection = () => {
             <div className="bg-white/95 backdrop-blur-sm p-10 rounded-2xl shadow-2xl">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-light text-[#0A382C] mb-4">
-                  Secure Your Position as a Foundational Partner
+                  {t('common:requestAccess')}
                 </h3>
                 <p className="text-gray-600 font-light">
-                  Limited to 25 firms for our initial deployment phase
+                  {t('features:getStartedDesc')}
                 </p>
               </div>
               
@@ -79,7 +82,7 @@ const CTASection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-sm font-medium text-gray-700">
-                      Business Email *
+                      {t('common:contact')} *
                     </Label>
                     <Input
                       id="email"
@@ -94,7 +97,7 @@ const CTASection = () => {
                   
                   <div className="space-y-2">
                     <Label htmlFor="firmName" className="text-sm font-medium text-gray-700">
-                      Firm Name *
+                      {t('common:aboutUs')} *
                     </Label>
                     <Input
                       id="firmName"

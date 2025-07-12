@@ -1,8 +1,11 @@
 import React from "react";
 import { ScrollAnimation } from "@/components/animations/ScrollAnimations";
 import { Shield, Lock, CheckCircle, Server } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const SecuritySection = () => {
+  const { t, i18n } = useTranslation(['footer', 'common']);
+  const isRTL = i18n.dir() === 'rtl';
   return (
     <section className="py-24 bg-gradient-to-br from-[#F8FAF9] to-white">
       <div className="container mx-auto px-4 max-w-5xl">
@@ -14,13 +17,13 @@ const SecuritySection = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extralight text-[#0A382C] mb-6">
               Security & Trust: Our Commitment
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-light">
+            <p className={`text-xl text-gray-700 max-w-3xl mx-auto font-light ${isRTL ? 'text-right' : ''}`}>
               Built from the ground up with a compliance-first architecture to ensure the highest level of security for your firm's sensitive data.
             </p>
           </div>
         </ScrollAnimation>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16" dir={isRTL ? 'rtl' : 'ltr'}>
           {/* Security Pillars */}
           <ScrollAnimation animationType="fadeUp" delay={200}>
             <div className="bg-white p-8 rounded-2xl shadow-lg h-full">
@@ -32,7 +35,7 @@ const SecuritySection = () => {
               </div>
               
               <div className="space-y-6">
-                <div className="flex items-start gap-3">
+                <div className={`flex items-start ${isRTL ? 'flex-row-reverse' : ''} gap-3`}>
                   <div className="mt-1 text-[#0A382C]">
                     <CheckCircle className="h-5 w-5" />
                   </div>
@@ -42,7 +45,7 @@ const SecuritySection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3">
+                <div className={`flex items-start ${isRTL ? 'flex-row-reverse' : ''} gap-3`}>
                   <div className="mt-1 text-[#0A382C]">
                     <CheckCircle className="h-5 w-5" />
                   </div>
@@ -52,7 +55,7 @@ const SecuritySection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3">
+                <div className={`flex items-start ${isRTL ? 'flex-row-reverse' : ''} gap-3`}>
                   <div className="mt-1 text-[#0A382C]">
                     <CheckCircle className="h-5 w-5" />
                   </div>
@@ -76,7 +79,7 @@ const SecuritySection = () => {
               </div>
               
               <div className="space-y-6">
-                <div className="flex items-start gap-3">
+                <div className={`flex items-start ${isRTL ? 'flex-row-reverse' : ''} gap-3`}>
                   <div className="mt-1 text-[#0A382C]">
                     <CheckCircle className="h-5 w-5" />
                   </div>
@@ -86,22 +89,22 @@ const SecuritySection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3">
+                <div className={`flex items-start ${isRTL ? 'flex-row-reverse' : ''} gap-3`}>
                   <div className="mt-1 text-[#0A382C]">
                     <CheckCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-[#0A382C]">Secure Scalability</h4>
+                    <h4 className="text-lg font-medium text-[#0A382C]">Data Protection</h4>
                     <p className="text-gray-600">Scale your operations seamlessly without ever compromising the security or integrity of your data.</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start gap-3">
+                <div className={`flex items-start ${isRTL ? 'flex-row-reverse' : ''} gap-3`}>
                   <div className="mt-1 text-[#0A382C]">
                     <CheckCircle className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-[#0A382C]">Compliance Ready</h4>
+                    <h4 className="text-lg font-medium text-[#0A382C]">Regulatory Compliance</h4>
                     <p className="text-gray-600">GDPR-aligned with complete audit logs for all system activities, supporting FINRA and SEC requirements.</p>
                   </div>
                 </div>
@@ -114,14 +117,14 @@ const SecuritySection = () => {
         <ScrollAnimation animationType="fadeUp" delay={400}>
           <div className="bg-white p-8 rounded-2xl shadow-lg overflow-hidden relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-[#0A382C]/20 to-[#0A382C]/10 rounded-xl blur-lg"></div>
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className={`relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 ${isRTL ? 'md:flex-row-reverse text-right' : ''}`}>
               <div className="flex-1">
                 <h3 className="text-2xl font-light text-[#0A382C] mb-4">Enterprise-Grade Trust</h3>
-                <p className="text-gray-700 mb-6">
+                <p className={`text-gray-700 mb-6 ${isRTL ? 'text-right' : ''}`}>
                   At Enhanced Points, we understand that trust is the foundation of every financial relationship. 
                   Our platform provides a secure environment so you can focus on scaling your operations with confidence.
                 </p>
-                <div className="flex items-center gap-6">
+                <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''} gap-6`}>
                   <div className="flex flex-col items-center">
                     <div className="text-3xl font-light text-[#0A382C] mb-1">100%</div>
                     <div className="text-sm text-gray-600">Data Encryption</div>

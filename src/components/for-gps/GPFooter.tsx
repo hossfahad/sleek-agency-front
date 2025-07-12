@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const GPFooter = () => {
   const year = new Date().getFullYear();
+  const { t, i18n } = useTranslation(['footer', 'common']);
+  const isRTL = i18n.dir() === 'rtl';
   
   return (
     <footer className="bg-white border-t border-gray-100 text-gray-700 text-sm">
@@ -37,16 +40,16 @@ const GPFooter = () => {
           
           {/* Column 2: Enhanced Points Links */}
           <div className="md:pl-20">
-            <h4 className="text-base font-medium mb-4 text-gray-900">Enhanced Points</h4>
+            <h4 className="text-base font-medium mb-4 text-gray-900">{t('common:aboutUs')}</h4>
             <ul className="space-y-3 mb-6">
               <li>
                 <Link to="/" className="text-gray-500 hover:text-[#0A382C] transition-colors">
-                  Home
+                  {t('common:backToEP')}
                 </Link>
               </li>
               <li>
                 <Link to="/measured-performance" className="text-gray-500 hover:text-[#0A382C] transition-colors">
-                  Savings Calculator
+                  {t('common:resources')}
                 </Link>
               </li>
               <li>
@@ -56,7 +59,7 @@ const GPFooter = () => {
                   rel="noopener noreferrer"
                   className="text-gray-500 hover:text-[#0A382C] transition-colors"
                 >
-                  Blog
+                  {t('common:blog')}
                 </a>
               </li>
             </ul>
@@ -65,16 +68,16 @@ const GPFooter = () => {
         
         <div className="pt-6 mt-6 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm text-gray-500 mb-4 md:mb-0">
-            &copy; {year} Enhanced Points. All rights reserved.
+            {t('footer:copyright', { year })}
           </div>
           
           <div className="text-sm text-gray-500">
             <Link to="/privacy" className="hover:text-[#0A382C] transition-colors">
-              Privacy Policy
+              {t('footer:privacyPolicy')}
             </Link>
             <span className="mx-2">•</span>
             <Link to="/terms" className="hover:text-[#0A382C] transition-colors">
-              Terms & Conditions
+              {t('footer:termsOfService')}
             </Link>
           </div>
         </div>

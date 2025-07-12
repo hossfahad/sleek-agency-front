@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 // Import components
 import GPNavbar from "@/components/for-gps/GPNavbar";
@@ -11,14 +12,25 @@ import RelationshipAgentSection from "@/components/for-gps/RelationshipAgentSect
 import LPCommunicationsAgentSection from "@/components/for-gps/LPCommunicationsAgentSection";
 import SecuritySection from "@/components/for-gps/SecuritySection";
 import CTASection from "@/components/for-gps/CTASection";
+import ForGpsI18nProvider from "@/components/for-gps/ForGpsI18nProvider";
 
 
-const ForGPsPage = () => {
+// Loading component for Suspense
+const Loading = () => (
+  <div className="flex items-center justify-center h-screen">
+    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-[#0A382C]"></div>
+  </div>
+);
+
+const ForGPsPageContent = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const { t, i18n } = useTranslation(['hero', 'features']);
+  const isRTL = i18n.dir() === 'rtl';
 
   return (
     <>
@@ -81,14 +93,13 @@ const ForGPsPage = () => {
               className={`text-3xl md:text-4xl font-extralight text-[#0A382C] mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "200ms" }}
             >
-              Exponentially Scale Your Business with Agents
+              {t('features:scaleWithAgents')}
             </h2>
             <p 
               className={`text-xl text-gray-700 mb-8 font-light leading-relaxed transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "300ms" }}
             >
-              Our specialized AI agents work together to automate your most critical operations, 
-              from capital raising and investor relations.
+              {t('features:agentsDescription')}
             </p>
             <div 
               className={`grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
@@ -96,19 +107,19 @@ const ForGPsPage = () => {
             >
               <div className="text-center">
                 <div className="text-3xl font-light text-[#0A382C] mb-2">5+</div>
-                <div className="text-sm text-gray-600">Multi-Agent Orchestration</div>
+                <div className="text-sm text-gray-600">{t('features:orchestratedIntelligence')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-light text-[#0A382C] mb-2">↑</div>
-                <div className="text-sm text-gray-600">Increased Efficiency for IR Teams</div>
+                <div className="text-sm text-gray-600">{t('features:increasedEfficiency')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-light text-[#0A382C] mb-2">24/7</div>
-                <div className="text-sm text-gray-600">Continuous Operation</div>
+                <div className="text-sm text-gray-600">{t('features:continuousOperation')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-light text-[#0A382C] mb-2">↑</div>
-                <div className="text-sm text-gray-600">Fundraising Goals</div>
+                <div className="text-sm text-gray-600">{t('features:fundraisingGoals')}</div>
               </div>
             </div>
           </div>
@@ -163,11 +174,10 @@ const ForGPsPage = () => {
               style={{ transitionDelay: "900ms" }}
             >
               <h2 className="text-3xl md:text-4xl font-extralight text-[#0A382C] mb-6">
-                Orchestrated Intelligence
+                {t('features:orchestratedIntelligence')}
               </h2>
               <p className="text-xl text-gray-700 mb-8 font-light leading-relaxed">
-                Our agents don't just work in isolation—they collaborate seamlessly to create 
-                a comprehensive AI operating system for your firm.
+                {t('features:agentsCollaboration')}
               </p>
             </div>
             <div 
@@ -176,16 +186,16 @@ const ForGPsPage = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center p-4">
-                  <div className="text-lg font-medium text-[#0A382C] mb-2">Shared Intelligence</div>
-                  <p className="text-sm text-gray-600">Agents learn from each other, creating a unified knowledge base</p>
+                  <div className="text-lg font-medium text-[#0A382C] mb-2">{t('features:sharedIntelligence')}</div>
+                  <p className="text-sm text-gray-600">{t('features:sharedIntelligenceDesc')}</p>
                 </div>
                 <div className="text-center p-4">
-                  <div className="text-lg font-medium text-[#0A382C] mb-2">Workflow Automation</div>
-                  <p className="text-sm text-gray-600">End-to-end process automation across your entire operation</p>
+                  <div className="text-lg font-medium text-[#0A382C] mb-2">{t('features:workflowAutomation')}</div>
+                  <p className="text-sm text-gray-600">{t('features:workflowAutomationDesc')}</p>
                 </div>
                 <div className="text-center p-4">
-                  <div className="text-lg font-medium text-[#0A382C] mb-2">Institutional Memory</div>
-                  <p className="text-sm text-gray-600">Never lose critical knowledge or context as your firm grows</p>
+                  <div className="text-lg font-medium text-[#0A382C] mb-2">{t('features:institutionalMemory')}</div>
+                  <p className="text-sm text-gray-600">{t('features:institutionalMemoryDesc')}</p>
                 </div>
               </div>
             </div>
@@ -207,5 +217,13 @@ const ForGPsPage = () => {
     </>
   );
 };
+
+const ForGPsPage = () => (
+  <ForGpsI18nProvider>
+    <Suspense fallback={<Loading />}>
+      <ForGPsPageContent />
+    </Suspense>
+  </ForGpsI18nProvider>
+);
 
 export default ForGPsPage;

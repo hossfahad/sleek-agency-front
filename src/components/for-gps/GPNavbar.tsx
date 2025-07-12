@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const GPNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const { t, i18n } = useTranslation(['common']);
+  const isRTL = i18n.dir() === 'rtl';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,26 +37,27 @@ const GPNavbar = () => {
     >
       <div className="max-w-[1600px] mx-auto">
         <nav className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link to="/" className="inline-flex items-center">
+          <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <Link to="/" className={`inline-flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
               <img 
                 src="/images/logo.png" 
                 alt="Enhanced Points Logo" 
                 className="h-8 sm:h-10 md:h-12"
               />
             </Link>
-            <span className="ml-6 text-[#0A382C] font-bold" style={{ fontFamily: "'Open Sans', sans-serif", fontWeight: 600 }}>
-              For Asset Managers
+            <span className={`${isRTL ? 'mr-6' : 'ml-6'} text-[#0A382C] font-bold`} style={{ fontFamily: "'Open Sans', sans-serif", fontWeight: 600 }}>
+              {t('forAssetManagers')}
             </span>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse space-x-6 flex-row-reverse' : 'space-x-6'}`}>
+            <LanguageSwitcher className="mr-2" />
             <div className="relative">
               <button 
                 onClick={() => setSolutionsOpen(!solutionsOpen)}
                 className="flex items-center text-[#0A382C] hover:text-[#0A382C]/80 transition-colors"
               >
-                <span>Solutions</span>
+                <span>{t('solutions')}</span>
                 {solutionsOpen ? (
                   <ChevronUp className="h-4 w-4 ml-1" />
                 ) : (
@@ -66,37 +71,37 @@ const GPNavbar = () => {
                     onClick={() => scrollToSection('ai-sdr-section')}
                     className="block w-full text-left px-4 py-2 text-[#0A382C] hover:bg-[#0A382C]/5 transition-colors"
                   >
-                    Sales Outreach
+                    {t('salesOutreach')}
                   </button>
                   <button 
                     onClick={() => scrollToSection('data-room-section')}
                     className="block w-full text-left px-4 py-2 text-[#0A382C] hover:bg-[#0A382C]/5 transition-colors"
                   >
-                    Data Room Management
+                    {t('dataRoomManagement')}
                   </button>
                   <button 
                     onClick={() => scrollToSection('relationship-section')}
                     className="block w-full text-left px-4 py-2 text-[#0A382C] hover:bg-[#0A382C]/5 transition-colors"
                   >
-                    Investor Relationships
+                    {t('investorRelationships')}
                   </button>
                 </div>
               )}
             </div>
             
-            <Button 
-              className="bg-[#0A382C] hover:bg-[#0A382C]/90 text-white px-4 py-2 rounded-lg"
-              onClick={() => scrollToSection('cta-section')}
+            <Button
+              onClick={() => window.open("https://www.enhancedpoints.com/request-access", "_blank")}
+              className="bg-[#0A382C] hover:bg-[#0A382C]/90 text-white rounded-md px-4 py-2 text-sm"
             >
-              Request Access
+              {t('requestAccess')}
             </Button>
             
             <Link 
               to="/" 
               className="flex items-center text-[#0A382C] hover:text-[#0A382C]/80 transition-colors"
             >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              <span className="font-light">Back to EP</span>
+              {isRTL ? <ArrowRight className="ml-2" size={16} /> : <ArrowLeft className="mr-2" size={16} />}
+              <span className="font-light">{t('backToEP')}</span>
             </Link>
           </div>
           
@@ -106,7 +111,7 @@ const GPNavbar = () => {
               className="bg-[#0A382C] hover:bg-[#0A382C]/90 text-white px-3 py-1 text-sm rounded-lg"
               onClick={() => scrollToSection('cta-section')}
             >
-              Request Access
+              {t('requestAccess')}
             </Button>
             
             <Link 
@@ -114,7 +119,7 @@ const GPNavbar = () => {
               className="flex items-center text-[#0A382C] hover:text-[#0A382C]/80 transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span className="sr-only">Back to EP</span>
+              <span className="sr-only">{t('backToEP')}</span>
             </Link>
           </div>
         </nav>

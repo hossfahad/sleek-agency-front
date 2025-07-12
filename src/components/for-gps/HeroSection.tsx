@@ -2,11 +2,14 @@ import React, { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import SpiralAnimation from "@/components/animations/SpiralAnimation";
+import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
+  const { t, i18n } = useTranslation(['hero']);
+  const isRTL = i18n.dir() === 'rtl';
 
   useEffect(() => {
     setIsVisible(true);
@@ -119,7 +122,7 @@ const HeroSection = () => {
               className={`inline-block px-4 py-2 bg-[#0A382C]/10 text-[#0A382C] rounded-full text-sm font-medium mb-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "100ms" }}
             >
-              Multi-Agent Platform for Asset Managers
+              {t('hero:subtitle')}
             </span>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight text-[#0A382C] mb-6 leading-tight">
@@ -127,12 +130,12 @@ const HeroSection = () => {
                 className={`block transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 style={{ transitionDelay: "200ms" }}
               >
-                The Agentic Outreach Layer for </span>
+                {t('hero:title')}</span>
               <span 
                 className={`block font-normal transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                 style={{ transitionDelay: "300ms" }}
               >
-                Asset Managers.
+                {t('hero:subtitle')}
               </span>
             </h1>
             
@@ -140,7 +143,7 @@ const HeroSection = () => {
               className={`text-xl text-gray-700 mb-8 font-light leading-relaxed max-w-2xl transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               style={{ transitionDelay: "400ms" }}
             >
-              Enhanced Points provides your firm with Agents that can help you scale your outreach efforts autonomously, and at scale never seen before. 
+              {t('hero:description')}
             </p>
             
             <div 
@@ -148,7 +151,7 @@ const HeroSection = () => {
               style={{ transitionDelay: "500ms" }}
             >
               <Button className="bg-[#0A382C] hover:bg-[#0A382C]/90 text-white px-6 py-6 rounded-lg flex items-center gap-2 text-base">
-                Request Early Access <ArrowRight className="h-4 w-4 ml-1" />
+                {t('common:requestAccess')} <ArrowRight className={`h-4 w-4 ${isRTL ? 'mr-1 rotate-180' : 'ml-1'}`} />
               </Button>
             </div>
             

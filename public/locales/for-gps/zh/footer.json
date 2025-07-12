@@ -1,0 +1,14 @@
+{
+  "solutions": "解决方案",
+  "resources": "资源中心",
+  "support": "技术支持",
+  "copyright": "© 2025 Enhanced Points. 保留所有权利。",
+  "privacyPolicy": "隐私政策",
+  "termsOfService": "服务条款",
+  "securityCommitment": "安全与合规——我们的本地化承诺",
+  "dataGovernance": "数据治理",
+  "dataGovernanceDescription": "基于角色的最小权限访问 + 实时审计",
+  "encryption": "传输层 TLS 1.3；存储层 AES-256",
+  "userPrivacy": "身份与访问控制",
+  "compliance": "SOC 2 框架与 MLPS 2.0 三级测评"
+}
